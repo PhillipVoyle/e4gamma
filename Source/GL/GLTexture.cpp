@@ -10,12 +10,12 @@ namespace E4Gamma {
   {
   }
 
-  void RenderSet(int nTextureStage)
+  void CGLTexture::RenderSet(int nTextureStage)
   {
     
   }
 
-  void RenderReset(int nTextureStage)
+  void CGLTexture::RenderReset(int nTextureStage)
   {
   }
     

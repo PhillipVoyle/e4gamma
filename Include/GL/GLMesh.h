@@ -6,6 +6,7 @@
 namespace E4Gamma
 {
   class CGLRenderer;
+  class IDataStore;
   
   class CGLMesh: public IMesh
   {

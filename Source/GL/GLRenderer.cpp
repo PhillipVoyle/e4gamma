@@ -6,12 +6,16 @@
 #include <GL/GLMesh.h>
 #include <GL/GLMaterial.h>
 #include <GL/GLModel.h>
+#include <iostream>
+
+using namespace std;
 
 namespace E4Gamma
 {
 
   CGLRenderer::CGLRenderer(IDataStore* pSettings):m_pDataStore(pSettings)
   {
+    glClearColor(0,0,0,0);
   }
   
   CGLRenderer::~CGLRenderer()
@@ -48,9 +52,11 @@ namespace E4Gamma
   
   void CGLRenderer::BeginScene()
   {
+    glClear(GL_COLOR_BUFFER_BIT);//Clear the screen   
   }
   
   void CGLRenderer::Present()
   {
+    glFlush();//Draw everything to the screen
   }
 }

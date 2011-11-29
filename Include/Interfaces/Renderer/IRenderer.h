@@ -19,14 +19,13 @@ namespace E4Gamma
     virtual ITexture* LoadTexture(const char* szTexture) = 0;
     
     //mid level creatures
-    virtual IMesh* LoadMesh(const char* sz) = 0;
-    virtual IMaterial* LoadMaterial(IDataStore* pDataStore) = 0;
+    virtual IMesh* LoadMesh(const char* szMesh) = 0;
+    virtual IMaterial* LoadMaterial(const char* szMaterial) = 0;
     
     //high level 
     virtual IModel* LoadModel(const char* szModel) = 0;
     
     virtual void BeginScene() = 0;
-    virtual void EndScene() = 0;
     virtual void Present() = 0;
   };
 }

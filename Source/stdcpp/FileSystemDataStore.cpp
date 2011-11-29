@@ -1,10 +1,11 @@
 #include <stdcpp/FileSystemDataStore.h>
 #include <stdcpp/FlatFile.h>
+#include <fstream>
+using namespace std;
 
 namespace E4Gamma {
   
-  CFileSystemDataStore::CFileSystemDataStore(const string& sWorkingDir):
-    m_sWorkingDir(sWorkingDir)
+  CFileSystemDataStore::CFileSystemDataStore()
   {
   }
 
@@ -21,5 +22,10 @@ namespace E4Gamma {
   {
     return new CFlatFile(sName);
   }
-    
+   
+  bool CFileSystemDataStore::ReadString(const string& sName, string& sValue)
+  {
+    fstream file(sName.c_str());
+    sValue = string((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+  }
 }

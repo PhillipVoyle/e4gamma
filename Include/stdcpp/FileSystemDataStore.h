@@ -7,9 +7,7 @@ namespace E4Gamma {
   class CFileSystemDataStore: public IDataStore
   {
   public:
-    string m_sWorkingDir;
-  public:
-    CFileSystemDataStore(const string& sWorkingDir);
+    CFileSystemDataStore();
     virtual ~CFileSystemDataStore();
     
     ITableReader* OpenTable(const string& sName);
