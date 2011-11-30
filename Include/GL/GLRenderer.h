@@ -3,15 +3,15 @@
 
 #include <Interfaces/Renderer/IRenderer.h>
 
-class IDataStore;
-class IShader;
-class ITexture;
-class IMesh;
-class IMaterial;
-class IModel;
-
 namespace E4Gamma
 {
+  class IDataStore;
+  class IShader;
+  class ITexture;
+  class IMesh;
+  class IMaterial;
+  class IModel;
+  
   class CGLRenderer: public IRenderer
   {
     IDataStore* m_pDataStore;

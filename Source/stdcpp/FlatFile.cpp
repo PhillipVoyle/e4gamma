@@ -1,9 +1,16 @@
 #include <stdcpp/FlatFile.h>
 
+#include <iostream>
+using namespace std;
+
 namespace E4Gamma {
   
-  CFlatFile::CFlatFile(const string& sFilename): m_fStream(sFilename.c_str(), std::ios::binary)
+  CFlatFile::CFlatFile(const string& sFilename): m_fStream(sFilename.c_str(), std::ios::in | std::ios::binary)
   {
+    if(m_fStream.fail())
+    {
+      cout << "error loading " << sFilename << endl;
+    }
   }
 
   CFlatFile::~CFlatFile() {}

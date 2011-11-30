@@ -10,7 +10,7 @@ namespace E4Gamma
   {
   private:
     CGLRenderer* m_pRenderer;
-    int m_nTexture;
+    GLuint m_nTextureID;
     
   public:
     CGLTexture(CGLRenderer* pRenderer, IDataStore*, const char* szDataStore);

@@ -13,6 +13,7 @@ OBJS_GL := $(addprefix Object/$(GLDIR)/, \
 OBJS_stdcpp := $(addprefix Object/$(stdcppdir)/, \
  	FileSystemDataStore.o \
 	FlatFile.o \
+	Iris.o \
 )
 
 all:	Lib/libE4GGL.a Lib/libE4cpp.a
