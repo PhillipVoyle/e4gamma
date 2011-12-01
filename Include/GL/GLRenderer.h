@@ -2,6 +2,7 @@
 #define _E4Gamma_GLRENDERER_H
 
 #include <Interfaces/Renderer/IRenderer.h>
+#include <OpenGL/gl.h>
 
 namespace E4Gamma
 {
@@ -21,7 +22,7 @@ namespace E4Gamma
     virtual ~CGLRenderer();
     
     //low level
-    CGLShader* LoadShader(const char* szShader);
+    CGLShader* LoadShader(const char* szShader, GLuint nShaderStage);
     CGLTexture* LoadTexture(const char* szTexture);
     
     //mid level creatures

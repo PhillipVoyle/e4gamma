@@ -2,6 +2,7 @@
 #define _E4Gamma_GLSHADER_H
 
 #include <string>
+#include <OpenGL/gl.h>
 
 namespace E4Gamma
 {
@@ -12,23 +13,13 @@ namespace E4Gamma
   {
     CGLRenderer* m_pRenderer;
     std::string m_sSource;
+    GLuint m_nShaderStage;
+    GLuint m_nShader;
   public:
     
-    //probably shouldn't be exposed to IShader, which is a good reason why things should
-    //be loaded by material, and that's where the encapsulation boundary should be
-    enum ShaderStage
-    {
-      ssVertexShader,
-      ssFragmentShader,
-      ssGeometryShader,
-      ssTessellator,
-      ssTessellationControl
-    };
-    
-    CGLShader(CGLRenderer* pRenderer, IDataStore* pDataStore, const char* szShader);
-    virtual ~CGLShader();
-    virtual void RenderSet(int nShaderStage);
-    virtual void RenderReset(int nShaderStage);
+    CGLShader(CGLRenderer* pRenderer, IDataStore* pDataStore, const char* szShader, GLuint nShaderStage);
+    ~CGLShader();
+    int GetShader() {return m_nShader;}
   };
 }
 
