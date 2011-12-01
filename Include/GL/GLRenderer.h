@@ -6,11 +6,12 @@
 namespace E4Gamma
 {
   class IDataStore;
-  class IShader;
-  class ITexture;
   class IMesh;
   class IMaterial;
   class IModel;
+  
+  class CGLShader;
+  class CGLTexture;
   
   class CGLRenderer: public IRenderer
   {
@@ -20,8 +21,8 @@ namespace E4Gamma
     virtual ~CGLRenderer();
     
     //low level
-    IShader* LoadShader(const char* szShader);
-    ITexture* LoadTexture(const char* szTexture);
+    CGLShader* LoadShader(const char* szShader);
+    CGLTexture* LoadTexture(const char* szTexture);
     
     //mid level creatures
     IMesh* LoadMesh(const char* szMesh);

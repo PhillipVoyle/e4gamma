@@ -14,9 +14,6 @@ namespace E4Gamma
   {
   public:
     virtual ~IRenderer() {}
-    //low level
-    virtual IShader* LoadShader(const char* szShader) = 0;
-    virtual ITexture* LoadTexture(const char* szTexture) = 0;
     
     //mid level creatures
     virtual IMesh* LoadMesh(const char* szMesh) = 0;

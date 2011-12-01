@@ -23,12 +23,12 @@ namespace E4Gamma
   }
   
   //low level
-  IShader* CGLRenderer::LoadShader(const char* szShader)
+  CGLShader* CGLRenderer::LoadShader(const char* szShader)
   {
     return new CGLShader(this, m_pDataStore, szShader);
   }
   
-  ITexture* CGLRenderer::LoadTexture(const char* szTexture)
+  CGLTexture* CGLRenderer::LoadTexture(const char* szTexture)
   {
     return new CGLTexture(this, m_pDataStore, szTexture);
   }

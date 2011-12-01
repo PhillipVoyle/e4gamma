@@ -1,6 +1,7 @@
 
 #include <GL/GLRenderer.h>
-#include <Interfaces/Renderer/ITexture.h>
+#include <GL/GLShader.h>
+#include <GL/GLTexture.h>
 #include <stdcpp/FileSystemDataStore.h>
 #include <iostream>
 using namespace std;
@@ -11,7 +12,9 @@ using namespace E4Gamma;
 
 CFileSystemDataStore g_fileSystemDataStore;
 CGLRenderer* g_pRenderer = NULL;
-ITexture *g_pTexture = NULL;
+CGLShader* g_pVertexShader = NULL;
+
+CGLTexture *g_pTexture = NULL;
 
 void init()
 {
@@ -20,12 +23,14 @@ void init()
   
   g_pRenderer = new CGLRenderer(&g_fileSystemDataStore);
   g_pTexture = g_pRenderer->LoadTexture("../Data/Textures/White.rgba");
+  g_pVertexShader = g_pRenderer->LoadShader("../Data/Shaders/test.vsh");
 }
 
 void display()
 {
   g_pRenderer->BeginScene();
   g_pTexture->RenderSet(0);
+  g_pVertexShader->RenderSet((int)CGLShader::ssVertexShader);
   
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
@@ -54,6 +59,7 @@ void display()
 
 void cleanup()
 {
+  delete g_pVertexShader;
   delete g_pTexture;
   delete g_pRenderer;
 }
