@@ -72,7 +72,7 @@ namespace E4Gamma {
   
   bool CFlatFile::ReadI32(int&i32)
   {
-    ReadU32((unsigned&)i32);
+    return ReadU32((unsigned&)i32);
   }
   
   bool CFlatFile::ReadString(string& sValue)
@@ -94,17 +94,21 @@ namespace E4Gamma {
       }
       sValue += cChar;
     }
+    return true;
   }
   
   ITableReader* CFlatFile::OpenTable()
   {
+    return nullptr;
   }
   
   ISequenceReader* CFlatFile::OpenSequence()
   {
+    return nullptr;
   }
   
   bool CFlatFile::Close()
   {
+    return true;
   }
 }

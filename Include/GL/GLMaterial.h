@@ -2,6 +2,9 @@
 #define _E4Gamma_GLMATERIAL_H
 
 #include <Interfaces/Renderer/IMaterial.h>
+#include <OpenGL/gl.h>
+
+#include <map>
 
 namespace E4Gamma
 {
@@ -14,14 +17,14 @@ namespace E4Gamma
   {
   private:
     CGLRenderer* m_pRenderer;
-    CGLTexture** m_glTextures;
-    CGLShader** m_glShaders;
+    std::map<int, CGLTexture*> m_glTextures;
+    std::map<int, CGLShader*> m_glShaders;
     
   public:
     CGLMaterial(CGLRenderer* pRenderer, IDataStore* pDataStore, const char* szMaterial);
     virtual ~CGLMaterial();
-    void SetShader(int nShaderID, const char* szShaderFilename);
-    void SetTexture(int nTextureID, const char* szTextureName);
+    void SetShader(GLuint nShaderID, const char* szShaderFilename);
+    void SetTexture(GLuint nTextureID, const char* szTextureName);
     
     virtual void RenderSet();
     virtual void RenderReset();

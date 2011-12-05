@@ -23,9 +23,9 @@ namespace E4Gamma
   }
   
   //low level
-  CGLShader* CGLRenderer::LoadShader(const char* szShader)
+  CGLShader* CGLRenderer::LoadShader(const char* szShader, GLuint nShaderStage)
   {
-    return new CGLShader(this, m_pDataStore, szShader);
+    return new CGLShader(this, m_pDataStore, szShader, nShaderStage);
   }
   
   CGLTexture* CGLRenderer::LoadTexture(const char* szTexture)

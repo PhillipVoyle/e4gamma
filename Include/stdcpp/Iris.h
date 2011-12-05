@@ -10,7 +10,7 @@ namespace E4Gamma {
   private:
     int m_nWidth;
     int m_nHeight;
-    void* m_pPixels;
+    unsigned char* m_pPixels;
   public:
     CIrisFile(const char* szFilename, IDataStore* pDataStore);
     ~CIrisFile();
