@@ -80,8 +80,6 @@ namespace E4Gamma {
       m_nWidth = xsize;
       m_nHeight = ysize;
       
-      cout << nSize << endl;
-      
       for(int z = 0; (z < zsize) && (z < 4); z++)
       {
         for(int y = 0; y < ysize; y ++)

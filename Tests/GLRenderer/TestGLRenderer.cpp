@@ -92,11 +92,11 @@ void display()
 
 void cleanup()
 {
-  delete g_pVertexShader;
+  g_pVertexShader = nullptr;
   glDeleteProgram(g_nProgram);
-  delete g_pVertexShader;
-  delete g_pTexture;
-  delete g_pRenderer;
+  g_pVertexShader = nullptr;
+  g_pTexture = nullptr;
+  g_pRenderer = nullptr;
 }
 
 int main(int argc, char** argv)
