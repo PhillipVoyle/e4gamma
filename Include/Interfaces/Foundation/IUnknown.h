@@ -2,6 +2,8 @@
 #ifndef _E4Gamma_ROOTOBJECT_H
 #define _E4Gamma_ROOTOBJECT_H
 
+#include <cstddef>
+
 namespace E4Gamma
 {
   class IUnknown
@@ -64,72 +66,88 @@ namespace E4Gamma
   template<class T>
   class SharedPtr
   {
-  protected:
-    T* m_ptr;
-    
   public:
+    T* m_ptr;
     
     SharedPtr()
     {
       m_ptr = nullptr;
     }
-    SharedPtr(const T* ptr)
+    
+    template<class TSuper>
+    SharedPtr(const TSuper* ptr)
     {
-      m_ptr = const_cast<T*>(ptr);
+      m_ptr = const_cast<TSuper*>(ptr);
       if(m_ptr != nullptr)
       {
         m_ptr->AddRef();
       }
     }
     
-    SharedPtr(const SharedPtr<T>& ptr)
+    template<class TSuper>
+    SharedPtr(const SharedPtr<TSuper>& ptr)
     {
-      m_ptr = const_cast<T*>(ptr.m_ptr);
+      m_ptr = const_cast<TSuper*>(ptr.m_ptr);
       if(m_ptr != nullptr)
       {
         m_ptr->AddRef();
       }
     }
     
-    T& operator* () const
+    template<class TSuper>
+    TSuper& operator* () const
     {
-      return *const_cast<T*>(m_ptr);
+      return *const_cast<TSuper*>(m_ptr);
     }
     
-    T* operator-> () const
+    template<class TSuper>
+    TSuper* operator-> () const
     {    
-      return const_cast<T*>(m_ptr);
+      return const_cast<TSuper*>(m_ptr);
     }
     
-    operator T* () const
+    
+    void operator=(const std::nullptr_t ptr)
     {
-      return const_cast<T*>(m_ptr);
+      if(m_ptr != nullptr)
+      {
+        m_ptr->Release();
+      }
+      m_ptr = ptr;
     }
     
-    void operator=(const T* ptr)
+    template<class TSuper>
+    operator TSuper* () const
+    {
+      return const_cast<TSuper*>(m_ptr);
+    }
+    
+    template<class TSuper>
+    void operator=(const TSuper* ptr)
     {
       if(ptr != nullptr)
       {
-        const_cast<T*>(ptr)->AddRef(); //in case the pointers are related somehow
+        const_cast<TSuper*>(ptr)->AddRef(); //in case the pointers are related somehow
       }
       if(m_ptr != nullptr)
       {
         m_ptr->Release();
       }
-      m_ptr = const_cast<T*>(ptr);
+      m_ptr = const_cast<TSuper*>(ptr);
     }
-    
-    void operator=(const SharedPtr<T> &ptr)
+
+    template<class TSuper>
+    void operator=(const SharedPtr<TSuper> &ptr)
     {
       if(ptr.m_ptr != nullptr)
       {
-        const_cast<T*>(ptr.m_ptr)->AddRef();
+        const_cast<TSuper*>(ptr.m_ptr)->AddRef();
       }
       if(m_ptr != nullptr)
       {
         m_ptr->Release();
       }
-      m_ptr = const_cast<T*>(ptr.m_ptr);
+      m_ptr = const_cast<TSuper*>(ptr.m_ptr);
     }
     
     ~SharedPtr()
@@ -142,6 +160,10 @@ namespace E4Gamma
     }
   };
 };
+
+    
+
+
 
 #endif//_E4Gamma_ROOTOBJECT_H
 

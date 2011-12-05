@@ -27,9 +27,23 @@ public:
   }
 };
 
+class DTest: public CTest
+{
+public:
+  virtual ~DTest()
+  {
+    cout << "~D" << endl;
+  }
+  
+  DTest(const string& s):CTest(s)
+  {
+    cout << "D" << endl;
+  }
+};
+
 int main(int argc, char** argv)
 {
-  SharedPtr<CTest> spTest = new IUnknownImpl<CTest>("A");
+  SharedPtr<DTest> spTest = new IUnknownImpl<DTest>("A");
   cout << "test" << endl;
   SharedPtr<CTest> spTest2;
   spTest2 = spTest;
