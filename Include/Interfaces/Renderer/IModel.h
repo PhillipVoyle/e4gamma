@@ -1,11 +1,13 @@
 #ifndef _E4Gamma_IMODEL_H
 #define _E4Gamma_IMODEL_H
 
+#include <Interfaces/Foundation/IUnknown.h>
+
 namespace E4Gamma{
   
   class IPose;
   
-  class IModel
+  class IModel:IUnknown
   {
   public:
     virtual ~IModel(){}

@@ -13,25 +13,54 @@ using namespace E4Gamma;
 CFileSystemDataStore g_fileSystemDataStore;
 CGLRenderer* g_pRenderer = NULL;
 CGLShader* g_pVertexShader = NULL;
+CGLShader* g_pFragmentShader = NULL;
 
 CGLTexture *g_pTexture = NULL;
+int g_nProgram = 0;
+int g_nVertexShader = 0;
+int g_nFragmentShader = 0;
+
 
 void init()
 {
   glEnable(GL_TEXTURE_2D);
   glEnable(GL_BLEND);
   
-  g_pRenderer = new CGLRenderer(&g_fileSystemDataStore);
-  g_pTexture = g_pRenderer->LoadTexture("../Data/Textures/White.rgba");
-  g_pVertexShader = g_pRenderer->LoadShader("../Data/Shaders/test.vsh");
+  g_pRenderer = new IUnknownImpl<CGLRenderer>(&g_fileSystemDataStore);
+  g_pTexture = g_pRenderer->LoadTexture("Data/Textures/White.rgba");
+  g_pVertexShader = g_pRenderer->LoadShader("Data/Shaders/test.vsh", GL_VERTEX_SHADER);
+  g_pFragmentShader = g_pRenderer->LoadShader("Data/Shaders/test.fsh", GL_FRAGMENT_SHADER);
+  
+  g_nProgram = glCreateProgram();
+  g_nVertexShader = g_pVertexShader->GetShader();
+  g_nFragmentShader = g_pFragmentShader->GetShader();
+  
+  glAttachShader(g_nProgram, g_nVertexShader);
+  glAttachShader(g_nProgram, g_nFragmentShader);
+
+  int nStatus = 0;
+  glLinkProgram(g_nProgram);
+  glGetProgramiv(g_nProgram, GL_LINK_STATUS, &nStatus);
+  if(!nStatus) {
+    int loglen;
+    glGetProgramiv(g_nProgram, GL_INFO_LOG_LENGTH, &loglen);
+    if(loglen > 1) {
+      char *infolog = new char[loglen];
+      int written;
+      glGetProgramInfoLog(g_nProgram, loglen, &written, infolog);
+      cout << "engine: error linking shader program: " << infolog << endl;
+      delete infolog;
+    }
+    glDeleteProgram(g_nProgram);
+  }
 }
 
 void display()
 {
   g_pRenderer->BeginScene();
   g_pTexture->RenderSet(0);
-  g_pVertexShader->RenderSet((int)CGLShader::ssVertexShader);
-  
+
+  glUseProgram(g_nProgram);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -59,6 +88,8 @@ void display()
 
 void cleanup()
 {
+  delete g_pVertexShader;
+  glDeleteProgram(g_nProgram);
   delete g_pVertexShader;
   delete g_pTexture;
   delete g_pRenderer;

@@ -1,9 +1,11 @@
 #ifndef _E4Gamma_IMATERIAL_H
 #define _E4Gamma_IMATERIAL_H
 
+#include <Interfaces/Foundation/IUnknown.h>
+
 namespace E4Gamma
 {
-  class IMaterial
+  class IMaterial: IUnknown
   {
   public:
     virtual ~IMaterial() {}

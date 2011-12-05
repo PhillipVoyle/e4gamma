@@ -1,6 +1,8 @@
 #ifndef _E4Gamma_IRENDERER_H
 #define _E4Gamma_IRENDERER_H
 
+#include <Interfaces/Foundation/IUnknown.h>
+
 namespace E4Gamma
 {
   class IDataStore;
@@ -10,7 +12,7 @@ namespace E4Gamma
   class IModel;
   class ITexture;
   
-  class IRenderer
+  class IRenderer: IUnknown
   {
   public:
     virtual ~IRenderer() {}

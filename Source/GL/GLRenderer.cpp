@@ -36,18 +36,18 @@ namespace E4Gamma
   //mid level creatures
   IMesh* CGLRenderer::LoadMesh(const char* szMesh)
   {
-    return new CGLMesh(this, m_pDataStore, szMesh);
+    return new IUnknownImpl<CGLMesh>(this, m_pDataStore, szMesh);
   }
   
   IMaterial* CGLRenderer::LoadMaterial(const char* szMaterial)
   {
-    return new CGLMaterial(this, m_pDataStore, szMaterial);
+    return new IUnknownImpl<CGLMaterial>(this, m_pDataStore, szMaterial);
   }
   
   //high level 
   IModel* CGLRenderer::LoadModel(const char* szModel)
   {
-    return new CGLModel(this, m_pDataStore, szModel);
+    return new IUnknownImpl<CGLModel>(this, m_pDataStore, szModel);
   }
   
   void CGLRenderer::BeginScene()

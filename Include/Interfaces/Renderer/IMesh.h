@@ -1,11 +1,13 @@
 #ifndef _E4Gamma_IMESH_H
 #define _E4Gamma_IMESH_H
 
+#include <Interfaces/Foundation/IUnknown.h>
+
 namespace E4Gamma
 {
   class IPose;
 
-  class IMesh
+  class IMesh: IUnknown
   {
   public:
     virtual ~IMesh() {}
