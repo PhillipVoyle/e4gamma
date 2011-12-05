@@ -12,7 +12,7 @@ namespace E4Gamma
 
   class CGLShader: public IUnknown
   {
-    CGLRenderer* m_pRenderer;
+    CGLRenderer* m_pRenderer; // intentionally weak
     std::string m_sSource;
     GLuint m_nShaderStage;
     GLuint m_nShader;

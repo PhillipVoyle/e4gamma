@@ -23,29 +23,29 @@ namespace E4Gamma
   }
   
   //low level
-  CGLShader* CGLRenderer::LoadShader(const char* szShader, GLuint nShaderStage)
+  SharedPtr<CGLShader> CGLRenderer::LoadShader(const char* szShader, GLuint nShaderStage)
   {
-    return new IUnknownImpl<CGLShader>(this, m_pDataStore, szShader, nShaderStage);
+    return (CGLShader*)new IUnknownImpl<CGLShader>(this, m_pDataStore, szShader, nShaderStage);
   }
   
-  CGLTexture* CGLRenderer::LoadTexture(const char* szTexture)
+  SharedPtr<CGLTexture> CGLRenderer::LoadTexture(const char* szTexture)
   {
-    return new IUnknownImpl<CGLTexture>(this, m_pDataStore, szTexture);
+    return (CGLTexture*)new IUnknownImpl<CGLTexture>(this, m_pDataStore, szTexture);
   }
   
   //mid level creatures
-  IMesh* CGLRenderer::LoadMesh(const char* szMesh)
+  SharedPtr<IMesh> CGLRenderer::LoadMesh(const char* szMesh)
   {
     return new IUnknownImpl<CGLMesh>(this, m_pDataStore, szMesh);
   }
   
-  IMaterial* CGLRenderer::LoadMaterial(const char* szMaterial)
+  SharedPtr<IMaterial> CGLRenderer::LoadMaterial(const char* szMaterial)
   {
     return new IUnknownImpl<CGLMaterial>(this, m_pDataStore, szMaterial);
   }
   
   //high level 
-  IModel* CGLRenderer::LoadModel(const char* szModel)
+  SharedPtr<IModel> CGLRenderer::LoadModel(const char* szModel)
   {
     return new IUnknownImpl<CGLModel>(this, m_pDataStore, szModel);
   }

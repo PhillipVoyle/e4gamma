@@ -13,7 +13,7 @@ namespace E4Gamma
   class CGLTexture : public IUnknown
   {
   private:
-    CGLRenderer* m_pRenderer;
+    CGLRenderer* m_pRenderer; //intentionally weak
     GLuint m_nTextureID;
     
   public:

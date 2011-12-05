@@ -7,7 +7,7 @@ namespace E4Gamma
 {
   class IPose;
 
-  class IMesh: IUnknown
+  class IMesh: public IUnknown
   {
   public:
     virtual ~IMesh() {}

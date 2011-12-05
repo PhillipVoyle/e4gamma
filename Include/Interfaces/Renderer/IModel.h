@@ -7,7 +7,7 @@ namespace E4Gamma{
   
   class IPose;
   
-  class IModel:IUnknown
+  class IModel:public IUnknown
   {
   public:
     virtual ~IModel(){}

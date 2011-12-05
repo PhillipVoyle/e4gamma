@@ -22,15 +22,15 @@ namespace E4Gamma
     virtual ~CGLRenderer();
     
     //low level
-    CGLShader* LoadShader(const char* szShader, GLuint nShaderStage);
-    CGLTexture* LoadTexture(const char* szTexture);
+    SharedPtr<CGLShader> LoadShader(const char* szShader, GLuint nShaderStage);
+    SharedPtr<CGLTexture> LoadTexture(const char* szTexture);
     
     //mid level creatures
-    IMesh* LoadMesh(const char* szMesh);
-    IMaterial* LoadMaterial(const char* szMaterial);
+    SharedPtr<IMesh> LoadMesh(const char* szMesh);
+    SharedPtr<IMaterial> LoadMaterial(const char* szMaterial);
     
     //high level 
-    IModel* LoadModel(const char* szModel);
+    SharedPtr<IModel> LoadModel(const char* szModel);
     
     void BeginScene();
     void Present();

@@ -5,7 +5,7 @@
 
 namespace E4Gamma
 {
-  class IMaterial: IUnknown
+  class IMaterial: public IUnknown
   {
   public:
     virtual ~IMaterial() {}

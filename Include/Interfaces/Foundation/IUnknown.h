@@ -28,6 +28,12 @@ namespace E4Gamma
     template<class... A>
     IUnknownImpl(A... a):T(a...)
     {
+      m_nRefCount = 0;
+    }
+    
+    IUnknownImpl()
+    {
+      m_nRefCount = 0;
     }
     
     unsigned Release()
@@ -70,7 +76,10 @@ namespace E4Gamma
     SharedPtr(const T* ptr)
     {
       m_ptr = const_cast<T*>(ptr);
-      m_ptr->AddRef();
+      if(m_ptr != nullptr)
+      {
+        m_ptr->AddRef();
+      }
     }
     
     SharedPtr(const SharedPtr<T>& ptr)
