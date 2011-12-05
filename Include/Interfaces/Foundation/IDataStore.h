@@ -4,12 +4,14 @@
 #include <string>
 using namespace std;
 
+#include <Interfaces/Foundation/IUnknown.h>
+
 namespace E4Gamma {
   
   class ITableReader;
   class ISequenceReader;
 
-  class IDataStore
+  class IDataStore: public IUnknown
   {
   public:
     virtual ~IDataStore() {}

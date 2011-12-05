@@ -52,22 +52,22 @@ namespace E4Gamma {
     ISequenceReader* pReader = pDataStore->OpenSequence(szFilename);
     if(pReader != NULL)
     {
-      short magic = ReadShort(pReader);
-      char storage = (char) ReadChar(pReader);
-      char bpc = (char) ReadChar(pReader);
-      unsigned short dimension = ReadShort(pReader);
+      /*short magic =*/ ReadShort(pReader);
+      /*char storage = (char)*/ ReadChar(pReader);
+      /*char bpc = (char)*/ ReadChar(pReader);
+      /*unsigned short dimension =*/ ReadShort(pReader);
       unsigned short xsize = ReadShort(pReader);
       unsigned short ysize = ReadShort(pReader);
       unsigned short zsize = ReadShort(pReader);
-      long pixmin = ReadLong(pReader);
-      long pixmax = ReadLong(pReader);
-      long dummy1 = ReadLong(pReader);
+      /*long pixmin =*/ ReadLong(pReader);
+      /*long pixmax =*/ ReadLong(pReader);
+      /*long dummy1 =*/ ReadLong(pReader);
       char imagename[80];
       for(int nByte = 0; nByte < 80; nByte++)
       {
         pReader->ReadI8(imagename[nByte]);
       }
-      long colormap = ReadLong(pReader);
+      /*long colormap =*/ ReadLong(pReader);
       char dummy2[404]; //expecting zeroes here
       
       for(int nByte = 0; nByte < 404; nByte++)
@@ -75,7 +75,7 @@ namespace E4Gamma {
         pReader->ReadI8(dummy2[nByte]);
       }
       
-      int nSize =((long) xsize) * ((long) ysize) * ((long) zsize);
+      long nSize =((long) xsize) * ((long) ysize) * ((long) zsize);
       m_pPixels = new unsigned char[nSize];
       m_nWidth = xsize;
       m_nHeight = ysize;

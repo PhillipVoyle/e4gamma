@@ -5,6 +5,10 @@
 #include <OpenGL/gl.h>
 
 #include <map>
+#include <string>
+
+#include <GL/GLTexture.h>
+#include <GL/GLShader.h>
 
 namespace E4Gamma
 {
@@ -16,15 +20,15 @@ namespace E4Gamma
   class CGLMaterial: public IMaterial
   {
   private:
-    CGLRenderer* m_pRenderer;
-    std::map<int, CGLTexture*> m_glTextures;
-    std::map<int, CGLShader*> m_glShaders;
+    CGLRenderer* m_pRenderer; //weak pointer
+    std::map<int, SharedPtr<CGLTexture>> m_glTextures;
+    std::map<int, SharedPtr<CGLShader>> m_glShaders;
     
   public:
-    CGLMaterial(CGLRenderer* pRenderer, IDataStore* pDataStore, const char* szMaterial);
+    CGLMaterial(CGLRenderer* pRenderer, SharedPtr<IDataStore> pDataStore, const std::string& sMaterial);
     virtual ~CGLMaterial();
-    void SetShader(GLuint nShaderID, const char* szShaderFilename);
-    void SetTexture(GLuint nTextureID, const char* szTextureName);
+    void SetShader(GLuint nShaderID, const std::string& sShaderFilename);
+    void SetTexture(GLuint nTextureID, const std::string& sTextureName);
     
     virtual void RenderSet();
     virtual void RenderReset();

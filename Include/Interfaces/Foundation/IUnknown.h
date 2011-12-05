@@ -47,6 +47,15 @@ namespace E4Gamma
   };
   
   template<class T>
+  class IUnknownNull: public T
+  {
+  public:
+    virtual ~IUnknownNull() {}
+    unsigned Release() {return 0;}
+    void AddRef(){}
+  };
+  
+  template<class T>
   class SharedPtr
   {
   protected:

@@ -25,12 +25,12 @@ namespace E4Gamma
   //low level
   CGLShader* CGLRenderer::LoadShader(const char* szShader, GLuint nShaderStage)
   {
-    return new CGLShader(this, m_pDataStore, szShader, nShaderStage);
+    return new IUnknownImpl<CGLShader>(this, m_pDataStore, szShader, nShaderStage);
   }
   
   CGLTexture* CGLRenderer::LoadTexture(const char* szTexture)
   {
-    return new CGLTexture(this, m_pDataStore, szTexture);
+    return new IUnknownImpl<CGLTexture>(this, m_pDataStore, szTexture);
   }
   
   //mid level creatures

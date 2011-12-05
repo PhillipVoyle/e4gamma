@@ -3,7 +3,7 @@
 
 namespace E4Gamma
 {
-  CGLMaterial::CGLMaterial(CGLRenderer* pRenderer, IDataStore* pDataStore, const char* szMaterial)
+  CGLMaterial::CGLMaterial(CGLRenderer* pRenderer, SharedPtr<IDataStore> pDataStore, const std::string & sMaterial)
   :m_pRenderer(pRenderer)
   {
   }
@@ -12,16 +12,16 @@ namespace E4Gamma
   {
   }
 
-/*
-  void CGLMaterial::SetShader(int nShaderID, const char* szShaderFilename)
+
+  void CGLMaterial::SetShader(GLuint nShaderID, const std::string& sShaderFilename)
   {
   }
 
-  void CGLMaterial::SetTexture(int nTextureID, const char* szTextureName)
+  void CGLMaterial::SetTexture(GLuint nTextureID, const std::string& sTextureName)
   {
     //m_glTextures = m_pRenderer->LoadTexture();
   }
-  */
+
   void CGLMaterial::RenderSet()
   {
   }

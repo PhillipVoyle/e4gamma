@@ -1,11 +1,16 @@
+#ifndef _E4Gamma_GLTEXTURE_H
+#define _E4Gamma_GLTEXTURE_H
+
 #include <OpenGL/gl.h>
+
+#include <Interfaces/Foundation/IDatastore.h>
 
 namespace E4Gamma
 {
   class IDataStore;
   class CGLRenderer;
   
-  class CGLTexture
+  class CGLTexture : public IUnknown
   {
   private:
     CGLRenderer* m_pRenderer;
@@ -18,3 +23,5 @@ namespace E4Gamma
     void RenderReset(int nTextureStage);
   };
 }
+
+#endif//_E4Gamma_GLTEXTURE_H

@@ -4,11 +4,13 @@
 #include <string>
 using namespace std;
 
+#include <Interfaces/Foundation/IUnknown.h>
+
 namespace E4Gamma
 {
   class ITableReader;
   
-  class ISequenceReader
+  class ISequenceReader: IUnknown
   {
   public:
     virtual ~ISequenceReader() {}

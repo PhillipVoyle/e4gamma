@@ -9,8 +9,12 @@ using namespace E4Gamma;
 
 #include <GLUT/glut.h>
 
+//tell g++ not to warn me
+void init();
+void display();
+void cleanup();
 
-CFileSystemDataStore g_fileSystemDataStore;
+IUnknownNull<CFileSystemDataStore> g_fileSystemDataStore;
 CGLRenderer* g_pRenderer = NULL;
 CGLShader* g_pVertexShader = NULL;
 CGLShader* g_pFragmentShader = NULL;

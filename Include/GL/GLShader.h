@@ -3,13 +3,14 @@
 
 #include <string>
 #include <OpenGL/gl.h>
+#include <Interfaces/Foundation/IUnknown.h>
 
 namespace E4Gamma
 {
   class CGLRenderer;
   class IDataStore;
 
-  class CGLShader
+  class CGLShader: public IUnknown
   {
     CGLRenderer* m_pRenderer;
     std::string m_sSource;
