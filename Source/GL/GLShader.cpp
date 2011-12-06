@@ -9,13 +9,13 @@ using namespace std;
 namespace E4Gamma
 {
  
-  CGLShader::CGLShader(CGLRenderer* pRenderer, IDataStore* pDataStore, const char* szShader, GLuint nShaderStage)
+  CGLShader::CGLShader(CGLRenderer* pRenderer, SharedPtr<IDataStore> pDataStore, const std::string sShader, GLuint nShaderStage)
   {
     m_pRenderer = pRenderer;
     m_nShaderStage = nShaderStage;
     m_nShader = 0;
     m_sSource = "";
-    if(pDataStore->ReadString(szShader, m_sSource))
+    if(pDataStore->ReadString(sShader, m_sSource))
     {
       m_nShader = glCreateShader(nShaderStage);
       

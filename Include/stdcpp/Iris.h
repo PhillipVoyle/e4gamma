@@ -1,6 +1,9 @@
 #ifndef _E4Gamma_IRIS_H
 #define _E4Gamma_IRIS_H
 
+#include <Interfaces/Foundation/IUnknown.h>
+#include <string>
+
 namespace E4Gamma {
     
   class IDataStore;
@@ -12,7 +15,7 @@ namespace E4Gamma {
     int m_nHeight;
     unsigned char* m_pPixels;
   public:
-    CIrisFile(const char* szFilename, IDataStore* pDataStore);
+    CIrisFile(const std::string& szFilename, SharedPtr<IDataStore> pDataStore);
     ~CIrisFile();
     
     int   GetWidth() {return m_nWidth;}

@@ -18,7 +18,7 @@ namespace E4Gamma
     GLuint m_nShader;
   public:
     
-    CGLShader(CGLRenderer* pRenderer, IDataStore* pDataStore, const char* szShader, GLuint nShaderStage);
+    CGLShader(CGLRenderer* pRenderer, SharedPtr<IDataStore> pDataStore, const std::string sShader, GLuint nShaderStage);
     ~CGLShader();
     int GetShader() {return m_nShader;}
   };

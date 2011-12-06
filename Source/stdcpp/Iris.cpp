@@ -47,7 +47,7 @@ namespace E4Gamma {
     return buf;
   }
 
-  CIrisFile::CIrisFile(const char* szFilename, IDataStore* pDataStore)
+  CIrisFile::CIrisFile(const std::string& szFilename, SharedPtr<IDataStore> pDataStore)
   {
     ISequenceReader* pReader = pDataStore->OpenSequence(szFilename);
     if(pReader != NULL)

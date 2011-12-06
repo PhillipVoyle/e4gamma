@@ -4,9 +4,9 @@
 
 namespace E4Gamma {
     
-  CGLTexture::CGLTexture(CGLRenderer* pRenderer, IDataStore* pDataStore, const char* szTexture)
+  CGLTexture::CGLTexture(CGLRenderer* pRenderer, SharedPtr<IDataStore> pDataStore, const std::string& sTexture)
   {
-    CIrisFile irisFile(szTexture, pDataStore);
+    CIrisFile irisFile(sTexture, pDataStore);
     glActiveTexture(GL_TEXTURE0);
     glGenTextures(1, &m_nTextureID);
     glBindTexture(GL_TEXTURE_2D, m_nTextureID);

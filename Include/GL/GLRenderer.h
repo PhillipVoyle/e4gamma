@@ -4,15 +4,15 @@
 #include <Interfaces/Renderer/IRenderer.h>
 #include <OpenGL/gl.h>
 
+#include <GL/GLShader.h>
+#include <GL/GLTexture.h>
+
 namespace E4Gamma
 {
   class IDataStore;
   class IMesh;
   class IMaterial;
   class IModel;
-  
-  class CGLShader;
-  class CGLTexture;
   
   class CGLRenderer: public IRenderer
   {
@@ -22,8 +22,8 @@ namespace E4Gamma
     virtual ~CGLRenderer();
     
     //low level
-    SharedPtr<CGLShader> LoadShader(const char* szShader, GLuint nShaderStage);
-    SharedPtr<CGLTexture> LoadTexture(const char* szTexture);
+    SharedPtr<CGLShader> LoadShader(const std::string& sShader, GLuint nShaderStage);
+    SharedPtr<CGLTexture> LoadTexture(const std::string& sTexture);
     
     //mid level creatures
     SharedPtr<IMesh> LoadMesh(const char* szMesh);

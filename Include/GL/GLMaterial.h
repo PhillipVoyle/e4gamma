@@ -9,17 +9,18 @@
 
 #include <GL/GLTexture.h>
 #include <GL/GLShader.h>
+#include <Interfaces/Foundation/IDataStore.h>
 
 namespace E4Gamma
 {
   class CGLRenderer;
-  class CGLTexture;
-  class CGLShader;
-  class IDataStore;
 
   class CGLMaterial: public IMaterial
   {
   private:
+    GLuint m_nProgram;
+    bool m_bProgramDirty;
+    
     CGLRenderer* m_pRenderer; //weak pointer
     std::map<int, SharedPtr<CGLTexture>> m_glTextures;
     std::map<int, SharedPtr<CGLShader>> m_glShaders;

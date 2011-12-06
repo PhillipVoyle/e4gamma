@@ -23,14 +23,14 @@ namespace E4Gamma
   }
   
   //low level
-  SharedPtr<CGLShader> CGLRenderer::LoadShader(const char* szShader, GLuint nShaderStage)
+  SharedPtr<CGLShader> CGLRenderer::LoadShader(const std::string& sShader, GLuint nShaderStage)
   {
-    return (CGLShader*)new IUnknownImpl<CGLShader>(this, m_pDataStore, szShader, nShaderStage);
+    return new IUnknownImpl<CGLShader>(this, m_pDataStore, sShader, nShaderStage);
   }
   
-  SharedPtr<CGLTexture> CGLRenderer::LoadTexture(const char* szTexture)
+  SharedPtr<CGLTexture> CGLRenderer::LoadTexture(const std::string& sTexture)
   {
-    return (CGLTexture*)new IUnknownImpl<CGLTexture>(this, m_pDataStore, szTexture);
+    return new IUnknownImpl<CGLTexture>(this, m_pDataStore, sTexture);
   }
   
   //mid level creatures

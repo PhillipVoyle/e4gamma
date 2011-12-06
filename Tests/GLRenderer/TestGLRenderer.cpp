@@ -15,11 +15,11 @@ void display();
 void cleanup();
 
 IUnknownNull<CFileSystemDataStore> g_fileSystemDataStore;
-SharedPtr<CGLRenderer> g_pRenderer = NULL;
-SharedPtr<CGLShader> g_pVertexShader = NULL;
-SharedPtr<CGLShader> g_pFragmentShader = NULL;
+SharedPtr<CGLRenderer> g_pRenderer = nullptr;
+SharedPtr<CGLShader> g_pVertexShader = nullptr;
+SharedPtr<CGLShader> g_pFragmentShader = nullptr;
 
-SharedPtr<CGLTexture> g_pTexture = NULL;
+SharedPtr<CGLTexture> g_pTexture = nullptr;
 int g_nProgram = 0;
 int g_nVertexShader = 0;
 int g_nFragmentShader = 0;
