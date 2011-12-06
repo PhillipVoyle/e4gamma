@@ -16,15 +16,15 @@
 		A216BCE2148B6BA200EDE365 /* FlatFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A216BCD7148B6B6900EDE365 /* FlatFile.cpp */; };
 		A216BCE3148B6BA200EDE365 /* Iris.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A216BCD8148B6B6900EDE365 /* Iris.cpp */; };
 		A216BCE8148B6CEE00EDE365 /* libE4Gcpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A216BCDD148B6B9100EDE365 /* libE4Gcpp.a */; };
-		A24CC862148AFBE100DC07E8 /* GLMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A24CC85C148AFBE100DC07E8 /* GLMaterial.cpp */; };
-		A24CC863148AFBE100DC07E8 /* GLMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A24CC85D148AFBE100DC07E8 /* GLMesh.cpp */; };
-		A24CC864148AFBE100DC07E8 /* GLModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A24CC85E148AFBE100DC07E8 /* GLModel.cpp */; };
-		A24CC865148AFBE100DC07E8 /* GLRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A24CC85F148AFBE100DC07E8 /* GLRenderer.cpp */; };
-		A24CC866148AFBE100DC07E8 /* GLShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A24CC860148AFBE100DC07E8 /* GLShader.cpp */; };
-		A24CC867148AFBE100DC07E8 /* GLTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A24CC861148AFBE100DC07E8 /* GLTexture.cpp */; };
 		A26F6B8B148C9C32003C1F9F /* IMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = A26F6B87148C9C32003C1F9F /* IMesh.h */; };
 		A26F6B8C148C9C32003C1F9F /* IModel.h in Headers */ = {isa = PBXBuildFile; fileRef = A26F6B88148C9C32003C1F9F /* IModel.h */; };
 		A26F6B8D148C9C32003C1F9F /* IRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = A26F6B89148C9C32003C1F9F /* IRenderer.h */; };
+		A27827DF148DEE07001AB506 /* GLMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A27827D9148DEE07001AB506 /* GLMaterial.cpp */; };
+		A27827E0148DEE07001AB506 /* GLMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A27827DA148DEE07001AB506 /* GLMesh.cpp */; };
+		A27827E1148DEE07001AB506 /* GLModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A27827DB148DEE07001AB506 /* GLModel.cpp */; };
+		A27827E2148DEE07001AB506 /* GLRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A27827DC148DEE07001AB506 /* GLRenderer.cpp */; };
+		A27827E3148DEE07001AB506 /* GLShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A27827DD148DEE07001AB506 /* GLShader.cpp */; };
+		A27827E4148DEE07001AB506 /* GLTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A27827DE148DEE07001AB506 /* GLTexture.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -67,12 +67,6 @@
 		A216BCE6148B6CAC00EDE365 /* FlatFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlatFile.h; sourceTree = "<group>"; };
 		A216BCE7148B6CAC00EDE365 /* Iris.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Iris.h; sourceTree = "<group>"; };
 		A24CC858148AFBBD00DC07E8 /* libE4Ggl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libE4Ggl.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		A24CC85C148AFBE100DC07E8 /* GLMaterial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GLMaterial.cpp; path = Source/GL/GLMaterial.cpp; sourceTree = "<group>"; };
-		A24CC85D148AFBE100DC07E8 /* GLMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GLMesh.cpp; path = Source/GL/GLMesh.cpp; sourceTree = "<group>"; };
-		A24CC85E148AFBE100DC07E8 /* GLModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GLModel.cpp; path = Source/GL/GLModel.cpp; sourceTree = "<group>"; };
-		A24CC85F148AFBE100DC07E8 /* GLRenderer.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = GLRenderer.cpp; path = Source/GL/GLRenderer.cpp; sourceTree = "<group>"; };
-		A24CC860148AFBE100DC07E8 /* GLShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GLShader.cpp; path = Source/GL/GLShader.cpp; sourceTree = "<group>"; };
-		A24CC861148AFBE100DC07E8 /* GLTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GLTexture.cpp; path = Source/GL/GLTexture.cpp; sourceTree = "<group>"; };
 		A24CC86D148AFC8100DC07E8 /* GLIncludes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLIncludes.h; path = Include/GL/GLIncludes.h; sourceTree = "<group>"; };
 		A24CC86E148AFC8100DC07E8 /* GLMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLMaterial.h; path = Include/GL/GLMaterial.h; sourceTree = "<group>"; };
 		A24CC86F148AFC8100DC07E8 /* GLMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLMesh.h; path = Include/GL/GLMesh.h; sourceTree = "<group>"; };
@@ -84,6 +78,12 @@
 		A26F6B87148C9C32003C1F9F /* IMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMesh.h; sourceTree = "<group>"; };
 		A26F6B88148C9C32003C1F9F /* IModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IModel.h; sourceTree = "<group>"; };
 		A26F6B89148C9C32003C1F9F /* IRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRenderer.h; sourceTree = "<group>"; };
+		A27827D9148DEE07001AB506 /* GLMaterial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLMaterial.cpp; sourceTree = "<group>"; };
+		A27827DA148DEE07001AB506 /* GLMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLMesh.cpp; sourceTree = "<group>"; };
+		A27827DB148DEE07001AB506 /* GLModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLModel.cpp; sourceTree = "<group>"; };
+		A27827DC148DEE07001AB506 /* GLRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLRenderer.cpp; sourceTree = "<group>"; };
+		A27827DD148DEE07001AB506 /* GLShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLShader.cpp; sourceTree = "<group>"; };
+		A27827DE148DEE07001AB506 /* GLTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLTexture.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,9 +213,15 @@
 		A24CC868148AFC0F00DC07E8 /* GL */ = {
 			isa = PBXGroup;
 			children = (
-				A24CC86A148AFC3300DC07E8 /* Source */,
+				A27827D9148DEE07001AB506 /* GLMaterial.cpp */,
+				A27827DA148DEE07001AB506 /* GLMesh.cpp */,
+				A27827DB148DEE07001AB506 /* GLModel.cpp */,
+				A27827DC148DEE07001AB506 /* GLRenderer.cpp */,
+				A27827DD148DEE07001AB506 /* GLShader.cpp */,
+				A27827DE148DEE07001AB506 /* GLTexture.cpp */,
 			);
 			name = GL;
+			path = Source/GL;
 			sourceTree = "<group>";
 		};
 		A24CC869148AFC2700DC07E8 /* Out */ = {
@@ -227,19 +233,6 @@
 				A24CC858148AFBBD00DC07E8 /* libE4Ggl.a */,
 			);
 			name = Out;
-			sourceTree = "<group>";
-		};
-		A24CC86A148AFC3300DC07E8 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				A24CC85C148AFBE100DC07E8 /* GLMaterial.cpp */,
-				A24CC85D148AFBE100DC07E8 /* GLMesh.cpp */,
-				A24CC85E148AFBE100DC07E8 /* GLModel.cpp */,
-				A24CC85F148AFBE100DC07E8 /* GLRenderer.cpp */,
-				A24CC860148AFBE100DC07E8 /* GLShader.cpp */,
-				A24CC861148AFBE100DC07E8 /* GLTexture.cpp */,
-			);
-			name = Source;
 			sourceTree = "<group>";
 		};
 		A24CC86B148AFC4400DC07E8 /* Include */ = {
@@ -437,12 +430,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A24CC862148AFBE100DC07E8 /* GLMaterial.cpp in Sources */,
-				A24CC863148AFBE100DC07E8 /* GLMesh.cpp in Sources */,
-				A24CC864148AFBE100DC07E8 /* GLModel.cpp in Sources */,
-				A24CC865148AFBE100DC07E8 /* GLRenderer.cpp in Sources */,
-				A24CC866148AFBE100DC07E8 /* GLShader.cpp in Sources */,
-				A24CC867148AFBE100DC07E8 /* GLTexture.cpp in Sources */,
+				A27827DF148DEE07001AB506 /* GLMaterial.cpp in Sources */,
+				A27827E0148DEE07001AB506 /* GLMesh.cpp in Sources */,
+				A27827E1148DEE07001AB506 /* GLModel.cpp in Sources */,
+				A27827E2148DEE07001AB506 /* GLRenderer.cpp in Sources */,
+				A27827E3148DEE07001AB506 /* GLShader.cpp in Sources */,
+				A27827E4148DEE07001AB506 /* GLTexture.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
