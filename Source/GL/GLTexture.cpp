@@ -20,20 +20,20 @@ namespace E4Gamma {
     glDeleteTextures(1, &m_nTextureID);
   }
 
-  void CGLTexture::RenderSet(int nTextureStage)
+  void CGLTexture::RenderSet(GLuint nTextureStage)
   {
     if(glIsTexture(m_nTextureID))
     {
-      glActiveTexture(GL_TEXTURE0 + nTextureStage);
+      glActiveTexture(nTextureStage);
       glBindTexture(GL_TEXTURE_2D, m_nTextureID);
     }
   }
 
-  void CGLTexture::RenderReset(int nTextureStage)
+  void CGLTexture::RenderReset(GLuint nTextureStage)
   {
     if(glIsTexture(m_nTextureID))
     {
-      glActiveTexture(GL_TEXTURE0 + nTextureStage);
+      glActiveTexture(nTextureStage);
       glBindTexture(GL_TEXTURE_2D, 0);
     }    
   }

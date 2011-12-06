@@ -27,6 +27,8 @@ namespace E4Gamma
     
   public:
     CGLMaterial(CGLRenderer* pRenderer, SharedPtr<IDataStore> pDataStore, const std::string& sMaterial);
+    CGLMaterial(CGLRenderer* pRenderer);
+    
     virtual ~CGLMaterial();
     void SetShader(GLuint nShaderID, const std::string& sShaderFilename);
     void SetTexture(GLuint nTextureID, const std::string& sTextureName);

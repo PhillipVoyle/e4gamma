@@ -33,7 +33,7 @@ namespace E4Gamma
       m_nRefCount = 0;
     }
     
-    IUnknownImpl()
+    IUnknownImpl(): T()
     {
       m_nRefCount = 0;
     }

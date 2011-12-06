@@ -19,8 +19,8 @@ namespace E4Gamma
   public:
     CGLTexture(CGLRenderer* pRenderer, SharedPtr<IDataStore>, const std::string& szDataStore);
     virtual ~CGLTexture();
-    void RenderSet(int nTextureStage);
-    void RenderReset(int nTextureStage);
+    void RenderSet(GLuint nTextureStage);
+    void RenderReset(GLuint nTextureStage);
   };
 }
 
