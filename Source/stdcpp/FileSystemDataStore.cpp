@@ -1,6 +1,8 @@
 #include <stdcpp/FileSystemDataStore.h>
 #include <stdcpp/FlatFile.h>
 #include <fstream>
+#include <Interfaces/Foundation/ITableReader.h>
+
 using namespace std;
 
 namespace E4Gamma {
@@ -13,12 +15,12 @@ namespace E4Gamma {
   {
   }
 
-  ITableReader* CFileSystemDataStore::OpenTable(const string& sName)
+  SharedPtr<ITableReader> CFileSystemDataStore::OpenTable(const string& sName)
   {
-    return NULL; //not implemented yet - use xml flat file maybe?
+    return nullptr; //not implemented yet - use xml flat file maybe?
   }
 
-  ISequenceReader* CFileSystemDataStore::OpenSequence(const string& sName)
+  SharedPtr<ISequenceReader> CFileSystemDataStore::OpenSequence(const string& sName)
   {
     return new IUnknownImpl<CFlatFile>(sName);
   }

@@ -7,9 +7,7 @@ using namespace std;
 #include <Interfaces/Foundation/IDataStore.h>
 
 namespace E4Gamma {
-  
-  class ITableReader;
-  class ISequenceReader;
+
   
   class ITableReader: public IDataStore
   {

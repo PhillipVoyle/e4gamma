@@ -21,8 +21,8 @@ namespace E4Gamma {
     bool ReadI32(int&i32);
     bool ReadString(string& sValue);
     
-    ITableReader* OpenTable();
-    ISequenceReader* OpenSequence();
+    SharedPtr<ITableReader> OpenTable();
+    SharedPtr<ISequenceReader> OpenSequence();
     bool Close();    
   };
 }

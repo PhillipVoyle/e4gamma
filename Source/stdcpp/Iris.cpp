@@ -49,8 +49,8 @@ namespace E4Gamma {
 
   CIrisFile::CIrisFile(const std::string& szFilename, SharedPtr<IDataStore> pDataStore)
   {
-    ISequenceReader* pReader = pDataStore->OpenSequence(szFilename);
-    if(pReader != NULL)
+    SharedPtr<ISequenceReader> pReader = pDataStore->OpenSequence(szFilename);
+    if(pReader != nullptr)
     {
       /*short magic =*/ ReadShort(pReader);
       /*char storage = (char)*/ ReadChar(pReader);
@@ -91,7 +91,7 @@ namespace E4Gamma {
         }
       }
       
-      delete pReader;
+      pReader = nullptr;
     }
   }
   

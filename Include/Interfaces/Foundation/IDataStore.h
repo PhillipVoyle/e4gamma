@@ -16,8 +16,8 @@ namespace E4Gamma {
   public:
     virtual ~IDataStore() {}
     
-    virtual ITableReader* OpenTable(const string& sName) = 0;
-    virtual ISequenceReader* OpenSequence(const string& sName) = 0;
+    virtual SharedPtr<ITableReader> OpenTable(const string& sName) = 0;
+    virtual SharedPtr<ISequenceReader> OpenSequence(const string& sName) = 0;
     virtual bool ReadString(const string& sName, string& sValue) = 0;
   };
 

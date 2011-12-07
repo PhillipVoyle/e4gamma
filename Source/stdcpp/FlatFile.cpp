@@ -1,3 +1,4 @@
+#include <Interfaces/Foundation/ITableReader.h>
 #include <stdcpp/FlatFile.h>
 
 #include <iostream>
@@ -97,12 +98,12 @@ namespace E4Gamma {
     return true;
   }
   
-  ITableReader* CFlatFile::OpenTable()
+  SharedPtr<ITableReader> CFlatFile::OpenTable()
   {
     return nullptr;
   }
   
-  ISequenceReader* CFlatFile::OpenSequence()
+  SharedPtr<ISequenceReader> CFlatFile::OpenSequence()
   {
     return nullptr;
   }

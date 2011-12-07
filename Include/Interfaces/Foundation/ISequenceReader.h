@@ -10,7 +10,7 @@ namespace E4Gamma
 {
   class ITableReader;
   
-  class ISequenceReader: IUnknown
+  class ISequenceReader: public IUnknown
   {
   public:
     virtual ~ISequenceReader() {}
@@ -23,8 +23,8 @@ namespace E4Gamma
     virtual bool ReadI32(int&i32) = 0;
     virtual bool ReadString(string& sValue) = 0;
     
-    virtual ITableReader* OpenTable() = 0;
-    virtual ISequenceReader* OpenSequence() = 0;
+    virtual SharedPtr<ITableReader> OpenTable() = 0;
+    virtual SharedPtr<ISequenceReader> OpenSequence() = 0;
     virtual bool Close() = 0;
   };
 }

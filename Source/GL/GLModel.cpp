@@ -2,8 +2,10 @@
 
 namespace E4Gamma
 {
-  CGLModel::CGLModel(CGLRenderer* pRenderer, IDataStore* pDataStore, const char* szModel)
+  CGLModel::CGLModel(CGLRenderer* pRenderer, SharedPtr<IDataStore> pDataStore, const std::string& sModel)
   {
+    //pDataStore->OpenSequence(szModel);
+    
   }
   
   CGLModel::~CGLModel()

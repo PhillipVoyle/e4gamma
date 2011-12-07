@@ -10,8 +10,8 @@ namespace E4Gamma {
     CFileSystemDataStore();
     virtual ~CFileSystemDataStore();
     
-    ITableReader* OpenTable(const string& sName);
-    ISequenceReader* OpenSequence(const string& sName);
+    SharedPtr<ITableReader> OpenTable(const string& sName);
+    SharedPtr<ISequenceReader> OpenSequence(const string& sName);
     bool ReadString(const string& sName, string& sValue);
   };
 }

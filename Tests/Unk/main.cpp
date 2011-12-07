@@ -43,6 +43,7 @@ public:
 
 int main(int argc, char** argv)
 {
+  //SharedPtr<char> spChar = "hello"; - not allowed
   SharedPtr<DTest> spTest = new IUnknownImpl<DTest>("A");
   cout << "test" << endl;
   SharedPtr<CTest> spTest2;

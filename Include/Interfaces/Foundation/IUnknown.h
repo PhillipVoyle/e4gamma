@@ -79,13 +79,24 @@ namespace E4Gamma
       m_ptr = nullptr;
     }
     
+    SharedPtr(const T* ptr)
+    {
+      m_ptr = const_cast<T*>(ptr);
+      if(m_ptr != nullptr)
+      {
+        IUnknown* pAdd = m_ptr;
+        pAdd->AddRef();
+      }
+    }
+    
     template<class TSuper>
     SharedPtr(const TSuper* ptr)
     {
       m_ptr = const_cast<TSuper*>(ptr);
       if(m_ptr != nullptr)
       {
-        m_ptr->AddRef();
+        IUnknown* pAdd = m_ptr;
+        pAdd->AddRef();
       }
     }
     
@@ -95,7 +106,8 @@ namespace E4Gamma
       m_ptr = const_cast<TSuper*>(ptr.m_ptr);
       if(m_ptr != nullptr)
       {
-        m_ptr->AddRef();
+        IUnknown* pAdd = m_ptr;
+        pAdd->AddRef();
       }
     }
     
@@ -104,7 +116,8 @@ namespace E4Gamma
       m_ptr = const_cast<T*>(ptr.m_ptr);
       if(m_ptr != nullptr)
       {
-        m_ptr->AddRef();
+        IUnknown* pAdd = m_ptr;
+        pAdd->AddRef();
       }
     }
     
@@ -118,6 +131,16 @@ namespace E4Gamma
       return const_cast<T*>(m_ptr);
     }
     
+    template<class TSuper>
+    bool operator != (const TSuper* ptr)
+    {
+      return m_ptr != ptr;
+    }
+    
+    bool operator != (const T* ptr)
+    {
+      return m_ptr != ptr;
+    }
     
     void operator=(const std::nullptr_t ptr)
     {
@@ -153,7 +176,7 @@ namespace E4Gamma
     {
       if(ptr.m_ptr != nullptr)
       {
-        const_cast<TSuper*>(ptr.m_ptr)->AddRef();
+        ptr.m_ptr->AddRef();
       }
       if(m_ptr != nullptr)
       {
@@ -166,7 +189,7 @@ namespace E4Gamma
     {
       if(ptr.m_ptr != nullptr)
       {
-        const_cast<T*>(ptr.m_ptr)->AddRef();
+        ptr.m_ptr->AddRef();
       }
       if(m_ptr != nullptr)
       {
@@ -179,7 +202,8 @@ namespace E4Gamma
     {
       if(m_ptr != nullptr)
       {
-        m_ptr->Release();
+        IUnknown* pRelease = (IUnknown*)m_ptr; //we already know this is a safe type, so we can cast it and use the virtual method.
+        pRelease->Release();
       }
       m_ptr = nullptr;
     }
