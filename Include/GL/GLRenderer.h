@@ -16,14 +16,13 @@ namespace E4Gamma
   
   class CGLRenderer: public IRenderer
   {
-    IDataStore* m_pDataStore;
   public:
-    CGLRenderer(IDataStore* pSettings);
+    CGLRenderer();
     virtual ~CGLRenderer();
     
     //low level
-    SharedPtr<CGLShader> LoadShader(const std::string& sShader, GLuint nShaderStage);
-    SharedPtr<CGLTexture> LoadTexture(const std::string& sTexture);
+    SharedPtr<CGLShader> LoadShader(const std::string& sShaderSrc, GLuint nShaderStage);
+    SharedPtr<CGLTexture> LoadTexture(SharedPtr<ISequenceReader> pReader);
     
     //mid level creatures
     SharedPtr<IMesh> LoadMesh(const char* szMesh);

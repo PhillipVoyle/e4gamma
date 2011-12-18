@@ -6,7 +6,7 @@
 
 namespace E4Gamma {
     
-  class IDataStore;
+  class ISequenceReader;
 
   class CIrisFile
   {
@@ -15,7 +15,7 @@ namespace E4Gamma {
     int m_nHeight;
     unsigned char* m_pPixels;
   public:
-    CIrisFile(const std::string& szFilename, SharedPtr<IDataStore> pDataStore);
+    CIrisFile(SharedPtr<ISequenceReader> pSeq);
     ~CIrisFile();
     
     int   GetWidth() {return m_nWidth;}

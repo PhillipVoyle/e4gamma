@@ -12,13 +12,12 @@ namespace E4Gamma
 
   class CGLShader: public IUnknown
   {
-    CGLRenderer* m_pRenderer; // intentionally weak
     std::string m_sSource;
     GLuint m_nShaderStage;
     GLuint m_nShader;
   public:
     
-    CGLShader(CGLRenderer* pRenderer, SharedPtr<IDataStore> pDataStore, const std::string sShader, GLuint nShaderStage);
+    CGLShader(const std::string sShaderSource, GLuint nShaderStage);
     ~CGLShader();
     int GetShader() {return m_nShader;}
   };

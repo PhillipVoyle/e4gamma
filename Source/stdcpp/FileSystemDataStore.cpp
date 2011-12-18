@@ -1,5 +1,6 @@
 #include <stdcpp/FileSystemDataStore.h>
 #include <stdcpp/FlatFile.h>
+#include <stdcpp/TextFile.h>
 #include <fstream>
 #include <Interfaces/Foundation/ITableReader.h>
 
@@ -23,6 +24,11 @@ namespace E4Gamma {
   SharedPtr<ISequenceReader> CFileSystemDataStore::OpenSequence(const string& sName)
   {
     return new IUnknownImpl<CFlatFile>(sName);
+  }
+  
+  SharedPtr<ISequenceReader> CFileSystemDataStore::OpenTextSequence(const string& sName)
+  {
+    return new IUnknownImpl<CTextFile>(sName);
   }
    
   bool CFileSystemDataStore::ReadString(const string& sName, string& sValue)

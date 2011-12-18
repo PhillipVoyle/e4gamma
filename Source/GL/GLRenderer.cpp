@@ -1,5 +1,6 @@
 #include <OpenGL/GL.h>
 
+#include <Interfaces/Foundation/ISequenceReader.h>
 #include <GL/GLRenderer.h>
 #include <GL/GLShader.h>
 #include <GL/GLTexture.h>
@@ -13,7 +14,7 @@ using namespace std;
 namespace E4Gamma
 {
 
-  CGLRenderer::CGLRenderer(IDataStore* pSettings):m_pDataStore(pSettings)
+  CGLRenderer::CGLRenderer()
   {
     glClearColor(0,0,0,0);
   }
@@ -25,29 +26,29 @@ namespace E4Gamma
   //low level
   SharedPtr<CGLShader> CGLRenderer::LoadShader(const std::string& sShader, GLuint nShaderStage)
   {
-    return new IUnknownImpl<CGLShader>(this, m_pDataStore, sShader, nShaderStage);
+    return new IUnknownImpl<CGLShader>(sShader, nShaderStage);
   }
   
-  SharedPtr<CGLTexture> CGLRenderer::LoadTexture(const std::string& sTexture)
+  SharedPtr<CGLTexture> CGLRenderer::LoadTexture(SharedPtr<ISequenceReader> pReader)
   {
-    return new IUnknownImpl<CGLTexture>(this, m_pDataStore, sTexture);
+    return new IUnknownImpl<CGLTexture>(this, pReader);
   }
   
   //mid level creatures
   SharedPtr<IMesh> CGLRenderer::LoadMesh(const char* szMesh)
   {
-    return new IUnknownImpl<CGLMesh>(this, m_pDataStore, szMesh);
+    return nullptr;// new IUnknownImpl<CGLMesh>(this, szMesh);
   }
   
   SharedPtr<IMaterial> CGLRenderer::LoadMaterial(const char* szMaterial)
   {
-    return new IUnknownImpl<CGLMaterial>(this, m_pDataStore, szMaterial);
+    return nullptr;// new IUnknownImpl<CGLMaterial>(this, szMaterial);
   }
   
   //high level 
   SharedPtr<IModel> CGLRenderer::LoadModel(const char* szModel)
   {
-    return new IUnknownImpl<CGLModel>(this, m_pDataStore, szModel);
+    return nullptr;// new IUnknownImpl<CGLModel>(this, szModel);
   }
   
   void CGLRenderer::BeginScene()

@@ -4,7 +4,7 @@
 #include <Interfaces/Foundation/IDataStore.h>
 
 namespace E4Gamma {
-  class CFileSystemDataStore: public IDataStore
+  class CFileSystemDataStore
   {
   public:
     CFileSystemDataStore();
@@ -12,6 +12,7 @@ namespace E4Gamma {
     
     SharedPtr<ITableReader> OpenTable(const string& sName);
     SharedPtr<ISequenceReader> OpenSequence(const string& sName);
+    SharedPtr<ISequenceReader> OpenTextSequence(const string& sName);
     bool ReadString(const string& sName, string& sValue);
   };
 }

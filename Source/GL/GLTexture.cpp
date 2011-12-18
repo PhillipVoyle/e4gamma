@@ -1,12 +1,14 @@
 #include <GL/GLTexture.h>
 #include <stdcpp/Iris.h>
 #include <Interfaces/Foundation/IDataStore.h>
+#include <Interfaces/Foundation/ISequenceReader.h>
+
 
 namespace E4Gamma {
     
-  CGLTexture::CGLTexture(CGLRenderer* pRenderer, SharedPtr<IDataStore> pDataStore, const std::string& sTexture)
+  CGLTexture::CGLTexture(CGLRenderer* pRenderer, SharedPtr<ISequenceReader> pSequence)
   {
-    CIrisFile irisFile(sTexture, pDataStore);
+    CIrisFile irisFile(pSequence);
     glActiveTexture(GL_TEXTURE0);
     glGenTextures(1, &m_nTextureID);
     glBindTexture(GL_TEXTURE_2D, m_nTextureID);

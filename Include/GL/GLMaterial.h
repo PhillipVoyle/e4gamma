@@ -30,8 +30,8 @@ namespace E4Gamma
     CGLMaterial(CGLRenderer* pRenderer);
     
     virtual ~CGLMaterial();
-    void SetShader(GLuint nShaderID, const std::string& sShaderFilename);
-    void SetTexture(GLuint nTextureID, const std::string& sTextureName);
+    void SetShader(GLuint nShaderID, const std::string& sShaderSrc);
+    void SetTexture(GLuint nTextureID, SharedPtr<ISequenceReader> pSequence);
     
     virtual void RenderSet();
     virtual void RenderReset();

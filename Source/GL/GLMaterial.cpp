@@ -3,6 +3,9 @@
 #include <GL/GLRenderer.h>
 #include <GL/GLMaterial.h>
 
+#include <Interfaces/Foundation/ISequenceReader.h>
+
+
 #include <iostream>
 
 namespace E4Gamma
@@ -24,9 +27,9 @@ namespace E4Gamma
   }
 
 
-  void CGLMaterial::SetShader(GLuint nShaderID, const std::string& sShaderFilename)
+  void CGLMaterial::SetShader(GLuint nShaderID, const std::string& sShaderSource)
   {
-    m_glShaders[nShaderID] = m_pRenderer->LoadShader(sShaderFilename, nShaderID);
+    m_glShaders[nShaderID] = m_pRenderer->LoadShader(sShaderSource, nShaderID);
     if(!m_bProgramDirty)
     {
       m_bProgramDirty = true;
@@ -35,9 +38,9 @@ namespace E4Gamma
     }
   }
 
-  void CGLMaterial::SetTexture(GLuint nTextureID, const std::string& sTextureName)
+  void CGLMaterial::SetTexture(GLuint nTextureID, SharedPtr<ISequenceReader> pSeq)
   {
-    m_glTextures[nTextureID] = m_pRenderer->LoadTexture(sTextureName);
+    m_glTextures[nTextureID] = m_pRenderer->LoadTexture(pSeq);
   }
 
   void CGLMaterial::RenderSet()
@@ -75,6 +78,11 @@ namespace E4Gamma
     {
       it->second->RenderSet(it->first);
     }
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
   }
 
   void CGLMaterial::RenderReset()

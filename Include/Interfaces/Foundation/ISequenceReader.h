@@ -22,6 +22,8 @@ namespace E4Gamma
     virtual bool ReadU32(unsigned int&u32) = 0;
     virtual bool ReadI32(int&i32) = 0;
     virtual bool ReadString(string& sValue) = 0;
+    virtual bool ReadFloat(float& fValue) = 0;
+    virtual bool ReadDouble(double& lfValue) = 0;
     
     virtual SharedPtr<ITableReader> OpenTable() = 0;
     virtual SharedPtr<ISequenceReader> OpenSequence() = 0;

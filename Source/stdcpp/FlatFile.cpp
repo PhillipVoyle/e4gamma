@@ -13,7 +13,7 @@ namespace E4Gamma {
       cout << "error loading " << sFilename << endl;
     }
   }
-
+  
   CFlatFile::~CFlatFile() {}
   
   bool CFlatFile::ReadU8(unsigned char&u8)
@@ -106,6 +106,15 @@ namespace E4Gamma {
   SharedPtr<ISequenceReader> CFlatFile::OpenSequence()
   {
     return nullptr;
+  }
+  
+  bool CFlatFile::ReadFloat(float& fValue)
+  {
+    return false;
+  }
+  bool CFlatFile::ReadDouble(double& lfValue)
+  {
+    return false;
   }
   
   bool CFlatFile::Close()

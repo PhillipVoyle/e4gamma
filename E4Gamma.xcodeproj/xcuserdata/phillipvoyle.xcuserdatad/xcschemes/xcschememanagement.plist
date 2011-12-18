@@ -26,6 +26,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>reflection.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -40,6 +45,11 @@
 			<true/>
 		</dict>
 		<key>A216BCDC148B6B9100EDE365</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A22EE5061491E25A005C68CE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

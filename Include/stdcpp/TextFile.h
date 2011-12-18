@@ -1,17 +1,25 @@
-#ifndef _E4Gamma_FLATFILE_H
-#define _E4Gamma_FLATFILE_H
+//
+//  TextFile.h
+//  E4Gamma
+//
+//  Created by Phillip Voyle on 18/12/11.
+//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//
+
+#ifndef E4Gamma_TextFile_h
+#define E4Gamma_TextFile_h
 
 #include <string>
 #include <fstream>
 #include <Interfaces/Foundation/ISequenceReader.h>
 
 namespace E4Gamma {
-  class CFlatFile: public ISequenceReader
+  class CTextFile: public ISequenceReader
   {
     std::fstream m_fStream;
   public:
-    CFlatFile(const std::string& sFlatFile);
-    virtual ~CFlatFile();
+    CTextFile(const std::string& sTextFile);
+    virtual ~CTextFile();
     
     bool ReadU8(unsigned char&u8);
     bool ReadI8(char&i8);
@@ -21,7 +29,7 @@ namespace E4Gamma {
     bool ReadI32(int&i32);
     bool ReadString(string& sValue);
     bool ReadFloat(float& fValue);
-    bool ReadDouble(double& lfValue);    
+    bool ReadDouble(double& lfValue);
     
     SharedPtr<ITableReader> OpenTable();
     SharedPtr<ISequenceReader> OpenSequence();
@@ -29,4 +37,4 @@ namespace E4Gamma {
   };
 }
 
-#endif//_E4Gamma_FLATFILE_H
+#endif
