@@ -6,9 +6,9 @@
 
 namespace E4Gamma {
     
-  CGLTexture::CGLTexture(CGLRenderer* pRenderer, SharedPtr<ISequenceReader> pSequence)
+  CGLTexture::CGLTexture(const std::string& sTexture)
   {
-    CIrisFile irisFile(pSequence);
+    CIrisFile irisFile(sTexture);
     glActiveTexture(GL_TEXTURE0);
     glGenTextures(1, &m_nTextureID);
     glBindTexture(GL_TEXTURE_2D, m_nTextureID);
@@ -38,5 +38,22 @@ namespace E4Gamma {
       glActiveTexture(nTextureStage);
       glBindTexture(GL_TEXTURE_2D, 0);
     }    
+  }
+
+  class CGLTextureFactory: public IAssetLoader<CGLTexture>
+  {
+  public:
+    CGLTextureFactory() { }
+    virtual ~CGLTextureFactory() { }
+    
+    SharedPtr<CGLTexture> LoadAsset(const std::string& sAsset)
+    {
+      return new IUnknownImpl<CGLTexture>(sAsset);
+    }
+  };
+  
+  SharedPtr<IAssetLoader<CGLTexture>> CGLTexture::createFactory()
+  {
+    return new IUnknownImpl<CGLTextureFactory>();
   }
 }

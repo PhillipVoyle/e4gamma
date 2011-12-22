@@ -1,0 +1,3 @@
+model
+surfaces 1
+mesh Data/Meshes/test.mesh material Data/Materials/test.material

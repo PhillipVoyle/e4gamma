@@ -1,9 +1,6 @@
 
 #include <GL/GLRenderer.h>
-#include <GL/GLShader.h>
-#include <GL/GLTexture.h>
-#include <GL/GLMaterial.h>
-#include <GL/GLMesh.h>
+#include <Interfaces/Renderer/IModel.h>
 
 #include <Interfaces/Foundation/ISequenceReader.h>
 
@@ -13,17 +10,14 @@ using namespace std;
 using namespace E4Gamma;
 
 #include <GLUT/glut.h>
-#include <OpenGL/gl3.h>
 
 //tell g++ not to warn me
 void init();
 void display();
 void cleanup();
 
-IUnknownNull<CFileSystemDataStore> g_fileSystemDataStore;
 SharedPtr<CGLRenderer> g_pRenderer = nullptr;
-SharedPtr<CGLMaterial> g_pMaterial = nullptr;
-SharedPtr<CGLMesh> g_pMesh = nullptr;
+SharedPtr<IModel> g_pModel = nullptr;
 
 int g_nProgram = 0;
 int g_nVertexShader = 0;
@@ -38,21 +32,13 @@ void init()
   glEnable(GL_BLEND);
   
   g_pRenderer = new IUnknownImpl<CGLRenderer>();
-  g_pMaterial = new IUnknownImpl<CGLMaterial>(g_pRenderer);
-  g_pMaterial->SetTexture(GL_TEXTURE0, g_fileSystemDataStore.OpenSequence("Data/Textures/White.rgba"));
-  string vshSource, fshSource;
-  g_fileSystemDataStore.ReadString("Data/Shaders/test.vsh", vshSource);
-  g_fileSystemDataStore.ReadString("Data/Shaders/test.fsh", fshSource);
-  g_pMaterial->SetShader(GL_VERTEX_SHADER, vshSource);
-  g_pMaterial->SetShader(GL_FRAGMENT_SHADER, fshSource);
-  g_pMesh = new IUnknownImpl<CGLMesh>(g_fileSystemDataStore.OpenTextSequence("Data/Meshes/TestMesh.mesh"));
+  g_pModel = g_pRenderer->LoadModel("Data/Models/test.model");
 }
 
 void display()
 {
   g_pRenderer->BeginScene();
-  g_pMaterial->RenderSet();
-  g_pMesh->RenderPose(nullptr);
+  g_pModel->RenderPose(nullptr);
   g_pRenderer->Present();
   
 	glutPostRedisplay();//Tell the program to refresh
@@ -60,7 +46,7 @@ void display()
 
 void cleanup()
 {
-  g_pMaterial = nullptr;
+  g_pModel = nullptr;
   g_pRenderer = nullptr;
   
   glDeleteBuffers(GL_ARRAY_BUFFER, &g_vertices);
@@ -75,15 +61,6 @@ int main(int argc, char** argv)
   glutInitWindowPosition(10,50);//Set the window position at (10,50)
   
 	glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB);//Set the initial display mode
-  
-  if (gl3wInit()) {
-    fprintf(stderr, "failed to initialize OpenGL\n");
-    return -1;
-  }
-  if (!gl3wIsSupported(3, 2)) {
-    fprintf(stderr, "OpenGL 3.2 not supported\n");
-    return -1;
-  }
   
 	glutCreateWindow("TestGLRenderer");//Create our window
   

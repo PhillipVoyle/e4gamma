@@ -1,12 +1,15 @@
 #include <OpenGL/GL.h>
 
 #include <Interfaces/Foundation/ISequenceReader.h>
+#include <Interfaces/Foundation/TAssetCache.h>
 #include <GL/GLRenderer.h>
 #include <GL/GLShader.h>
 #include <GL/GLTexture.h>
 #include <GL/GLMesh.h>
 #include <GL/GLMaterial.h>
 #include <GL/GLModel.h>
+#include <GL/GLShaderProgram.h>
+
 #include <iostream>
 
 using namespace std;
@@ -14,7 +17,14 @@ using namespace std;
 namespace E4Gamma
 {
 
-  CGLRenderer::CGLRenderer()
+  CGLRenderer::CGLRenderer():
+  m_vshCache(new IUnknownImpl<TAssetCache<CGLShader>>(CGLShader::createFactory(GL_VERTEX_SHADER))),
+  m_fshCache(new IUnknownImpl<TAssetCache<CGLShader>>(CGLShader::createFactory(GL_FRAGMENT_SHADER))),
+  m_programCache(new IUnknownImpl<TAssetCache<CGLShaderProgram>>(CGLShaderProgram::createFactory(m_vshCache, m_fshCache))),
+  m_textureCache(new IUnknownImpl<TAssetCache<CGLTexture>>(CGLTexture::createFactory())),
+  m_materialCache(new IUnknownImpl<TAssetCache<CGLMaterial>>(CGLMaterial::createFactory(m_programCache, m_textureCache))),
+  m_meshCache(new IUnknownImpl<TAssetCache<CGLMesh>>(CGLMesh::createFactory())),
+  m_modelCache(new IUnknownImpl<TAssetCache<CGLModel>>(CGLModel::createFactory(m_meshCache, m_materialCache)))
   {
     glClearColor(0,0,0,0);
   }
@@ -26,29 +36,45 @@ namespace E4Gamma
   //low level
   SharedPtr<CGLShader> CGLRenderer::LoadShader(const std::string& sShader, GLuint nShaderStage)
   {
-    return new IUnknownImpl<CGLShader>(sShader, nShaderStage);
+    if(nShaderStage == GL_VERTEX_SHADER)
+    {
+      return m_vshCache->LoadAsset(sShader);
+    }
+    else if(nShaderStage == GL_FRAGMENT_SHADER)
+    {
+      return m_fshCache->LoadAsset(sShader);
+    }
+    else
+    {
+      return nullptr;
+    }
   }
   
-  SharedPtr<CGLTexture> CGLRenderer::LoadTexture(SharedPtr<ISequenceReader> pReader)
+  SharedPtr<CGLShaderProgram> CGLRenderer::LoadProgram(const std::string &sProgram)
   {
-    return new IUnknownImpl<CGLTexture>(this, pReader);
+    return m_programCache->LoadAsset(sProgram);
+  }
+  
+  SharedPtr<CGLTexture> CGLRenderer::LoadTexture(const std::string& sTexture)
+  {
+    return m_textureCache->LoadAsset(sTexture);
   }
   
   //mid level creatures
-  SharedPtr<IMesh> CGLRenderer::LoadMesh(const char* szMesh)
+  SharedPtr<IMesh> CGLRenderer::LoadMesh(const std::string& sMesh)
   {
-    return nullptr;// new IUnknownImpl<CGLMesh>(this, szMesh);
+    return m_meshCache->LoadAsset(sMesh);
   }
   
-  SharedPtr<IMaterial> CGLRenderer::LoadMaterial(const char* szMaterial)
+  SharedPtr<IMaterial> CGLRenderer::LoadMaterial(const std::string& sMaterial)
   {
-    return nullptr;// new IUnknownImpl<CGLMaterial>(this, szMaterial);
+    return m_materialCache->LoadAsset(sMaterial);
   }
   
   //high level 
-  SharedPtr<IModel> CGLRenderer::LoadModel(const char* szModel)
+  SharedPtr<IModel> CGLRenderer::LoadModel(const std::string& sModel)
   {
-    return nullptr;// new IUnknownImpl<CGLModel>(this, szModel);
+    return m_modelCache->LoadAsset(sModel);
   }
   
   void CGLRenderer::BeginScene()

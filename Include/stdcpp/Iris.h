@@ -15,7 +15,7 @@ namespace E4Gamma {
     int m_nHeight;
     unsigned char* m_pPixels;
   public:
-    CIrisFile(SharedPtr<ISequenceReader> pSeq);
+    CIrisFile(const std::string& sTexture);
     ~CIrisFile();
     
     int   GetWidth() {return m_nWidth;}

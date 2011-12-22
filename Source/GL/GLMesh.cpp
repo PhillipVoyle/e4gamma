@@ -4,59 +4,65 @@
 #include <string>
 #include <OpenGL/gl.h>
 #include <OpenGL/OpenGL.h>
+#include <stdcpp/FileSystemDataStore.h>
 using namespace std;
 
 namespace E4Gamma
 {
-  CGLMesh::CGLMesh(SharedPtr<ISequenceReader> pSeq):m_vertexBuffer(0), m_nVerts(0)
+  CGLMesh::CGLMesh(const std::string &sMeshFile):m_vertexBuffer(0), m_nVerts(0)
   {
     string sMesh;
-    if(pSeq->ReadString(sMesh) && sMesh == "mesh")
+    CFileSystemDataStore ds;
+    SharedPtr<ISequenceReader> pSeq = ds.OpenTextSequence(sMeshFile); //get this from somewhere
+    if(pSeq != nullptr)
     {
-      string sVerts;
-      if(pSeq->ReadString(sVerts) && sVerts == "verts")
+      if(pSeq->ReadString(sMesh) && sMesh == "mesh")
       {
-        if(pSeq->ReadU32(m_nVerts))
+        string sVerts;
+        if(pSeq->ReadString(sVerts) && sVerts == "verts")
         {
-          MeshVertex *pVerts = new MeshVertex[m_nVerts];
-          try {
-            bool bFailed;
-            for(int nVert = 0; nVert < m_nVerts; nVert++)
-            {
-              string sPos, sNrm, sUV;
-              if(!(
-                 pSeq->ReadString(sPos) && (sPos == "pos") &&
-                 pSeq->ReadFloat(pVerts[nVert].x) &&
-                 pSeq->ReadFloat(pVerts[nVert].y) &&
-                 pSeq->ReadFloat(pVerts[nVert].z) &&
-                 pSeq->ReadString(sNrm) && (sNrm == "nrm") &&
-                 pSeq->ReadFloat(pVerts[nVert].nx) &&
-                 pSeq->ReadFloat(pVerts[nVert].ny) &&
-                 pSeq->ReadFloat(pVerts[nVert].nz) &&
-                 pSeq->ReadString(sUV) && (sUV == "uv") &&
-                 pSeq->ReadFloat(pVerts[nVert].u) &&
-                 pSeq->ReadFloat(pVerts[nVert].v)))
+          if(pSeq->ReadU32(m_nVerts))
+          {
+            MeshVertex *pVerts = new MeshVertex[m_nVerts];
+            try {
+              bool bFailed;
+              for(int nVert = 0; nVert < m_nVerts; nVert++)
               {
-                bFailed = true;
-                break;
+                string sPos, sNrm, sUV;
+                if(!(
+                   pSeq->ReadString(sPos) && (sPos == "pos") &&
+                   pSeq->ReadFloat(pVerts[nVert].x) &&
+                   pSeq->ReadFloat(pVerts[nVert].y) &&
+                   pSeq->ReadFloat(pVerts[nVert].z) &&
+                   pSeq->ReadString(sNrm) && (sNrm == "nrm") &&
+                   pSeq->ReadFloat(pVerts[nVert].nx) &&
+                   pSeq->ReadFloat(pVerts[nVert].ny) &&
+                   pSeq->ReadFloat(pVerts[nVert].nz) &&
+                   pSeq->ReadString(sUV) && (sUV == "uv") &&
+                   pSeq->ReadFloat(pVerts[nVert].u) &&
+                   pSeq->ReadFloat(pVerts[nVert].v)))
+                {
+                  bFailed = true;
+                  break;
+                }
+              }
+              
+              if(!bFailed)
+              {
+                cout << "Read " << m_nVerts << " verts OK" << endl;
+                
+                glGenBuffers(1, &m_vertexBuffer);
+                glBindBuffer(GL_ARRAY_BUFFER, m_vertexBuffer);
+                glBufferData(GL_ARRAY_BUFFER, sizeof(MeshVertex) * m_nVerts, pVerts, GL_STATIC_DRAW);
+                
               }
             }
-            
-            if(!bFailed)
+            catch (...)
             {
-              cout << "Read " << m_nVerts << " verts OK" << endl;
-              
-              glGenBuffers(1, &m_vertexBuffer);
-              glBindBuffer(GL_ARRAY_BUFFER, m_vertexBuffer);
-              glBufferData(GL_ARRAY_BUFFER, sizeof(MeshVertex) * m_nVerts, pVerts, GL_STATIC_DRAW);
-              
+              cout << "Exception!" << endl;
             }
+            delete[] pVerts;
           }
-          catch (...)
-          {
-            cout << "Exception!" << endl;
-          }
-          delete[] pVerts;
         }
       }
     }
@@ -86,5 +92,25 @@ namespace E4Gamma
     glEnableClientState(GL_NORMAL_ARRAY);
     
     glBindBuffer(GL_ARRAY_BUFFER, 0);
+  }
+  
+  class CGLMeshFactory: public IAssetLoader<CGLMesh>
+  {
+  public:
+    CGLMeshFactory()
+    {
+    }
+    
+    virtual ~CGLMeshFactory() { }
+    
+    SharedPtr<CGLMesh> LoadAsset(const std::string& sAsset)
+    {
+      return new IUnknownImpl<CGLMesh>(sAsset);
+    }
+  };
+  
+  SharedPtr<IAssetLoader<CGLMesh>> CGLMesh::createFactory()
+  {
+    return new IUnknownImpl<CGLMeshFactory>();
   }
 }

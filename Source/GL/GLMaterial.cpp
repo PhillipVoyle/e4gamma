@@ -4,79 +4,74 @@
 #include <GL/GLMaterial.h>
 
 #include <Interfaces/Foundation/ISequenceReader.h>
+#include <stdcpp/FileSystemDataStore.h>
 
 
 #include <iostream>
 
 namespace E4Gamma
 {
-  CGLMaterial::CGLMaterial(CGLRenderer* pRenderer, SharedPtr<IDataStore> pDataStore, const std::string & sMaterial)
-  :CGLMaterial(pRenderer)
+  CGLMaterial::CGLMaterial(const std::string& sMaterial, SharedPtr<IAssetLoader<CGLShaderProgram>> programFactory, SharedPtr<IAssetLoader<CGLTexture>> textureFactory)
   {
-  }
-  
-  CGLMaterial::CGLMaterial(CGLRenderer* pRenderer)
-  :m_pRenderer(pRenderer)
-  {
-    m_bProgramDirty = false;
-    m_nProgram = 0;
+    CFileSystemDataStore ds;
+    SharedPtr<ISequenceReader> pSeq = ds.OpenTextSequence(sMaterial);
+    
+    if(pSeq != nullptr)
+    {
+      std::string sMaterial;
+      if((pSeq->ReadString(sMaterial) && sMaterial == "material"))
+      {
+        std::string sSettings;
+        int nSettingCount = 0;
+        if((pSeq->ReadString(sSettings) && sSettings == "settings") &&
+           pSeq->ReadI32(nSettingCount))
+        {
+          for(int nSetting = 0; nSetting < nSettingCount; nSetting++)
+          {
+            std::string sSetting;
+            if(pSeq->ReadString(sSetting))
+            {
+              if(sSetting == "texture")
+              {
+                GLuint nTexture;
+                std::string sTexture;
+                if(pSeq->ReadU32(nTexture) && pSeq->ReadString(sTexture))
+                {
+                  m_glTextures[GL_TEXTURE0 + nTexture] = textureFactory->LoadAsset(sTexture);
+                }
+              }
+              if(sSetting == "shader_program")
+              {
+                std::string sShaderProgram;
+                if(pSeq->ReadString(sShaderProgram))
+                {
+                  m_program = programFactory->LoadAsset(sShaderProgram);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
   
   CGLMaterial::~CGLMaterial()
   {
   }
 
-
-  void CGLMaterial::SetShader(GLuint nShaderID, const std::string& sShaderSource)
-  {
-    m_glShaders[nShaderID] = m_pRenderer->LoadShader(sShaderSource, nShaderID);
-    if(!m_bProgramDirty)
-    {
-      m_bProgramDirty = true;
-      glDeleteProgram(m_nProgram);
-      m_nProgram = 0;
-    }
-  }
-
-  void CGLMaterial::SetTexture(GLuint nTextureID, SharedPtr<ISequenceReader> pSeq)
-  {
-    m_glTextures[nTextureID] = m_pRenderer->LoadTexture(pSeq);
-  }
-
   void CGLMaterial::RenderSet()
   {
-    if(m_bProgramDirty)
+    if(m_program != nullptr)
     {
-      m_nProgram = glCreateProgram();
-      for(auto it = m_glShaders.begin(); it != m_glShaders.end(); it++)
-      {
-        glAttachShader(m_nProgram, it->second->GetShader());
-      }
-      
-      int nStatus = 0;
-      glLinkProgram(m_nProgram);
-      glGetProgramiv(m_nProgram, GL_LINK_STATUS, &nStatus);
-      if(!nStatus) {
-        int loglen;
-        glGetProgramiv(m_nProgram, GL_INFO_LOG_LENGTH, &loglen);
-        if(loglen > 1) {
-          char *infolog = new char[loglen];
-          int written;
-          glGetProgramInfoLog(m_nProgram, loglen, &written, infolog);
-          cout << "engine: error linking shader program: " << infolog << endl;
-          delete infolog;
-        }
-        glDeleteProgram(m_nProgram);
-        m_nProgram = 0;
-      }
-      m_bProgramDirty = false;
+      m_program->RenderSet();
     }
-    
-    glUseProgram(m_nProgram);
     
     for(auto it = m_glTextures.begin(); it != m_glTextures.end(); it++)
     {
-      it->second->RenderSet(it->first);
+      if(it->second != nullptr)
+      {
+        it->second->RenderSet(it->first);
+      }
     }
     
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
@@ -93,5 +88,29 @@ namespace E4Gamma
     {
       it->second->RenderReset(it->first);
     }
+  }
+  
+  class CGLMaterialFactory: public IAssetLoader<CGLMaterial>
+  {
+    SharedPtr<IAssetLoader<CGLShaderProgram>> m_programFactory;
+    SharedPtr<IAssetLoader<CGLTexture>> m_textureFactory;
+    
+  public:
+    CGLMaterialFactory(SharedPtr<IAssetLoader<CGLShaderProgram>> programFactory, SharedPtr<IAssetLoader<CGLTexture>> textureFactory)
+    : m_programFactory(programFactory), m_textureFactory(textureFactory)
+    {
+    }
+    
+    virtual ~CGLMaterialFactory() { }
+    
+    SharedPtr<CGLMaterial> LoadAsset(const std::string& sAsset)
+    {
+      return new IUnknownImpl<CGLMaterial>(sAsset, m_programFactory, m_textureFactory);
+    }
+  };
+  
+  SharedPtr<IAssetLoader<CGLMaterial>> CGLMaterial::createFactory(SharedPtr<IAssetLoader<CGLShaderProgram>> programFactory, SharedPtr<IAssetLoader<CGLTexture>> textureFactory)
+  {
+    return new IUnknownImpl<CGLMaterialFactory>(programFactory, textureFactory);
   }
 }

@@ -2,25 +2,22 @@
 #define _E4Gamma_GLTEXTURE_H
 
 #include <OpenGL/gl.h>
-
-#include <Interfaces/Foundation/IDatastore.h>
+#include <Interfaces/Foundation/IAssetLoader.h>
 
 namespace E4Gamma
 {
-  class IDataStore;
-  class CGLRenderer;
-  
   class CGLTexture : public IUnknown
   {
   private:
-    CGLRenderer* m_pRenderer; //intentionally weak
     GLuint m_nTextureID;
     
   public:
-    CGLTexture(CGLRenderer* pRenderer, SharedPtr<ISequenceReader> pSequence);
+    CGLTexture(const std::string& sTexture);
     virtual ~CGLTexture();
     void RenderSet(GLuint nTextureStage);
     void RenderReset(GLuint nTextureStage);
+    
+    static SharedPtr<IAssetLoader<CGLTexture>> createFactory();
   };
 }
 

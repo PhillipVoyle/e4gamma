@@ -4,6 +4,7 @@
 #include <string>
 #include <OpenGL/gl.h>
 #include <Interfaces/Foundation/IUnknown.h>
+#include <Interfaces/Foundation/IAssetLoader.h>
 
 namespace E4Gamma
 {
@@ -19,7 +20,10 @@ namespace E4Gamma
     
     CGLShader(const std::string sShaderSource, GLuint nShaderStage);
     ~CGLShader();
-    int GetShader() {return m_nShader;}
+    
+    GLuint GetShader() {return m_nShader;}
+    
+    static SharedPtr<IAssetLoader<CGLShader>> createFactory(GLuint shaderStage);
   };
 }
 

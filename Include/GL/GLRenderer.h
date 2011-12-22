@@ -6,30 +6,43 @@
 
 #include <GL/GLShader.h>
 #include <GL/GLTexture.h>
+#include <GL/GLShaderProgram.h>
+#include <GL/GLMesh.h>
+#include <GL/GLMaterial.h>
+#include <GL/GLModel.h>
+
+#include <Interfaces/Foundation/IAssetLoader.h>
 
 namespace E4Gamma
 {
-  class IDataStore;
   class IMesh;
   class IMaterial;
   class IModel;
   
   class CGLRenderer: public IRenderer
   {
+    SharedPtr<IAssetLoader<CGLShader>>        m_vshCache;
+    SharedPtr<IAssetLoader<CGLShader>>        m_fshCache;
+    SharedPtr<IAssetLoader<CGLShaderProgram>> m_programCache;
+    SharedPtr<IAssetLoader<CGLTexture>>       m_textureCache;
+    SharedPtr<IAssetLoader<CGLMaterial>>      m_materialCache;
+    SharedPtr<IAssetLoader<CGLMesh>>          m_meshCache;
+    SharedPtr<IAssetLoader<CGLModel>>         m_modelCache;
   public:
     CGLRenderer();
     virtual ~CGLRenderer();
     
-    //low level
-    SharedPtr<CGLShader> LoadShader(const std::string& sShaderSrc, GLuint nShaderStage);
-    SharedPtr<CGLTexture> LoadTexture(SharedPtr<ISequenceReader> pReader);
+    SharedPtr<CGLShader>        LoadShader(const std::string& sShader, GLuint nShaderStage);
+    
+    SharedPtr<CGLShaderProgram> LoadProgram(const std::string& sProgram);
+    SharedPtr<CGLTexture>       LoadTexture(const std::string& sTexture);
     
     //mid level creatures
-    SharedPtr<IMesh> LoadMesh(const char* szMesh);
-    SharedPtr<IMaterial> LoadMaterial(const char* szMaterial);
+    SharedPtr<IMesh>            LoadMesh(const std::string& sMesh);
+    SharedPtr<IMaterial>        LoadMaterial(const std::string& sMaterial);
     
     //high level 
-    SharedPtr<IModel> LoadModel(const char* szModel);
+    SharedPtr<IModel>           LoadModel(const std::string& sModel);
     
     void BeginScene();
     void Present();

@@ -1,6 +1,7 @@
 #include <stdcpp/Iris.h>
 #include <Interfaces/Foundation/IDataStore.h>
 #include <Interfaces/Foundation/ISequenceReader.h>
+#include <stdcpp/FileSystemDataStore.h>
 
 #include <iostream>
 using namespace std;
@@ -47,8 +48,10 @@ namespace E4Gamma {
     return buf;
   }
 
-  CIrisFile::CIrisFile(SharedPtr<ISequenceReader> pReader)
+  CIrisFile::CIrisFile(const std::string& sTexture)
   {
+    CFileSystemDataStore ds;
+    SharedPtr<ISequenceReader> pReader = ds.OpenSequence(sTexture);
     if(pReader != nullptr)
     {
       /*short magic =*/ ReadShort(pReader);

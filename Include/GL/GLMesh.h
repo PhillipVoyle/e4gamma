@@ -4,6 +4,7 @@
 #include <Interfaces/Renderer/IMesh.h>
 #include <OpenGL/OpenGL.h>
 #include <OpenGL/gl.h>
+#include <Interfaces/Foundation/IAssetLoader.h>
 
 namespace E4Gamma{
   
@@ -25,10 +26,12 @@ namespace E4Gamma{
     GLuint m_nVerts;
     
   public:
-    CGLMesh(SharedPtr<ISequenceReader> pSeq);
+    CGLMesh(const std::string& sMesh);
     virtual ~CGLMesh();
 
     virtual void RenderPose(IPose* pPose);
+    
+    static SharedPtr<IAssetLoader<CGLMesh>> createFactory();
   };
 }
 

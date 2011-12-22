@@ -8,8 +8,8 @@
 #include <string>
 
 #include <GL/GLTexture.h>
-#include <GL/GLShader.h>
-#include <Interfaces/Foundation/IDataStore.h>
+#include <GL/GLShaderProgram.h>
+#include <Interfaces/Foundation/IAssetLoader.h>
 
 namespace E4Gamma
 {
@@ -18,23 +18,17 @@ namespace E4Gamma
   class CGLMaterial: public IMaterial
   {
   private:
-    GLuint m_nProgram;
-    bool m_bProgramDirty;
-    
-    CGLRenderer* m_pRenderer; //weak pointer
     std::map<int, SharedPtr<CGLTexture>> m_glTextures;
-    std::map<int, SharedPtr<CGLShader>> m_glShaders;
+    SharedPtr<CGLShaderProgram> m_program;
     
   public:
-    CGLMaterial(CGLRenderer* pRenderer, SharedPtr<IDataStore> pDataStore, const std::string& sMaterial);
-    CGLMaterial(CGLRenderer* pRenderer);
-    
+    CGLMaterial(const std::string& sMaterial, SharedPtr<IAssetLoader<CGLShaderProgram>> programFactory, SharedPtr<IAssetLoader<CGLTexture>> textureFactory);
     virtual ~CGLMaterial();
-    void SetShader(GLuint nShaderID, const std::string& sShaderSrc);
-    void SetTexture(GLuint nTextureID, SharedPtr<ISequenceReader> pSequence);
     
     virtual void RenderSet();
     virtual void RenderReset();
+    
+    static SharedPtr<IAssetLoader<CGLMaterial>> createFactory(SharedPtr<IAssetLoader<CGLShaderProgram>> programFactory, SharedPtr<IAssetLoader<CGLTexture>> textureFactory);
   };
 }
 
