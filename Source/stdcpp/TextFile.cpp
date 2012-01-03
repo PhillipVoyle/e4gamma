@@ -70,7 +70,9 @@ namespace E4Gamma {
   
   bool CTextFile::ReadFloat(float& fValue)
   {
-    m_fStream >> fValue;
+    double d;
+    m_fStream >> d;
+    fValue = (float) d;
     return !m_fStream.fail();
   }
   

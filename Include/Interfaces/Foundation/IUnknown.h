@@ -14,8 +14,56 @@ namespace E4Gamma
   public:
     virtual unsigned Release() = 0;
     virtual void AddRef() = 0;
+    
+    virtual void PostConstruct() {}
+  };
+  
+  template<class T>
+  class Shareable: public IUnknown, public T
+  {
+  public:
+    
+    template<class... A>
+    Shareable(A... a):T(a...)
+    {
+    }
+    
+    Shareable():T()
+    {
+    }
+    
+    virtual ~Shareable() {}
   };
 
+  template<class T>
+  class AggregateImpl: public T
+  {
+    IUnknown* m_pEnclosing;
+  public:
+    
+    virtual ~AggregateImpl() {}
+    
+    template<class... A>
+    AggregateImpl(IUnknown* pEnclosing, A... a):m_pEnclosing(pEnclosing),T(a...)
+    {
+      T::PostConstruct();
+    }
+    
+    AggregateImpl(IUnknown* pEnclosing):m_pEnclosing(pEnclosing), T()
+    {
+    }
+    
+    unsigned Release()
+    {
+      return m_pEnclosing->Release();
+    }
+    
+    void AddRef()
+    {
+      m_pEnclosing->AddRef();
+    }
+  };
+  
   template<class T>
   class IUnknownImpl: public T
   {
@@ -36,6 +84,7 @@ namespace E4Gamma
     IUnknownImpl(): T()
     {
       m_nRefCount = 0;
+      T::PostConstruct();
     }
     
     unsigned Release()

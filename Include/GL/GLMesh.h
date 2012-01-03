@@ -25,13 +25,15 @@ namespace E4Gamma{
     GLuint m_vertexBuffer;
     GLuint m_nVerts;
     
+    SharedPtr<CGLRenderer> m_renderer;
+    
   public:
-    CGLMesh(const std::string& sMesh);
+    CGLMesh(SharedPtr<CGLRenderer> renderer, const std::string& sMesh);
     virtual ~CGLMesh();
 
     virtual void RenderPose(IPose* pPose);
     
-    static SharedPtr<IAssetLoader<CGLMesh>> createFactory();
+    static SharedPtr<IAssetLoader<CGLMesh>> createFactory(SharedPtr<CGLRenderer> renderer);
   };
 }
 

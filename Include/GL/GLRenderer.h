@@ -28,9 +28,20 @@ namespace E4Gamma
     SharedPtr<IAssetLoader<CGLMaterial>>      m_materialCache;
     SharedPtr<IAssetLoader<CGLMesh>>          m_meshCache;
     SharedPtr<IAssetLoader<CGLModel>>         m_modelCache;
+    
+    Matrix4 m_model;
+    Matrix4 m_view;
+    Matrix4 m_projection;
+        
   public:
+  
+    void SetModelMatrix(const Matrix4& model);
+    void SetViewMatrix(const Matrix4& view);
+    void SetProjectionMatrix(const Matrix4& projection);
+  
     CGLRenderer();
     virtual ~CGLRenderer();
+    void PostConstruct();
     
     SharedPtr<CGLShader>        LoadShader(const std::string& sShader, GLuint nShaderStage);
     
@@ -43,6 +54,8 @@ namespace E4Gamma
     
     //high level 
     SharedPtr<IModel>           LoadModel(const std::string& sModel);
+    
+    SharedPtr<ICamera>          CreateCamera(float aspect, float znear, float zfar, float fovy);
     
     void BeginScene();
     void Present();

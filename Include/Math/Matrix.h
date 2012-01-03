@@ -9,9 +9,46 @@
 
 #ifndef __MATRIX_H
 #define __MATRIX_H
-
-class Matrix
+namespace E4Gamma
 {
-};
+  struct Quaternion;
+  struct Vector;
+  
+  struct Matrix4
+  {
+    float _rx, _ry, _rz, _rw; //right
+    float _ux, _uy, _uz, _uw; //up
+    float _fx, _fy, _fz, _fw; //forward
+    float _tx, _ty, _tz, _tw; //translate
 
+    Matrix4();
+    Matrix4(
+    float rx, float ry, float rz, float rw,
+    float ux, float uy, float uz, float uw,
+    float fx, float fy, float fz, float fw,
+    float tx, float ty, float tz, float tw);
+    
+    Matrix4(const Vector& position, const Quaternion& orientation);
+    Matrix4(const Matrix4& matrix);
+      
+    void GetPosition(Vector& vPosition) const;
+    void SetPosition(const Vector& vPosition);
+    void TranslateWorld(const Vector& vDisplacement);
+    void TranslateLocal(const Vector& vDisplacement);
+    
+    void GetOrientation(Quaternion&q) const;
+    void SetOrientation(const Quaternion&q);
+    
+    Matrix4 Inverse() const;
+    
+    static Matrix4 Transform(const Matrix4& world, const Matrix4& local);
+    
+    void GetUpVector(const Vector&up) const;
+    void GetDownVector(const Vector&down) const;
+    void GetLeftVector(const Vector&left) const;
+    void GetRightVector(const Vector&right) const;
+    void GetForwardVector(const Vector& forward) const;
+    void GetBackVector(const Vector&back) const;
+  };
+}
 #endif//__MATRIX_H

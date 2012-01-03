@@ -5,12 +5,15 @@
 #include <OpenGL/gl.h>
 #include <OpenGL/OpenGL.h>
 #include <stdcpp/FileSystemDataStore.h>
+#include <GL/GLRenderer.h>
 using namespace std;
 
 namespace E4Gamma
 {
-  CGLMesh::CGLMesh(const std::string &sMeshFile):m_vertexBuffer(0), m_nVerts(0)
+  CGLMesh::CGLMesh(SharedPtr<CGLRenderer> renderer, const std::string &sMeshFile):m_vertexBuffer(0), m_nVerts(0)
   {
+    m_renderer = renderer;
+    
     string sMesh;
     CFileSystemDataStore ds;
     SharedPtr<ISequenceReader> pSeq = ds.OpenTextSequence(sMeshFile); //get this from somewhere
@@ -33,15 +36,30 @@ namespace E4Gamma
                    pSeq->ReadString(sPos) && (sPos == "pos") &&
                    pSeq->ReadFloat(pVerts[nVert].x) &&
                    pSeq->ReadFloat(pVerts[nVert].y) &&
-                   pSeq->ReadFloat(pVerts[nVert].z) &&
+                   pSeq->ReadFloat(pVerts[nVert].z)))
+                {
+                  cout << "Bad pos at vert " << nVert << endl;
+                  bFailed = true;
+                  break;
+                }
+                
+                if(!(
                    pSeq->ReadString(sNrm) && (sNrm == "nrm") &&
                    pSeq->ReadFloat(pVerts[nVert].nx) &&
                    pSeq->ReadFloat(pVerts[nVert].ny) &&
-                   pSeq->ReadFloat(pVerts[nVert].nz) &&
+                   pSeq->ReadFloat(pVerts[nVert].nz)))
+                {
+                  cout << "Bad nrm at vert " << nVert << endl;
+                  bFailed = true;
+                  break;
+                }                   
+                
+                if(!(
                    pSeq->ReadString(sUV) && (sUV == "uv") &&
                    pSeq->ReadFloat(pVerts[nVert].u) &&
                    pSeq->ReadFloat(pVerts[nVert].v)))
                 {
+                  cout << "Bad uv at vert " << nVert << endl;
                   bFailed = true;
                   break;
                 }
@@ -73,7 +91,7 @@ namespace E4Gamma
   }
   
   void CGLMesh::RenderPose(IPose* pPose)
-  {
+  {    
     glEnableClientState(GL_VERTEX_ARRAY);	 // Enable Vertex Arrays
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);	// Enable Texture Coord Arrays
     glEnableClientState(GL_NORMAL_ARRAY);
@@ -85,6 +103,8 @@ namespace E4Gamma
     glNormalPointer(GL_FLOAT, sizeof(MeshVertex), (GLvoid*)12);
     glTexCoordPointer(2, GL_FLOAT, sizeof(MeshVertex), (GLvoid*)24); 
     
+    Matrix4 modelMatrix;
+    m_renderer->SetModelMatrix(modelMatrix);
     glDrawArrays( GL_TRIANGLES, 0, m_nVerts ); //Draw the vertices 
     
     glDisableClientState(GL_VERTEX_ARRAY);
@@ -96,8 +116,9 @@ namespace E4Gamma
   
   class CGLMeshFactory: public IAssetLoader<CGLMesh>
   {
+    SharedPtr<CGLRenderer> m_renderer;
   public:
-    CGLMeshFactory()
+    CGLMeshFactory(SharedPtr<CGLRenderer> renderer):m_renderer(renderer)
     {
     }
     
@@ -105,12 +126,12 @@ namespace E4Gamma
     
     SharedPtr<CGLMesh> LoadAsset(const std::string& sAsset)
     {
-      return new IUnknownImpl<CGLMesh>(sAsset);
+      return new IUnknownImpl<CGLMesh>(m_renderer, sAsset);
     }
   };
   
-  SharedPtr<IAssetLoader<CGLMesh>> CGLMesh::createFactory()
+  SharedPtr<IAssetLoader<CGLMesh>> CGLMesh::createFactory(SharedPtr<CGLRenderer> renderer)
   {
-    return new IUnknownImpl<CGLMeshFactory>();
+    return new IUnknownImpl<CGLMeshFactory>(renderer);
   }
 }

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A20B5A89148B596800C3992A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A20B5A87148B596100C3992A /* main.cpp */; };
-		A216BCCE148B63E000EDE365 /* TestGLRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A216BCCD148B63E000EDE365 /* TestGLRenderer.cpp */; };
 		A216BCD1148B6AD900EDE365 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A216BCD0148B6AD900EDE365 /* GLUT.framework */; };
 		A216BCD3148B6AFA00EDE365 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A216BCD2148B6AFA00EDE365 /* OpenGL.framework */; };
 		A216BCD4148B6AFF00EDE365 /* libE4Ggl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A24CC858148AFBBD00DC07E8 /* libE4Ggl.a */; };
@@ -31,6 +30,18 @@
 		A27827E4148DEE07001AB506 /* GLTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A27827DE148DEE07001AB506 /* GLTexture.cpp */; };
 		A2A6004814A07BD7007E0139 /* GLShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2A6004714A07BD7007E0139 /* GLShaderProgram.cpp */; };
 		A2A6004B14A080F0007E0139 /* TAssetCache.h in Headers */ = {isa = PBXBuildFile; fileRef = A2A6004A14A080F0007E0139 /* TAssetCache.h */; };
+		A2DD466114B01C94002822A0 /* TestGLRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2DD465E14B01BBB002822A0 /* TestGLRenderer.cpp */; };
+		A2DEA69B14A466D5005CD56F /* ICamera.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DEA69A14A466D5005CD56F /* ICamera.h */; };
+		A2DEA6A314A46798005CD56F /* Matrix.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DEA6A014A46798005CD56F /* Matrix.h */; };
+		A2DEA6A414A46798005CD56F /* Quaternion.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DEA6A114A46798005CD56F /* Quaternion.h */; };
+		A2DEA6A514A46798005CD56F /* Vector.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DEA6A214A46798005CD56F /* Vector.h */; };
+		A2DEA6A914A46B32005CD56F /* GLCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DEA6A814A46B32005CD56F /* GLCamera.h */; };
+		A2DEA6AB14A46C2B005CD56F /* GLCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2DEA6AA14A46C2B005CD56F /* GLCamera.cpp */; };
+		A2DEA6AD14A46F8F005CD56F /* Frame.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DEA6AC14A46F8F005CD56F /* Frame.h */; };
+		A2F800CE14AC01B000AD78B7 /* Frame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2F800CC14AC010400AD78B7 /* Frame.cpp */; };
+		A2F800D614AC0D9A00AD78B7 /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2F800D014AC02B500AD78B7 /* Matrix.cpp */; };
+		A2F800D714AC0DA300AD78B7 /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2F800D114AC02B500AD78B7 /* Quaternion.cpp */; };
+		A2F800D814AC0DA700AD78B7 /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2F800D214AC02B500AD78B7 /* Vector.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,7 +73,6 @@
 		A216BCB7148B5E0E00EDE365 /* ITableReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITableReader.h; sourceTree = "<group>"; };
 		A216BCB8148B5E0E00EDE365 /* IUnknown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUnknown.h; sourceTree = "<group>"; };
 		A216BCC3148B63AC00EDE365 /* GLTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GLTest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A216BCCD148B63E000EDE365 /* TestGLRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestGLRenderer.cpp; sourceTree = "<group>"; };
 		A216BCD0148B6AD900EDE365 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = SDKs/MacOSX10.7.sdk/System/Library/Frameworks/GLUT.framework; sourceTree = DEVELOPER_DIR; };
 		A216BCD2148B6AFA00EDE365 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
 		A216BCD6148B6B6900EDE365 /* FileSystemDataStore.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FileSystemDataStore.cpp; sourceTree = "<group>"; };
@@ -104,6 +114,21 @@
 		A2A6004714A07BD7007E0139 /* GLShaderProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLShaderProgram.cpp; sourceTree = "<group>"; };
 		A2A6004914A07FCF007E0139 /* IAssetLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAssetLoader.h; sourceTree = "<group>"; };
 		A2A6004A14A080F0007E0139 /* TAssetCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAssetCache.h; sourceTree = "<group>"; };
+		A2DD465E14B01BBB002822A0 /* TestGLRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestGLRenderer.cpp; sourceTree = "<group>"; };
+		A2DEA69A14A466D5005CD56F /* ICamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICamera.h; sourceTree = "<group>"; };
+		A2DEA69D14A46751005CD56F /* IFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFrame.h; sourceTree = "<group>"; };
+		A2DEA6A014A46798005CD56F /* Matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix.h; sourceTree = "<group>"; };
+		A2DEA6A114A46798005CD56F /* Quaternion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quaternion.h; sourceTree = "<group>"; };
+		A2DEA6A214A46798005CD56F /* Vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
+		A2DEA6A814A46B32005CD56F /* GLCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLCamera.h; path = Include/GL/GLCamera.h; sourceTree = "<group>"; };
+		A2DEA6AA14A46C2B005CD56F /* GLCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLCamera.cpp; sourceTree = "<group>"; };
+		A2DEA6AC14A46F8F005CD56F /* Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Frame.h; sourceTree = "<group>"; };
+		A2F800BA14A85BF400AD78B7 /* static_mesh_export.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = static_mesh_export.py; sourceTree = "<group>"; };
+		A2F800CA14ABF91800AD78B7 /* x.mesh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = x.mesh; sourceTree = "<group>"; };
+		A2F800CC14AC010400AD78B7 /* Frame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Frame.cpp; sourceTree = "<group>"; };
+		A2F800D014AC02B500AD78B7 /* Matrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix.cpp; sourceTree = "<group>"; };
+		A2F800D114AC02B500AD78B7 /* Quaternion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Quaternion.cpp; sourceTree = "<group>"; };
+		A2F800D214AC02B500AD78B7 /* Vector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +170,7 @@
 		A20B5A77148B574B00C3992A /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				A2F800CF14AC02B500AD78B7 /* Math */,
 				A216BCD5148B6B4500EDE365 /* stdcpp */,
 				A24CC868148AFC0F00DC07E8 /* GL */,
 			);
@@ -171,12 +197,13 @@
 		A216BCB4148B5E0E00EDE365 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				A2A6004914A07FCF007E0139 /* IAssetLoader.h */,
 				A216BCB5148B5E0E00EDE365 /* IDataStore.h */,
 				A216BCB6148B5E0E00EDE365 /* ISequenceReader.h */,
 				A216BCB7148B5E0E00EDE365 /* ITableReader.h */,
 				A216BCB8148B5E0E00EDE365 /* IUnknown.h */,
-				A2A6004914A07FCF007E0139 /* IAssetLoader.h */,
 				A2A6004A14A080F0007E0139 /* TAssetCache.h */,
+				A2DEA69D14A46751005CD56F /* IFrame.h */,
 			);
 			name = Foundation;
 			path = Include/Interfaces/Foundation;
@@ -185,7 +212,7 @@
 		A216BCBE148B62CB00EDE365 /* GLRenderer */ = {
 			isa = PBXGroup;
 			children = (
-				A216BCCD148B63E000EDE365 /* TestGLRenderer.cpp */,
+				A2DD465E14B01BBB002822A0 /* TestGLRenderer.cpp */,
 			);
 			path = GLRenderer;
 			sourceTree = "<group>";
@@ -206,6 +233,7 @@
 				A216BCD7148B6B6900EDE365 /* FlatFile.cpp */,
 				A216BCD8148B6B6900EDE365 /* Iris.cpp */,
 				A26B5818149DC313003090A2 /* TextFile.cpp */,
+				A2F800CC14AC010400AD78B7 /* Frame.cpp */,
 			);
 			name = stdcpp;
 			path = Source/stdcpp;
@@ -218,6 +246,7 @@
 				A216BCE6148B6CAC00EDE365 /* FlatFile.h */,
 				A216BCE7148B6CAC00EDE365 /* Iris.h */,
 				A26B5817149DC2EF003090A2 /* TextFile.h */,
+				A2DEA6AC14A46F8F005CD56F /* Frame.h */,
 			);
 			name = stdcpp;
 			path = Include/stdcpp;
@@ -245,6 +274,7 @@
 				A27827DD148DEE07001AB506 /* GLShader.cpp */,
 				A27827DE148DEE07001AB506 /* GLTexture.cpp */,
 				A2A6004714A07BD7007E0139 /* GLShaderProgram.cpp */,
+				A2DEA6AA14A46C2B005CD56F /* GLCamera.cpp */,
 			);
 			name = GL;
 			path = Source/GL;
@@ -264,6 +294,7 @@
 		A24CC86B148AFC4400DC07E8 /* Include */ = {
 			isa = PBXGroup;
 			children = (
+				A2DEA69F14A46798005CD56F /* Math */,
 				A216BCE4148B6C8700EDE365 /* stdcpp */,
 				A24CC87B148AFC9700DC07E8 /* Interfaces */,
 				A24CC86C148AFC5E00DC07E8 /* GL */,
@@ -283,6 +314,7 @@
 				A24CC872148AFC8100DC07E8 /* GLShader.h */,
 				A24CC873148AFC8100DC07E8 /* GLTexture.h */,
 				A2A6004614A07A30007E0139 /* GLShaderProgram.h */,
+				A2DEA6A814A46B32005CD56F /* GLCamera.h */,
 			);
 			name = GL;
 			sourceTree = "<group>";
@@ -299,6 +331,7 @@
 		A26B581B149DC6B5003090A2 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				A2F800B714A85BAD00AD78B7 /* Scripts */,
 				A2A6003C14A0762B007E0139 /* Models */,
 				A2A6003914A074DC007E0139 /* Materials */,
 				A26B5839149DC706003090A2 /* Meshes */,
@@ -329,6 +362,7 @@
 		A26B5839149DC706003090A2 /* Meshes */ = {
 			isa = PBXGroup;
 			children = (
+				A2F800CA14ABF91800AD78B7 /* x.mesh */,
 				A26B583A149DC739003090A2 /* test.mesh */,
 			);
 			path = Meshes;
@@ -341,6 +375,7 @@
 				A26F6B87148C9C32003C1F9F /* IMesh.h */,
 				A26F6B88148C9C32003C1F9F /* IModel.h */,
 				A26F6B89148C9C32003C1F9F /* IRenderer.h */,
+				A2DEA69A14A466D5005CD56F /* ICamera.h */,
 			);
 			name = Renderer;
 			path = Include/Interfaces/Renderer;
@@ -362,6 +397,44 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		A2DEA69F14A46798005CD56F /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				A2DEA6A014A46798005CD56F /* Matrix.h */,
+				A2DEA6A114A46798005CD56F /* Quaternion.h */,
+				A2DEA6A214A46798005CD56F /* Vector.h */,
+			);
+			name = Math;
+			path = Include/Math;
+			sourceTree = "<group>";
+		};
+		A2F800B714A85BAD00AD78B7 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				A2F800B814A85BAD00AD78B7 /* blender */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
+		A2F800B814A85BAD00AD78B7 /* blender */ = {
+			isa = PBXGroup;
+			children = (
+				A2F800BA14A85BF400AD78B7 /* static_mesh_export.py */,
+			);
+			path = blender;
+			sourceTree = "<group>";
+		};
+		A2F800CF14AC02B500AD78B7 /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				A2F800D014AC02B500AD78B7 /* Matrix.cpp */,
+				A2F800D114AC02B500AD78B7 /* Quaternion.cpp */,
+				A2F800D214AC02B500AD78B7 /* Vector.cpp */,
+			);
+			name = Math;
+			path = Source/Math;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -381,6 +454,12 @@
 				A26F6B8D148C9C32003C1F9F /* IRenderer.h in Headers */,
 				A26B5815149D4B4E003090A2 /* GLSkinnedMesh.h in Headers */,
 				A2A6004B14A080F0007E0139 /* TAssetCache.h in Headers */,
+				A2DEA69B14A466D5005CD56F /* ICamera.h in Headers */,
+				A2DEA6A314A46798005CD56F /* Matrix.h in Headers */,
+				A2DEA6A414A46798005CD56F /* Quaternion.h in Headers */,
+				A2DEA6A514A46798005CD56F /* Vector.h in Headers */,
+				A2DEA6A914A46B32005CD56F /* GLCamera.h in Headers */,
+				A2DEA6AD14A46F8F005CD56F /* Frame.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,7 +575,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A216BCCE148B63E000EDE365 /* TestGLRenderer.cpp in Sources */,
+				A2DD466114B01C94002822A0 /* TestGLRenderer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +587,10 @@
 				A216BCE2148B6BA200EDE365 /* FlatFile.cpp in Sources */,
 				A216BCE3148B6BA200EDE365 /* Iris.cpp in Sources */,
 				A26B581A149DC3AF003090A2 /* TextFile.cpp in Sources */,
+				A2F800CE14AC01B000AD78B7 /* Frame.cpp in Sources */,
+				A2F800D614AC0D9A00AD78B7 /* Matrix.cpp in Sources */,
+				A2F800D714AC0DA300AD78B7 /* Quaternion.cpp in Sources */,
+				A2F800D814AC0DA700AD78B7 /* Vector.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +607,7 @@
 				A26B5837149DC6D7003090A2 /* test.fsh in Sources */,
 				A26B5838149DC6D7003090A2 /* test.vsh in Sources */,
 				A2A6004814A07BD7007E0139 /* GLShaderProgram.cpp in Sources */,
+				A2DEA6AB14A46C2B005CD56F /* GLCamera.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
