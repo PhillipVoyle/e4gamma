@@ -60,7 +60,8 @@ namespace E4Gamma
       return Quaternion(s, -v);
     }
     
-    static Quaternion Rotate(const Quaternion& qWorld, const Quaternion& qLocal);
+    static Quaternion Transform(const Quaternion& qWorld, const Quaternion& qLocal);
+    static Vector Transform(const Quaternion& qWorld, const Vector& vLocal);
     
     void ToMatrix4(Matrix4& matrix);
     
@@ -79,10 +80,5 @@ namespace E4Gamma
   Quaternion operator+(const Quaternion&q1, const Quaternion& q2);
   Quaternion operator-(const Quaternion&q1, const Quaternion& q2);
 
-
-  inline Vector RotateV(const Vector& v, const Quaternion& q)
-  {
-    return (q * v * ~q).v;
-  }
 }
 #endif//__QUATERNION_H

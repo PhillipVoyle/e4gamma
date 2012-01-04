@@ -16,9 +16,10 @@ namespace E4Gamma {
   Quaternion operator*(const Quaternion& q1, const Quaternion& q2)
   {
     return Quaternion(
-                      q1.s * q2.s - Dot(q1.v, q2.v),
-                      q1.s * q2.v + q2.s * q1.v + Cross(q1.v, q2.v)
-                      );
+      q1.s * q2.s - q1.v.x * q2.v.x - q1.v.y * q2.v.y - q1.v.z * q2.v.z,
+      q1.s * q2.v.x + q1.v.x * q2.s + q1.v.y * q2.v.z - q1.v.z * q2.v.y,
+      q1.s * q2.v.y + q1.v.y * q2.s + q1.v.z * q2.v.x - q1.v.x * q2.v.z,
+      q1.s * q2.v.z + q1.v.z * q2.s + q1.v.x * q2.v.y - q1.v.y * q2.v.x);
   }
 
   Quaternion operator*(const Quaternion& q, float f)
@@ -59,16 +60,18 @@ namespace E4Gamma {
       q.s * v.z + q.v.y * v.x - q.v.x * v.y);
   }
   
-  Quaternion Quaternion::Rotate(const Quaternion& qWorld, const Quaternion& qLocal)
+  Quaternion Quaternion::Transform(const Quaternion& qLocal, const Quaternion& qWorld)
   {
-    Quaternion opFirst = qWorld * qLocal;
-    Quaternion opSecond = ~(qWorld);
-    Quaternion opThird = opFirst * opSecond;
+    return qLocal * qWorld;
+  }
   
-    return opFirst;
+  Vector Quaternion::Transform(const Quaternion& qWorld, const Vector& vLocal)
+  {
+    return (~qWorld * vLocal * qWorld).v;
   }
   
   Quaternion Quaternion::FromAxisAngle(const Vector& vAxis, float fAngle)
   {
+    return Quaternion();
   }
 }

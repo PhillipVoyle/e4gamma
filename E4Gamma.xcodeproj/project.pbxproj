@@ -31,6 +31,8 @@
 		A2A6004814A07BD7007E0139 /* GLShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2A6004714A07BD7007E0139 /* GLShaderProgram.cpp */; };
 		A2A6004B14A080F0007E0139 /* TAssetCache.h in Headers */ = {isa = PBXBuildFile; fileRef = A2A6004A14A080F0007E0139 /* TAssetCache.h */; };
 		A2DD466114B01C94002822A0 /* TestGLRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2DD465E14B01BBB002822A0 /* TestGLRenderer.cpp */; };
+		A2DD467914B43143002822A0 /* MathTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2DD466914B430F6002822A0 /* MathTest.cpp */; };
+		A2DD467A14B43359002822A0 /* libE4Gcpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A216BCDD148B6B9100EDE365 /* libE4Gcpp.a */; };
 		A2DEA69B14A466D5005CD56F /* ICamera.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DEA69A14A466D5005CD56F /* ICamera.h */; };
 		A2DEA6A314A46798005CD56F /* Matrix.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DEA6A014A46798005CD56F /* Matrix.h */; };
 		A2DEA6A414A46798005CD56F /* Quaternion.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DEA6A114A46798005CD56F /* Quaternion.h */; };
@@ -55,6 +57,15 @@
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 		A216BCC1148B63AC00EDE365 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		A2DD466D14B43123002822A0 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -115,6 +126,8 @@
 		A2A6004914A07FCF007E0139 /* IAssetLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAssetLoader.h; sourceTree = "<group>"; };
 		A2A6004A14A080F0007E0139 /* TAssetCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAssetCache.h; sourceTree = "<group>"; };
 		A2DD465E14B01BBB002822A0 /* TestGLRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestGLRenderer.cpp; sourceTree = "<group>"; };
+		A2DD466914B430F6002822A0 /* MathTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MathTest.cpp; sourceTree = "<group>"; };
+		A2DD466F14B43123002822A0 /* MathTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MathTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2DEA69A14A466D5005CD56F /* ICamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICamera.h; sourceTree = "<group>"; };
 		A2DEA69D14A46751005CD56F /* IFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFrame.h; sourceTree = "<group>"; };
 		A2DEA6A014A46798005CD56F /* Matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix.h; sourceTree = "<group>"; };
@@ -164,6 +177,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A2DD466C14B43123002822A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2DD467A14B43359002822A0 /* libE4Gcpp.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -180,6 +201,7 @@
 		A20B5A78148B578B00C3992A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				A2DD466814B430E3002822A0 /* Math */,
 				A216BCBE148B62CB00EDE365 /* GLRenderer */,
 				A20B5A7F148B57BC00C3992A /* Unk */,
 			);
@@ -261,6 +283,7 @@
 				A24CC869148AFC2700DC07E8 /* Out */,
 				A20B5A77148B574B00C3992A /* Source */,
 				A24CC86B148AFC4400DC07E8 /* Include */,
+				A2DD466F14B43123002822A0 /* MathTest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -395,6 +418,14 @@
 				A2A6003D14A0763F007E0139 /* test.model */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A2DD466814B430E3002822A0 /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				A2DD466914B430F6002822A0 /* MathTest.cpp */,
+			);
+			path = Math;
 			sourceTree = "<group>";
 		};
 		A2DEA69F14A46798005CD56F /* Math */ = {
@@ -534,6 +565,23 @@
 			productReference = A24CC858148AFBBD00DC07E8 /* libE4Ggl.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		A2DD466E14B43123002822A0 /* MathTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2DD467614B43124002822A0 /* Build configuration list for PBXNativeTarget "MathTest" */;
+			buildPhases = (
+				A2DD466B14B43123002822A0 /* Sources */,
+				A2DD466C14B43123002822A0 /* Frameworks */,
+				A2DD466D14B43123002822A0 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MathTest;
+			productName = MathTest;
+			productReference = A2DD466F14B43123002822A0 /* MathTest */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -558,6 +606,7 @@
 				A20B5A7C148B57BB00C3992A /* Unk */,
 				A216BCC2148B63AC00EDE365 /* GLTest */,
 				A216BCDC148B6B9100EDE365 /* E4Gcpp */,
+				A2DD466E14B43123002822A0 /* MathTest */,
 			);
 		};
 /* End PBXProject section */
@@ -611,6 +660,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A2DD466B14B43123002822A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2DD467914B43143002822A0 /* MathTest.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
@@ -634,7 +691,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Include";
+				HEADER_SEARCH_PATHS = Include;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -656,7 +713,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Include";
+				HEADER_SEARCH_PATHS = Include;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -684,8 +741,8 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Include";
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Lib";
+				HEADER_SEARCH_PATHS = Include;
+				LIBRARY_SEARCH_PATHS = Lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				PRELINK_LIBS = "";
@@ -709,8 +766,8 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Include";
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Lib";
+				HEADER_SEARCH_PATHS = Include;
+				LIBRARY_SEARCH_PATHS = Lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRELINK_LIBS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -739,7 +796,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Include";
+				HEADER_SEARCH_PATHS = Include;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -762,7 +819,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Include";
+				HEADER_SEARCH_PATHS = Include;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -775,6 +832,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CONFIGURATION_TEMP_DIR = "Object/$(CONFIGURATION)";
+				HEADER_SEARCH_PATHS = Include;
+				LIBRARY_SEARCH_PATHS = Lib;
 				OBJROOT = Object;
 				SYMROOT = Lib/Debug;
 			};
@@ -786,6 +845,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CONFIGURATION_TEMP_DIR = Object/Debug;
+				HEADER_SEARCH_PATHS = Include;
+				LIBRARY_SEARCH_PATHS = Lib;
 				OBJROOT = Object;
 				SYMROOT = Lib;
 			};
@@ -808,6 +869,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
@@ -834,6 +896,7 @@
 				EXECUTABLE_PREFIX = lib;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
@@ -845,6 +908,53 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		A2DD467714B43124002822A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A2DD467814B43124002822A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -895,6 +1005,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		A2DD467614B43124002822A0 /* Build configuration list for PBXNativeTarget "MathTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2DD467714B43124002822A0 /* Debug */,
+				A2DD467814B43124002822A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

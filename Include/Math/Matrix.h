@@ -31,17 +31,18 @@ namespace E4Gamma
     Matrix4(const Vector& position, const Quaternion& orientation);
     Matrix4(const Matrix4& matrix);
       
-    void GetPosition(Vector& vPosition) const;
+    Vector GetPosition() const;
     void SetPosition(const Vector& vPosition);
     void TranslateWorld(const Vector& vDisplacement);
     void TranslateLocal(const Vector& vDisplacement);
     
-    void GetOrientation(Quaternion&q) const;
+    Quaternion GetOrientation() const;
     void SetOrientation(const Quaternion&q);
     
     Matrix4 Inverse() const;
     
     static Matrix4 Transform(const Matrix4& world, const Matrix4& local);
+    static Vector Transform(const Matrix4& w, const Vector& v);
     
     void GetUpVector(const Vector&up) const;
     void GetDownVector(const Vector&down) const;

@@ -105,14 +105,7 @@ namespace E4Gamma
     m_model = matrix;
     
     Matrix4 m = Matrix4::Transform(m_view, m_model); 
-  
-    /*
-    float matrixSet[] = {
-      m._rx, m._ux, m._fx, m._tx,
-      m._ry, m._uy, m._fy, m._ty,
-      m._rz, m._uz, m._fz, m._tz,
-      m._rw, m._uw, m._fw, m._tw};*/
-    
+   
     glMatrixMode(GL_MODELVIEW);
     glLoadMatrixf((float*)&m);
   }

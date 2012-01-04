@@ -108,11 +108,9 @@ namespace E4Gamma {
     _tw = 1.0f;
   }
   
-  void Matrix4::GetPosition(Vector &vPosition) const
+  Vector Matrix4::GetPosition() const
   {
-    vPosition.x = _tx;
-    vPosition.y = _ty;
-    vPosition.z = _tz;
+    return Vector(_tx, _ty, _tz);
   }
   
   void Matrix4::SetPosition(const Vector& vPosition)
@@ -123,14 +121,15 @@ namespace E4Gamma {
     _tw = 1.0f;
   }
   
-  void Matrix4::GetOrientation(Quaternion& qOrientation) const
+  Quaternion Matrix4::GetOrientation() const
   {
-    float qw = sqrtf(1 + _rx + _uy + _fz) * 0.5;
-    float invqw4 = 1.0f / (4 * qw);
-    qOrientation.s = qw;
-    qOrientation.v.x = (_fy - _uz) * invqw4;
-    qOrientation.v.y = (_rz - _fx) * invqw4;
-    qOrientation.v.z = (_ux - _ry) * invqw4;
+    float qw = sqrtf(1.0f + _rx + _uy + _fz) * 0.5;
+    float invqw4 = 1.0f / (4.0f * qw);
+    return Quaternion(
+      qw,
+      (_fy - _uz) * invqw4,
+      (_rz - _fx) * invqw4,
+      (_ux - _ry) * invqw4);
   }
   
   void Matrix4::SetOrientation(const Quaternion& q)
@@ -148,7 +147,13 @@ namespace E4Gamma {
     _fz = 1.0f - 2.0f * q.v.x * q.v.x - 2.0f * q.v.y * q.v.y; 
   }
   
-  
+  Vector Matrix4::Transform(const Matrix4& w, const Vector& v)
+  {
+    return Vector(
+      w._rx * v.x + w._ux * v.y + w._fx * v.z + w._tx,
+      w._ry * v.x + w._uy * v.y + w._fy * v.z + w._ty,
+      w._rz * v.x + w._uz * v.y + w._fz * v.z + w._tz);
+  }
   
   Matrix4 Matrix4::Transform(const Matrix4& w /*world*/, const Matrix4& l /*local*/)
   {

@@ -21,6 +21,11 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>MathTest.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>Unk.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -65,6 +70,11 @@
 			<true/>
 		</dict>
 		<key>A24CC857148AFBBD00DC07E8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A2DD466E14B43123002822A0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

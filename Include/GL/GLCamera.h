@@ -19,7 +19,7 @@ namespace E4Gamma
   class CGLCamera: public ICamera
   {
     SharedPtr<CGLRenderer> m_renderer;
-    AggregateImpl<CMatrix4Frame> m_frame;
+    AggregateImpl<CRotPosFrame> m_frame;
     
     
     Matrix4 m_projMat;

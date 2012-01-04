@@ -65,13 +65,41 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Source/stdcpp/Frame.cpp"
-         timestampString = "347251241.138231"
+         timestampString = "347359142.162154"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "137"
-         endingLineNumber = "137"
+         startingLineNumber = "127"
+         endingLineNumber = "127"
          landmarkName = "CRotPosFrame::TransformLocal(const Matrix4&amp; mTransform)"
          landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Tests/Math/MathTest.cpp"
+         timestampString = "347359142.162154"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "36"
+         endingLineNumber = "36"
+         landmarkName = "check_pos(Matrix4 mat1, Vector v)"
+         landmarkType = "7">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Tests/Math/MathTest.cpp"
+         timestampString = "347359142.162154"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "30"
+         endingLineNumber = "30"
+         landmarkName = "check_rot(Matrix4 mat1, Matrix4 mat2)"
+         landmarkType = "7">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
