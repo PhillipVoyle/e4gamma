@@ -8,7 +8,7 @@
 
 namespace E4Gamma{
   
-  class CGLRenderer;
+  class CGLRenderContext;
   class IDataStore;
   class ISequenceReader;
   
@@ -25,15 +25,15 @@ namespace E4Gamma{
     GLuint m_vertexBuffer;
     GLuint m_nVerts;
     
-    SharedPtr<CGLRenderer> m_renderer;
+    SharedPtr<CGLRenderContext> m_renderContext;
     
   public:
-    CGLMesh(SharedPtr<CGLRenderer> renderer, const std::string& sMesh);
+    CGLMesh(SharedPtr<CGLRenderContext> renderContext, const std::string& sMesh);
     virtual ~CGLMesh();
 
     virtual void RenderPose(IPose* pPose);
     
-    static SharedPtr<IAssetLoader<CGLMesh>> createFactory(SharedPtr<CGLRenderer> renderer);
+    static SharedPtr<IAssetLoader<CGLMesh>> createFactory(SharedPtr<CGLRenderContext> rendercontext);
   };
 }
 

@@ -7,16 +7,16 @@
 //
 
 #include <GL/GLCamera.h>
-#include <GL/GLRenderer.h>
+#include <GL/GLRenderContext.h>
 
 #include <OpenGL/gl.h>
 #include <math.h>
 
 namespace E4Gamma {
 
-  CGLCamera::CGLCamera(SharedPtr<CGLRenderer> renderer, float fAspect, float znear, float zfar, float fovy):
+  CGLCamera::CGLCamera(SharedPtr<CGLRenderContext> renderContext, float fAspect, float znear, float zfar, float fovy):
     m_frame(this),
-    m_renderer(renderer),
+    m_renderContext(renderContext),
     m_projMat(ProjectionMatrix(fAspect, znear, zfar, fovy))
   {
   }
@@ -52,10 +52,7 @@ namespace E4Gamma {
   
   void CGLCamera::Select()
   {
-    Matrix4 cameraMatrix;
-    m_frame.GetTransform(cameraMatrix);
-    
-    m_renderer->SetViewMatrix(cameraMatrix.Inverse());
-    m_renderer->SetProjectionMatrix(m_projMat);
+    m_renderContext->m_view = m_frame.GetTransform().Inverse();
+    m_renderContext->m_projection = m_projMat;
   }
 }

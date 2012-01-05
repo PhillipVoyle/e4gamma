@@ -1,6 +1,9 @@
 
 #include <GL/GLRenderer.h>
 #include <Interfaces/Renderer/IModel.h>
+#include <Interfaces/Renderer/ICamera.h>
+#include <Interfaces/Foundation/IFrame.h>
+#include <Interfaces/Renderer/ILight.h>
 
 #include <Interfaces/Foundation/ISequenceReader.h>
 
@@ -19,19 +22,14 @@ void cleanup();
 SharedPtr<CGLRenderer> g_pRenderer = nullptr;
 SharedPtr<IModel> g_pModel = nullptr;
 SharedPtr<ICamera> g_pCamera = nullptr;
-
-int g_nProgram = 0;
-int g_nVertexShader = 0;
-int g_nFragmentShader = 0;
-
-GLuint g_vertices = 0;
-GLuint g_texcoords = 0;
+SharedPtr<ILight> g_pLight = nullptr;
 
 void init()
 {
   glEnable(GL_TEXTURE_2D);
   glEnable(GL_BLEND);
   glEnable(GL_DEPTH_TEST);
+  glEnable(GL_LIGHTING);
   glDepthFunc(GL_LEQUAL);
   
   g_pRenderer = new IUnknownImpl<CGLRenderer>();
@@ -45,6 +43,12 @@ void init()
   g_pCamera = g_pRenderer->CreateCamera(aspect, znear, zfar, fovy);
   SharedPtr<IFrame> pFrame = g_pCamera->GetFrame();
   pFrame->SetPosition(Vector(0.0f, 0.0f, -10.0f));
+  pFrame = nullptr;
+  
+  g_pLight = g_pRenderer->CreateLight();
+  pFrame = g_pLight->GetFrame();
+  pFrame->SetPosition(Vector(5.0f, 5.0f, -5.0f));
+  pFrame = nullptr;
 }
 
 void display()
@@ -61,8 +65,10 @@ void display()
     0, 1, 0, 0,
     -fsintheta, 0, fcostheta, 0,
     0, 0, 0, 1));
-  
+    
+  g_pLight->Select();  
   g_pCamera->Select();
+  
   g_pModel->RenderPose(nullptr);
   g_pRenderer->Present();
   
@@ -71,11 +77,10 @@ void display()
 
 void cleanup()
 {
+  g_pLight = nullptr;
+  g_pCamera = nullptr;
   g_pModel = nullptr;
   g_pRenderer = nullptr;
-  
-  glDeleteBuffers(GL_ARRAY_BUFFER, &g_vertices);
-  glDeleteBuffers(GL_ARRAY_BUFFER, &g_texcoords);
 }
 
 int main(int argc, char** argv)

@@ -4,21 +4,26 @@
 #include <Interfaces/Renderer/IRenderer.h>
 #include <OpenGL/gl.h>
 
-#include <GL/GLShader.h>
-#include <GL/GLTexture.h>
-#include <GL/GLShaderProgram.h>
-#include <GL/GLMesh.h>
-#include <GL/GLMaterial.h>
-#include <GL/GLModel.h>
 
 #include <Interfaces/Foundation/IAssetLoader.h>
 
 namespace E4Gamma
 {
+  class CGLShader;
+  class CGLShaderProgram;
+  class CGLTexture;
+  class CGLMaterial;
+  class CGLMesh;
+  class CGLMaterial;
+  class CGLModel;
+  class CGLRenderContext;
+  
   class IMesh;
   class IMaterial;
   class IModel;
-  
+  class ICamera;
+  class ILight;
+
   class CGLRenderer: public IRenderer
   {
     SharedPtr<IAssetLoader<CGLShader>>        m_vshCache;
@@ -29,16 +34,9 @@ namespace E4Gamma
     SharedPtr<IAssetLoader<CGLMesh>>          m_meshCache;
     SharedPtr<IAssetLoader<CGLModel>>         m_modelCache;
     
-    Matrix4 m_model;
-    Matrix4 m_view;
-    Matrix4 m_projection;
-        
+    SharedPtr<CGLRenderContext>               m_renderContext;
   public:
-  
-    void SetModelMatrix(const Matrix4& model);
-    void SetViewMatrix(const Matrix4& view);
-    void SetProjectionMatrix(const Matrix4& projection);
-  
+ 
     CGLRenderer();
     virtual ~CGLRenderer();
     void PostConstruct();
@@ -56,6 +54,7 @@ namespace E4Gamma
     SharedPtr<IModel>           LoadModel(const std::string& sModel);
     
     SharedPtr<ICamera>          CreateCamera(float aspect, float znear, float zfar, float fovy);
+    SharedPtr<ILight>           CreateLight();
     
     void BeginScene();
     void Present();

@@ -3,13 +3,15 @@
 
 #include <string>
 #include <Interfaces/Foundation/IUnknown.h>
-#include <Interfaces/Renderer/IMesh.h>
-#include <Interfaces/Renderer/IMaterial.h>
-#include <Interfaces/Renderer/IModel.h>
-#include <Interfaces/Renderer/ICamera.h>
 
 namespace E4Gamma
 {
+  class IMesh;
+  class IMaterial;
+  class ICamera;
+  class ILight;
+  class IModel;
+  
   class IRenderer: public IUnknown
   {
   public:
@@ -23,6 +25,7 @@ namespace E4Gamma
     virtual SharedPtr<IModel> LoadModel(const std::string& sModel) = 0;
     
     virtual SharedPtr<ICamera> CreateCamera(float aspect, float znear, float zfar, float fovy) = 0;
+    virtual SharedPtr<ILight> CreateLight() = 0;
     
     virtual void BeginScene() = 0;
     virtual void Present() = 0;

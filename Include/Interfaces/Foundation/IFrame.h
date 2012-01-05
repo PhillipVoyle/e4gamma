@@ -19,9 +19,9 @@ namespace E4Gamma
   class IFrame: public IUnknown
   {
   public:
-    virtual void GetPosition(Vector& vPosition) = 0;
-    virtual void GetOrientation(Quaternion& qOrientation) = 0;
-    virtual void GetTransform(Matrix4& mTransform) = 0;
+    virtual Vector GetPosition() = 0;
+    virtual Quaternion GetOrientation() = 0;
+    virtual Matrix4 GetTransform() = 0;
     
     virtual void SetPosition(const Vector& vPosition) = 0;
     virtual void SetOrientation(const Quaternion& qOrientation) = 0;

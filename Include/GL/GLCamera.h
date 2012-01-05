@@ -15,10 +15,10 @@
 
 namespace E4Gamma
 {
-  class CGLRenderer;
+  class CGLRenderContext;
   class CGLCamera: public ICamera
   {
-    SharedPtr<CGLRenderer> m_renderer;
+    SharedPtr<CGLRenderContext> m_renderContext;
     AggregateImpl<CRotPosFrame> m_frame;
     
     
@@ -28,7 +28,7 @@ namespace E4Gamma
     static Matrix4 ProjectionMatrix(float fAspect, float znear, float zfar, float fov);
   
     //perspective
-    CGLCamera(SharedPtr<CGLRenderer> renderer, float fAspect, float znear, float zfar, float fovy);
+    CGLCamera(SharedPtr<CGLRenderContext> renderContext, float fAspect, float znear, float zfar, float fovy);
     virtual ~CGLCamera();
         
     SharedPtr<IFrame> GetFrame();

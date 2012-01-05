@@ -11,17 +11,17 @@
 
 namespace E4Gamma {
     
-    void CMatrix4Frame::GetPosition(Vector& vPosition)
+    Vector CMatrix4Frame::GetPosition()
     {
-      vPosition = m_transform.GetPosition();
+      return m_transform.GetPosition();
     }
-    void CMatrix4Frame::GetOrientation(Quaternion& qOrientation)
+    Quaternion CMatrix4Frame::GetOrientation()
     {
-      qOrientation = m_transform.GetOrientation();
+      return m_transform.GetOrientation();
     }
-    void CMatrix4Frame::GetTransform(Matrix4& mTransform)
+    Matrix4 CMatrix4Frame::GetTransform()
     {
-      mTransform = m_transform;
+      return m_transform;
     }
     
     void CMatrix4Frame::SetPosition(const Vector& vPosition)
@@ -65,17 +65,17 @@ namespace E4Gamma {
       m_transform = Matrix4::Transform(m_transform, mTransformLocal);
     }
     
-    void CRotPosFrame::GetPosition(Vector& vPosition)
+    Vector CRotPosFrame::GetPosition()
     {
-      vPosition = m_position;
+      return m_position;
     }
-    void CRotPosFrame::GetOrientation(Quaternion& qOrientation)
+    Quaternion CRotPosFrame::GetOrientation()
     {
-      qOrientation = m_orientation;
+      return m_orientation;
     }
-    void CRotPosFrame::GetTransform(Matrix4& mTransform)
+    Matrix4 CRotPosFrame::GetTransform()
     {
-      mTransform = Matrix4(m_position, m_orientation);
+      return Matrix4(m_position, m_orientation);
     }
     
     void CRotPosFrame::SetPosition(const Vector& vPosition)
@@ -125,4 +125,59 @@ namespace E4Gamma {
       RotateLocal(mTransform.GetOrientation());
       m_position += vTranslateWorld;
     }
+    
+    
+    Vector CPositionFrame::GetPosition()
+    {
+      return m_position;
+    }
+    Quaternion CPositionFrame::GetOrientation()
+    {
+      return Quaternion::Identity;
+    }
+    Matrix4 CPositionFrame::GetTransform()
+    {
+      return Matrix4(m_position, Quaternion::Identity);
+    }
+    
+    void CPositionFrame::SetPosition(const Vector& vPosition)
+    {
+      m_position = vPosition;
+    }
+    void CPositionFrame::SetOrientation(const Quaternion& qOrientation)
+    {
+    }
+    void CPositionFrame::SetTransform(const Matrix4& mTransform)
+    {
+      m_position = mTransform.GetPosition();
+    }  
+    
+    void CPositionFrame::TranslateWorld(const Vector& vDisplacement)
+    {
+      m_position += vDisplacement;
+    }
+    
+    void CPositionFrame::RotateWorld(const Quaternion& qRotation)
+    {
+      m_position = Quaternion::Transform(qRotation, m_position);
+    }
+    void CPositionFrame::TransformWorld(const Matrix4& mTransform)
+    {
+      TranslateWorld(mTransform.GetPosition());
+    }
+    
+    void CPositionFrame::TranslateLocal(const Vector& vDisplacement)
+    {
+      m_position += vDisplacement;
+    }
+    
+    void CPositionFrame::RotateLocal(const Quaternion& qRotation)
+    {
+    }
+    
+    void CPositionFrame::TransformLocal(const Matrix4& mTransform)
+    {  
+      m_position += mTransform.GetPosition();
+    }
+    
 }

@@ -40,6 +40,13 @@
 		A2DEA6A914A46B32005CD56F /* GLCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DEA6A814A46B32005CD56F /* GLCamera.h */; };
 		A2DEA6AB14A46C2B005CD56F /* GLCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2DEA6AA14A46C2B005CD56F /* GLCamera.cpp */; };
 		A2DEA6AD14A46F8F005CD56F /* Frame.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DEA6AC14A46F8F005CD56F /* Frame.h */; };
+		A2E0E36D14B4E7D200C62BA4 /* ILight.h in Headers */ = {isa = PBXBuildFile; fileRef = A2E0E36C14B4E7D200C62BA4 /* ILight.h */; };
+		A2E0E37214B4EE9600C62BA4 /* GLLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2E0E37114B4EE9600C62BA4 /* GLLight.cpp */; };
+		A2E0E37414B4EF7B00C62BA4 /* GLLight.h in Headers */ = {isa = PBXBuildFile; fileRef = A2E0E37314B4EF7B00C62BA4 /* GLLight.h */; };
+		A2E0E37714B5394400C62BA4 /* GLRenderContext.h in Headers */ = {isa = PBXBuildFile; fileRef = A2E0E37614B5394400C62BA4 /* GLRenderContext.h */; };
+		A2E0E37914B5399D00C62BA4 /* GLRenderContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2E0E37814B5399D00C62BA4 /* GLRenderContext.cpp */; };
+		A2E0E37B14B54E3800C62BA4 /* phong.vsh in Sources */ = {isa = PBXBuildFile; fileRef = A2E0E37A14B54E3800C62BA4 /* phong.vsh */; };
+		A2E0E37D14B54E4A00C62BA4 /* phong.fsh in Sources */ = {isa = PBXBuildFile; fileRef = A2E0E37C14B54E4A00C62BA4 /* phong.fsh */; };
 		A2F800CE14AC01B000AD78B7 /* Frame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2F800CC14AC010400AD78B7 /* Frame.cpp */; };
 		A2F800D614AC0D9A00AD78B7 /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2F800D014AC02B500AD78B7 /* Matrix.cpp */; };
 		A2F800D714AC0DA300AD78B7 /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2F800D114AC02B500AD78B7 /* Quaternion.cpp */; };
@@ -136,6 +143,15 @@
 		A2DEA6A814A46B32005CD56F /* GLCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLCamera.h; path = Include/GL/GLCamera.h; sourceTree = "<group>"; };
 		A2DEA6AA14A46C2B005CD56F /* GLCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLCamera.cpp; sourceTree = "<group>"; };
 		A2DEA6AC14A46F8F005CD56F /* Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Frame.h; sourceTree = "<group>"; };
+		A2E0E36C14B4E7D200C62BA4 /* ILight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILight.h; sourceTree = "<group>"; };
+		A2E0E37114B4EE9600C62BA4 /* GLLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLLight.cpp; sourceTree = "<group>"; };
+		A2E0E37314B4EF7B00C62BA4 /* GLLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLLight.h; path = Include/GL/GLLight.h; sourceTree = "<group>"; };
+		A2E0E37614B5394400C62BA4 /* GLRenderContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLRenderContext.h; path = Include/GL/GLRenderContext.h; sourceTree = "<group>"; };
+		A2E0E37814B5399D00C62BA4 /* GLRenderContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLRenderContext.cpp; sourceTree = "<group>"; };
+		A2E0E37A14B54E3800C62BA4 /* phong.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = phong.vsh; sourceTree = "<group>"; };
+		A2E0E37C14B54E4A00C62BA4 /* phong.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = phong.fsh; sourceTree = "<group>"; };
+		A2E0E37E14B54E6E00C62BA4 /* phong.spr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = phong.spr; sourceTree = "<group>"; };
+		A2E0E37F14B54E9900C62BA4 /* phong.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = phong.material; sourceTree = "<group>"; };
 		A2F800BA14A85BF400AD78B7 /* static_mesh_export.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = static_mesh_export.py; sourceTree = "<group>"; };
 		A2F800CA14ABF91800AD78B7 /* x.mesh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = x.mesh; sourceTree = "<group>"; };
 		A2F800CC14AC010400AD78B7 /* Frame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Frame.cpp; sourceTree = "<group>"; };
@@ -298,6 +314,8 @@
 				A27827DE148DEE07001AB506 /* GLTexture.cpp */,
 				A2A6004714A07BD7007E0139 /* GLShaderProgram.cpp */,
 				A2DEA6AA14A46C2B005CD56F /* GLCamera.cpp */,
+				A2E0E37114B4EE9600C62BA4 /* GLLight.cpp */,
+				A2E0E37814B5399D00C62BA4 /* GLRenderContext.cpp */,
 			);
 			name = GL;
 			path = Source/GL;
@@ -338,6 +356,8 @@
 				A24CC873148AFC8100DC07E8 /* GLTexture.h */,
 				A2A6004614A07A30007E0139 /* GLShaderProgram.h */,
 				A2DEA6A814A46B32005CD56F /* GLCamera.h */,
+				A2E0E37314B4EF7B00C62BA4 /* GLLight.h */,
+				A2E0E37614B5394400C62BA4 /* GLRenderContext.h */,
 			);
 			name = GL;
 			sourceTree = "<group>";
@@ -370,6 +390,9 @@
 				A26B5830149DC6D7003090A2 /* test.fsh */,
 				A26B5831149DC6D7003090A2 /* test.vsh */,
 				A2A6003F14A07931007E0139 /* test.spr */,
+				A2E0E37A14B54E3800C62BA4 /* phong.vsh */,
+				A2E0E37E14B54E6E00C62BA4 /* phong.spr */,
+				A2E0E37C14B54E4A00C62BA4 /* phong.fsh */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
@@ -399,6 +422,7 @@
 				A26F6B88148C9C32003C1F9F /* IModel.h */,
 				A26F6B89148C9C32003C1F9F /* IRenderer.h */,
 				A2DEA69A14A466D5005CD56F /* ICamera.h */,
+				A2E0E36C14B4E7D200C62BA4 /* ILight.h */,
 			);
 			name = Renderer;
 			path = Include/Interfaces/Renderer;
@@ -408,6 +432,7 @@
 			isa = PBXGroup;
 			children = (
 				A2A6003B14A074FB007E0139 /* test.material */,
+				A2E0E37F14B54E9900C62BA4 /* phong.material */,
 			);
 			path = Materials;
 			sourceTree = "<group>";
@@ -491,6 +516,9 @@
 				A2DEA6A514A46798005CD56F /* Vector.h in Headers */,
 				A2DEA6A914A46B32005CD56F /* GLCamera.h in Headers */,
 				A2DEA6AD14A46F8F005CD56F /* Frame.h in Headers */,
+				A2E0E36D14B4E7D200C62BA4 /* ILight.h in Headers */,
+				A2E0E37414B4EF7B00C62BA4 /* GLLight.h in Headers */,
+				A2E0E37714B5394400C62BA4 /* GLRenderContext.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,6 +685,10 @@
 				A26B5838149DC6D7003090A2 /* test.vsh in Sources */,
 				A2A6004814A07BD7007E0139 /* GLShaderProgram.cpp in Sources */,
 				A2DEA6AB14A46C2B005CD56F /* GLCamera.cpp in Sources */,
+				A2E0E37214B4EE9600C62BA4 /* GLLight.cpp in Sources */,
+				A2E0E37914B5399D00C62BA4 /* GLRenderContext.cpp in Sources */,
+				A2E0E37B14B54E3800C62BA4 /* phong.vsh in Sources */,
+				A2E0E37D14B54E4A00C62BA4 /* phong.fsh in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1013,6 +1045,7 @@
 				A2DD467814B43124002822A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

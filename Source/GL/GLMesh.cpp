@@ -5,14 +5,15 @@
 #include <OpenGL/gl.h>
 #include <OpenGL/OpenGL.h>
 #include <stdcpp/FileSystemDataStore.h>
-#include <GL/GLRenderer.h>
+#include <GL/GLRenderContext.h>
+
 using namespace std;
 
 namespace E4Gamma
 {
-  CGLMesh::CGLMesh(SharedPtr<CGLRenderer> renderer, const std::string &sMeshFile):m_vertexBuffer(0), m_nVerts(0)
+  CGLMesh::CGLMesh(SharedPtr<CGLRenderContext> renderContext, const std::string &sMeshFile):m_vertexBuffer(0), m_nVerts(0)
   {
-    m_renderer = renderer;
+    m_renderContext = renderContext;
     
     string sMesh;
     CFileSystemDataStore ds;
@@ -92,33 +93,34 @@ namespace E4Gamma
   
   void CGLMesh::RenderPose(IPose* pPose)
   {    
+    m_renderContext->m_model = Matrix4();
+    m_renderContext->FlushContext();
+    
     glEnableClientState(GL_VERTEX_ARRAY);	 // Enable Vertex Arrays
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);	// Enable Texture Coord Arrays
     glEnableClientState(GL_NORMAL_ARRAY);
-    
+
     //fill in your array of vertices and texture coordinates with data
     // Set The Vertex Pointer To Vertex Data
     glBindBuffer(GL_ARRAY_BUFFER, m_vertexBuffer);
     glVertexPointer(3, GL_FLOAT, sizeof(MeshVertex), (GLvoid*)0); 
     glNormalPointer(GL_FLOAT, sizeof(MeshVertex), (GLvoid*)12);
-    glTexCoordPointer(2, GL_FLOAT, sizeof(MeshVertex), (GLvoid*)24); 
-    
-    Matrix4 modelMatrix;
-    m_renderer->SetModelMatrix(modelMatrix);
+    glTexCoordPointer(2, GL_FLOAT, sizeof(MeshVertex), (GLvoid*)24);
+
     glDrawArrays( GL_TRIANGLES, 0, m_nVerts ); //Draw the vertices 
     
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-    glEnableClientState(GL_NORMAL_ARRAY);
+    glDisableClientState(GL_NORMAL_ARRAY);
     
     glBindBuffer(GL_ARRAY_BUFFER, 0);
   }
   
   class CGLMeshFactory: public IAssetLoader<CGLMesh>
   {
-    SharedPtr<CGLRenderer> m_renderer;
+    SharedPtr<CGLRenderContext> m_renderContext;
   public:
-    CGLMeshFactory(SharedPtr<CGLRenderer> renderer):m_renderer(renderer)
+    CGLMeshFactory(SharedPtr<CGLRenderContext> renderContext):m_renderContext(renderContext)
     {
     }
     
@@ -126,12 +128,12 @@ namespace E4Gamma
     
     SharedPtr<CGLMesh> LoadAsset(const std::string& sAsset)
     {
-      return new IUnknownImpl<CGLMesh>(m_renderer, sAsset);
+      return new IUnknownImpl<CGLMesh>(m_renderContext, sAsset);
     }
   };
   
-  SharedPtr<IAssetLoader<CGLMesh>> CGLMesh::createFactory(SharedPtr<CGLRenderer> renderer)
+  SharedPtr<IAssetLoader<CGLMesh>> CGLMesh::createFactory(SharedPtr<CGLRenderContext> renderContext)
   {
-    return new IUnknownImpl<CGLMeshFactory>(renderer);
+    return new IUnknownImpl<CGLMeshFactory>(renderContext);
   }
 }

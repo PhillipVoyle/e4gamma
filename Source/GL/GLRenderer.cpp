@@ -11,6 +11,15 @@
 #include <GL/GLShaderProgram.h>
 #include <GL/GLCamera.h>
 #include <Interfaces/Foundation/IUnknown.h>
+#include <GL/GLRenderContext.h>
+
+#include <GL/GLShader.h>
+#include <GL/GLTexture.h>
+#include <GL/GLShaderProgram.h>
+#include <GL/GLMesh.h>
+#include <GL/GLMaterial.h>
+#include <GL/GLModel.h>
+#include <GL/GLLight.h>
 
 #include <iostream>
 
@@ -19,19 +28,18 @@ using namespace std;
 namespace E4Gamma
 {
 
-  CGLRenderer::CGLRenderer()
+  CGLRenderer::CGLRenderer() : m_renderContext(new IUnknownImpl<CGLRenderContext>())
   {
   }
   
   void CGLRenderer::PostConstruct()
   {
-  
     m_vshCache = new IUnknownImpl<TAssetCache<CGLShader>>(CGLShader::createFactory(GL_VERTEX_SHADER));
     m_fshCache = new IUnknownImpl<TAssetCache<CGLShader>>(CGLShader::createFactory(GL_FRAGMENT_SHADER));
-    m_programCache = new IUnknownImpl<TAssetCache<CGLShaderProgram>>(CGLShaderProgram::createFactory(m_vshCache, m_fshCache));
+    m_programCache = new IUnknownImpl<TAssetCache<CGLShaderProgram>>(CGLShaderProgram::createFactory(m_renderContext, m_vshCache, m_fshCache));
     m_textureCache = new IUnknownImpl<TAssetCache<CGLTexture>>(CGLTexture::createFactory());
     m_materialCache = new IUnknownImpl<TAssetCache<CGLMaterial>>(CGLMaterial::createFactory(m_programCache, m_textureCache));
-    m_meshCache = new IUnknownImpl<TAssetCache<CGLMesh>>(CGLMesh::createFactory(this));
+    m_meshCache = new IUnknownImpl<TAssetCache<CGLMesh>>(CGLMesh::createFactory(m_renderContext));
     m_modelCache = new IUnknownImpl<TAssetCache<CGLModel>>(CGLModel::createFactory(m_meshCache, m_materialCache));
     
     glClearColor(128,128,0,255);
@@ -97,29 +105,11 @@ namespace E4Gamma
   
   SharedPtr<ICamera> CGLRenderer::CreateCamera(float aspect, float znear, float zfar, float fovy)
   {
-    return new IUnknownImpl<CGLCamera>(this, aspect, znear, zfar, fovy);
+    return new IUnknownImpl<CGLCamera>(m_renderContext, aspect, znear, zfar, fovy);
   }
   
-  void CGLRenderer::SetModelMatrix(const Matrix4& matrix)
+  SharedPtr<ILight> CGLRenderer::CreateLight()
   {
-    m_model = matrix;
-    
-    Matrix4 m = Matrix4::Transform(m_view, m_model); 
-   
-    glMatrixMode(GL_MODELVIEW);
-    glLoadMatrixf((float*)&m);
-  }
-  
-  void CGLRenderer::SetViewMatrix(const Matrix4& matrix)
-  {
-    m_view = matrix;
-  }
-  
-  void CGLRenderer::SetProjectionMatrix(const Matrix4& m)
-  {
-    glMatrixMode(GL_PROJECTION);
-    m_projection = m;
-    glLoadMatrixf((float*) &m_projection);
-    glMatrixMode(GL_MODELVIEW);
+    return new IUnknownImpl<CGLLight>(m_renderContext);
   }
 }

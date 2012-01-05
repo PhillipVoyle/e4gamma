@@ -11,13 +11,19 @@
 #include <GL/GLShaderProgram.h>
 #include <stdcpp/FileSystemDataStore.h>
 #include <Interfaces/Foundation/ISequenceReader.h>
+#include <GL/GLRenderContext.h>
 
 #include <iostream>
 using namespace std;
 
 namespace E4Gamma
 {
-  CGLShaderProgram::CGLShaderProgram(const std::string &sProgram, SharedPtr<IAssetLoader<CGLShader>> vertexShaderFactory, SharedPtr<IAssetLoader<CGLShader>> fragmentShaderFactory)
+  CGLShaderProgram::CGLShaderProgram(
+    SharedPtr<CGLRenderContext> renderContext, 
+    const std::string &sProgram,
+    SharedPtr<IAssetLoader<CGLShader>> vertexShaderFactory,
+    SharedPtr<IAssetLoader<CGLShader>> fragmentShaderFactory):
+      m_renderContext(renderContext)
   {
     m_nProgram = 0;
     
@@ -84,27 +90,28 @@ namespace E4Gamma
   
   void CGLShaderProgram::RenderSet()
   {
-    glUseProgram(m_nProgram);
+    m_renderContext->m_nProgram = m_nProgram;
   }
   
   class CGLShaderProgramFactory: public IAssetLoader<CGLShaderProgram>
   {
+    SharedPtr<CGLRenderContext> m_renderContext;
     SharedPtr<IAssetLoader<CGLShader>> m_vertexShaderFactory;
     SharedPtr<IAssetLoader<CGLShader>> m_fragmentShaderFactory;
   public:
-  CGLShaderProgramFactory(SharedPtr<IAssetLoader<CGLShader>> vertexShaderFactory, SharedPtr<IAssetLoader<CGLShader>> fragmentShaderFactory)
-    :m_vertexShaderFactory(vertexShaderFactory), m_fragmentShaderFactory(fragmentShaderFactory)
+  CGLShaderProgramFactory(SharedPtr<CGLRenderContext> renderContext, SharedPtr<IAssetLoader<CGLShader>> vertexShaderFactory, SharedPtr<IAssetLoader<CGLShader>> fragmentShaderFactory)
+    :m_renderContext(renderContext), m_vertexShaderFactory(vertexShaderFactory), m_fragmentShaderFactory(fragmentShaderFactory)
     {
     }
     
     SharedPtr<CGLShaderProgram> LoadAsset(const std::string& sAsset)
     {
-      return new IUnknownImpl<CGLShaderProgram>(sAsset, m_vertexShaderFactory, m_fragmentShaderFactory);
+      return new IUnknownImpl<CGLShaderProgram>(m_renderContext, sAsset, m_vertexShaderFactory, m_fragmentShaderFactory);
     }
   };
   
-  SharedPtr<IAssetLoader<CGLShaderProgram>> CGLShaderProgram::createFactory(SharedPtr<IAssetLoader<CGLShader>> vertexShaderFactory, SharedPtr<IAssetLoader<CGLShader>> fragmentShaderFactory)
+  SharedPtr<IAssetLoader<CGLShaderProgram>> CGLShaderProgram::createFactory(SharedPtr<CGLRenderContext> renderContext, SharedPtr<IAssetLoader<CGLShader>> vertexShaderFactory, SharedPtr<IAssetLoader<CGLShader>> fragmentShaderFactory)
   {
-    return new IUnknownImpl<CGLShaderProgramFactory>(vertexShaderFactory, fragmentShaderFactory);
+    return new IUnknownImpl<CGLShaderProgramFactory>(renderContext, vertexShaderFactory, fragmentShaderFactory);
   }
 }

@@ -19,9 +19,9 @@ namespace E4Gamma {
   {
     Matrix4 m_transform;
   public:
-    void GetPosition(Vector& vPosition);
-    void GetOrientation(Quaternion& qOrientation);
-    void GetTransform(Matrix4& mTransform);
+    Vector GetPosition();
+    Quaternion GetOrientation();
+    Matrix4 GetTransform();
     
     void SetPosition(const Vector& vPosition);
     void SetOrientation(const Quaternion& qOrientation);
@@ -41,9 +41,30 @@ namespace E4Gamma {
     Quaternion m_orientation;
     Vector m_position;
   public:
-    void GetPosition(Vector& vPosition);
-    void GetOrientation(Quaternion& qOrientation);
-    void GetTransform(Matrix4& mTransform);
+    Vector GetPosition();
+    Quaternion GetOrientation();
+    Matrix4 GetTransform();
+    
+    void SetPosition(const Vector& vPosition);
+    void SetOrientation(const Quaternion& qOrientation);
+    void SetTransform(const Matrix4& mTransform);    
+    
+    void TranslateWorld(const Vector& vDisplacement);
+    void RotateWorld(const Quaternion& qRotation);
+    void TransformWorld(const Matrix4& mTransform);
+    
+    void TranslateLocal(const Vector& vDisplacement);
+    void RotateLocal(const Quaternion& qRotation);
+    void TransformLocal(const Matrix4& mTransform);
+  };
+  
+  class CPositionFrame: public IFrame
+  {
+    Vector m_position;
+  public:
+    Vector GetPosition();
+    Quaternion GetOrientation();
+    Matrix4 GetTransform();
     
     void SetPosition(const Vector& vPosition);
     void SetOrientation(const Quaternion& qOrientation);

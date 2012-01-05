@@ -17,18 +17,19 @@
 #include <GL/GLShader.h>
 
 namespace E4Gamma {
-  
+  class CGLRenderContext;
   class CGLShaderProgram: public IUnknown
   {
+    SharedPtr<CGLRenderContext> m_renderContext;
     std::list<SharedPtr<CGLShader>> m_shaders;
     GLuint m_nProgram;
     
   public:
-    CGLShaderProgram(const std::string& sProgram, SharedPtr<IAssetLoader<CGLShader>> m_vertexShaderFactory, SharedPtr<IAssetLoader<CGLShader>> m_fragmentShaderFactory);
+    CGLShaderProgram(SharedPtr<CGLRenderContext> renderContext, const std::string& sProgram, SharedPtr<IAssetLoader<CGLShader>> m_vertexShaderFactory, SharedPtr<IAssetLoader<CGLShader>> m_fragmentShaderFactory);
     virtual ~CGLShaderProgram();
     void RenderSet();
     
-    static SharedPtr<IAssetLoader<CGLShaderProgram>> createFactory(SharedPtr<IAssetLoader<CGLShader>> m_vertexShaderFactory, SharedPtr<IAssetLoader<CGLShader>> m_fragmentShaderFactory);
+    static SharedPtr<IAssetLoader<CGLShaderProgram>> createFactory(SharedPtr<CGLRenderContext> renderContext, SharedPtr<IAssetLoader<CGLShader>> m_vertexShaderFactory, SharedPtr<IAssetLoader<CGLShader>> m_fragmentShaderFactory);
   };
   
 }
