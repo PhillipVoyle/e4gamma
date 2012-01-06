@@ -100,6 +100,8 @@
 		A216BCE5148B6CAC00EDE365 /* FileSystemDataStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileSystemDataStore.h; sourceTree = "<group>"; };
 		A216BCE6148B6CAC00EDE365 /* FlatFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlatFile.h; sourceTree = "<group>"; };
 		A216BCE7148B6CAC00EDE365 /* Iris.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Iris.h; sourceTree = "<group>"; };
+		A2201EB514B6B9AB00048E64 /* icosphere.mesh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icosphere.mesh; sourceTree = "<group>"; };
+		A2201EB614B6C32400048E64 /* testnrm.rgba */ = {isa = PBXFileReference; lastKnownFileType = file; path = testnrm.rgba; sourceTree = "<group>"; };
 		A24CC858148AFBBD00DC07E8 /* libE4Ggl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libE4Ggl.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A24CC86D148AFC8100DC07E8 /* GLIncludes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLIncludes.h; path = Include/GL/GLIncludes.h; sourceTree = "<group>"; };
 		A24CC86E148AFC8100DC07E8 /* GLMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLMaterial.h; path = Include/GL/GLMaterial.h; sourceTree = "<group>"; };
@@ -400,6 +402,7 @@
 		A26B5832149DC6D7003090A2 /* Textures */ = {
 			isa = PBXGroup;
 			children = (
+				A2201EB614B6C32400048E64 /* testnrm.rgba */,
 				A2A6003E14A07867007E0139 /* test.rgba */,
 			);
 			path = Textures;
@@ -408,6 +411,7 @@
 		A26B5839149DC706003090A2 /* Meshes */ = {
 			isa = PBXGroup;
 			children = (
+				A2201EB514B6B9AB00048E64 /* icosphere.mesh */,
 				A2F800CA14ABF91800AD78B7 /* x.mesh */,
 				A26B583A149DC739003090A2 /* test.mesh */,
 			);

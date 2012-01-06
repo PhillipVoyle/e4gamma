@@ -46,25 +46,25 @@ void init()
   pFrame = nullptr;
   
   g_pLight = g_pRenderer->CreateLight();
-  pFrame = g_pLight->GetFrame();
-  pFrame->SetPosition(Vector(5.0f, 5.0f, -5.0f));
-  pFrame = nullptr;
+  //pFrame = g_pLight->GetFrame();
+  //pFrame = nullptr;
 }
+
+float g_theta = 0.0f;
+float g_dTheta = 0.001;
 
 void display()
 {
   g_pRenderer->BeginScene();
   
-  SharedPtr<IFrame> pFrame = g_pCamera->GetFrame();
+  SharedPtr<IFrame> pFrame = g_pLight->GetFrame();
   
-  float fsintheta = sinf(0.001);
-  float fcostheta = cosf(0.001);
+  g_theta += g_dTheta;
   
-  pFrame->TransformWorld(Matrix4(
-    fcostheta, 0, fsintheta, 0,
-    0, 1, 0, 0,
-    -fsintheta, 0, fcostheta, 0,
-    0, 0, 0, 1));
+  float fsintheta = sinf(g_theta);
+  float fcostheta = cosf(g_theta);
+  
+  pFrame->SetPosition(Vector(5.0f * fsintheta, 5.0f, 5.0f * fcostheta));
     
   g_pLight->Select();  
   g_pCamera->Select();

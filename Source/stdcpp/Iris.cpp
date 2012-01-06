@@ -57,7 +57,7 @@ namespace E4Gamma {
       /*short magic =*/ ReadShort(pReader);
       /*char storage = (char)*/ ReadChar(pReader);
       /*char bpc = (char)*/ ReadChar(pReader);
-      /*unsigned short dimension =*/ ReadShort(pReader);
+      unsigned short dimension = ReadShort(pReader);
       unsigned short xsize = ReadShort(pReader);
       unsigned short ysize = ReadShort(pReader);
       unsigned short zsize = ReadShort(pReader);
@@ -77,8 +77,18 @@ namespace E4Gamma {
         pReader->ReadI8(dummy2[nByte]);
       }
       
-      long nSize =((long) xsize) * ((long) ysize) * ((long) zsize);
+      long nSize =((long) xsize) * ((long) ysize) * ((long) 4);
+      
+      cout << sTexture << ": " << nSize << " bytes (" << xsize << ", " << ysize << ", " << zsize << ")" << endl;
+      cout << "dimension: " << dimension << endl;
+      
       m_pPixels = new unsigned char[nSize];
+      
+      for(int i = 0; i < nSize; i++)
+      {
+        m_pPixels[i] = 0;
+      }
+      
       m_nWidth = xsize;
       m_nHeight = ysize;
       
@@ -88,8 +98,13 @@ namespace E4Gamma {
         {
           for(int x = 0; x < xsize; x++)
           {
-            pReader->ReadU8(((unsigned char*)m_pPixels)[((x + (y * xsize)) * 4) + z]); 
+            unsigned char u8 = 0;
+            pReader->ReadU8(u8);
+            m_pPixels[((x + (y * xsize)) * 4) + z] = u8;
+            
+            //cout << (int)u8;
           }
+          //cout << endl;
         }
       }
     }

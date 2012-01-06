@@ -6,7 +6,7 @@ bl_info = {
     "name": "E4Gamma static_mesh export",
     "description": "E4Gamma static mesh export",
     "author": "PHILLIP VOYLE",
-    "version": (1, 0),
+    "version": (1, 1),
     "blender": (2, 61, 0),
     "api": 31236,
     "location": "File > Export",
@@ -15,37 +15,38 @@ bl_info = {
     "tracker_url": "",
     "category": "Import-Export"}
 
-def write_vertex(f, pos, nrm, u, v)
+def write_vertex(f, pos, nrm, u, v):
   f.write("pos ")
   f.write(str(pos.x))
   f.write(" ")
-  f.write(str(pos.y))
+  f.write(str(pos.z))
   f.write(" ")
-  f.write(str(pos.co.z))
+  f.write(str(pos.y))
   f.write(" ")
   f.write("nrm ")
   f.write(str(nrm.x))
   f.write(" ")
-  f.write(str(nrm.y))
-  f.write(" ")
   f.write(str(nrm.z))
+  f.write(" ")
+  f.write(str(nrm.y))
   f.write(" ")
   f.write("uv ")
   f.write(str(u))
   f.write(" ")
   f.write(str(v))
-  f.write("\n")  
+  f.write("\n")
 
 def write_some_data(context, filepath, use_some_setting):
-  f = open("/Users/phillipvoyle/Projects/E4Gamma/trunk/Data/Meshes/x.mesh", 'w')
+  f = open(filepath, 'w')
   for obj in bpy.context.selected_objects:
     if (obj.type == 'MESH'):
       f.write("mesh\n")
       b = bpy.data.meshes[obj.name]
       count = 0
-      for face in b.faces:
-        nLen = len(face.vertices)
+      for countFace in b.faces:
+        nLen = len(countFace.vertices)
         count = count + ((nLen - 2) * 3)
+        
       f.write("verts ")
       f.write(str(count))
       f.write("\n")
@@ -53,11 +54,11 @@ def write_some_data(context, filepath, use_some_setting):
         nIndex = 0
         while nIndex < len(face.vertices) - 2:
           v = b.vertices[face.vertices[0]]
-          write_vertex(v.co, v.normal, 0, 0)
+          write_vertex(f, v.co, v.normal, b.uv_textures[0].data[face.index].uv[0][0], b.uv_textures[0].data[face.index].uv[0][1])
           v = b.vertices[face.vertices[nIndex + 1]]
-          write_vertex(v.co, v.normal, 1, 0)
+          write_vertex(f, v.co, v.normal, b.uv_textures[0].data[face.index].uv[nIndex + 1][0], b.uv_textures[0].data[face.index].uv[nIndex + 1][1])
           v = b.vertices[face.vertices[nIndex + 2]]
-          write_vertex(v.co, v.normal, 0, 1)
+          write_vertex(f, v.co, v.normal, b.uv_textures[0].data[face.index].uv[nIndex + 2][0], b.uv_textures[0].data[face.index].uv[nIndex + 2][1])
           nIndex = nIndex + 1
                
   f.close()

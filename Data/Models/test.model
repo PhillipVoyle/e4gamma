@@ -1,3 +1,3 @@
 model
 surfaces 1
-mesh Data/Meshes/x.mesh material Data/Materials/phong.material
+mesh Data/Meshes/icosphere.mesh material Data/Materials/phong.material
