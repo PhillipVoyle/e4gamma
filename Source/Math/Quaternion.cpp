@@ -60,9 +60,9 @@ namespace E4Gamma {
       q.s * v.z + q.v.y * v.x - q.v.x * v.y);
   }
   
-  Quaternion Quaternion::Transform(const Quaternion& qLocal, const Quaternion& qWorld)
+  Quaternion Quaternion::Transform(const Quaternion& qWorld, const Quaternion& qLocal)
   {
-    return qLocal * qWorld;
+    return qWorld * qLocal;
   }
   
   Vector Quaternion::Transform(const Quaternion& qWorld, const Vector& vLocal)
@@ -72,6 +72,7 @@ namespace E4Gamma {
   
   Quaternion Quaternion::FromAxisAngle(const Vector& vAxis, float fAngle)
   {
-    return Quaternion();
+    float fHalfAngle = fAngle * 0.5f;
+    return Quaternion(cosf(fHalfAngle), vAxis * sinf(fHalfAngle));
   }
 }
