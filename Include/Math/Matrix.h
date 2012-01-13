@@ -30,6 +30,7 @@ namespace E4Gamma
     
     Matrix4(const Vector& position, const Quaternion& orientation);
     Matrix4(const Matrix4& matrix);
+    
       
     Vector GetPosition() const;
     void SetPosition(const Vector& vPosition);

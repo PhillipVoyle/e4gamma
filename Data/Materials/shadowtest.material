@@ -1,4 +1,4 @@
 material
 settings 2
-texture 0 Data/Textures/levelnrm.rgba
+texture 0 Data/Textures/shadowtest.rgba
 shader_program Data/Shaders/phong.spr

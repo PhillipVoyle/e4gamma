@@ -52,9 +52,14 @@ namespace E4Gamma {
       return Vector(-x, -y, -z);
     }
     
+    float length()
+    {
+      return sqrtf(x * x + y * y + z * z);
+    }
+    
     Vector normalize()
     {
-      float fLength = sqrtf(x * x + y * y + z * z);
+      float fLength = length();
       
       if(fLength > FLT_EPSILON)
       {
@@ -62,7 +67,7 @@ namespace E4Gamma {
       }
       else
       {
-        return Vector(0.0f, 0.0f, 0.0f); // should this be a unit vector?
+        return Vector(1.0f, 0.0f, 0.0f); // should this be a unit vector?
       }
     }
     

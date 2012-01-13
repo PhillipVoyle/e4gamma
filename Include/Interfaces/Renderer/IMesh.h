@@ -12,6 +12,7 @@ namespace E4Gamma
   public:
     virtual ~IMesh() {}
     virtual void RenderPose(IPose* pPose) = 0;
+    virtual SharedPtr<IMesh> CreateShadowVolume() = 0;
   };
 }
 

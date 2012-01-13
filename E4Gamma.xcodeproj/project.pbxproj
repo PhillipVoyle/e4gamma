@@ -33,6 +33,9 @@
 		A2DD466114B01C94002822A0 /* TestGLRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2DD465E14B01BBB002822A0 /* TestGLRenderer.cpp */; };
 		A2DD467914B43143002822A0 /* MathTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2DD466914B430F6002822A0 /* MathTest.cpp */; };
 		A2DD467A14B43359002822A0 /* libE4Gcpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A216BCDD148B6B9100EDE365 /* libE4Gcpp.a */; };
+		A2DDB7A714BD60D700C16695 /* depthonly.vsh in Sources */ = {isa = PBXBuildFile; fileRef = A2DDB7A614BD60D700C16695 /* depthonly.vsh */; };
+		A2DDB7AA14BD610A00C16695 /* depthonly.fsh in Sources */ = {isa = PBXBuildFile; fileRef = A2DDB7A914BD610A00C16695 /* depthonly.fsh */; };
+		A2DDB7CF14BF739300C16695 /* simplephong.fsh in Sources */ = {isa = PBXBuildFile; fileRef = A2DDB7CE14BF739200C16695 /* simplephong.fsh */; };
 		A2DEA69B14A466D5005CD56F /* ICamera.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DEA69A14A466D5005CD56F /* ICamera.h */; };
 		A2DEA6A314A46798005CD56F /* Matrix.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DEA6A014A46798005CD56F /* Matrix.h */; };
 		A2DEA6A414A46798005CD56F /* Quaternion.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DEA6A114A46798005CD56F /* Quaternion.h */; };
@@ -102,6 +105,7 @@
 		A216BCE7148B6CAC00EDE365 /* Iris.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Iris.h; sourceTree = "<group>"; };
 		A2201EB514B6B9AB00048E64 /* icosphere.mesh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icosphere.mesh; sourceTree = "<group>"; };
 		A2201EB614B6C32400048E64 /* testnrm.rgba */ = {isa = PBXFileReference; lastKnownFileType = file; path = testnrm.rgba; sourceTree = "<group>"; };
+		A2201ECF14BA92E800048E64 /* level.mesh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level.mesh; sourceTree = "<group>"; };
 		A24CC858148AFBBD00DC07E8 /* libE4Ggl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libE4Ggl.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A24CC86D148AFC8100DC07E8 /* GLIncludes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLIncludes.h; path = Include/GL/GLIncludes.h; sourceTree = "<group>"; };
 		A24CC86E148AFC8100DC07E8 /* GLMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLMaterial.h; path = Include/GL/GLMaterial.h; sourceTree = "<group>"; };
@@ -137,6 +141,14 @@
 		A2DD465E14B01BBB002822A0 /* TestGLRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestGLRenderer.cpp; sourceTree = "<group>"; };
 		A2DD466914B430F6002822A0 /* MathTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MathTest.cpp; sourceTree = "<group>"; };
 		A2DD466F14B43123002822A0 /* MathTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MathTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2DDB7A614BD60D700C16695 /* depthonly.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = depthonly.vsh; sourceTree = "<group>"; };
+		A2DDB7A914BD610A00C16695 /* depthonly.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = depthonly.fsh; sourceTree = "<group>"; };
+		A2DDB7AB14BD634D00C16695 /* depthonly.spr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = depthonly.spr; sourceTree = "<group>"; };
+		A2DDB7AC14BD685A00C16695 /* depthonly.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = depthonly.material; sourceTree = "<group>"; };
+		A2DDB7CB14BF6E9200C16695 /* shadowtest.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = shadowtest.material; sourceTree = "<group>"; };
+		A2DDB7CD14BF736F00C16695 /* simplephong.spr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = simplephong.spr; sourceTree = "<group>"; };
+		A2DDB7CE14BF739200C16695 /* simplephong.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = simplephong.fsh; sourceTree = "<group>"; };
+		A2DDB7D114BFD09C00C16695 /* shadowtest.mesh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = shadowtest.mesh; sourceTree = "<group>"; };
 		A2DEA69A14A466D5005CD56F /* ICamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICamera.h; sourceTree = "<group>"; };
 		A2DEA69D14A46751005CD56F /* IFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFrame.h; sourceTree = "<group>"; };
 		A2DEA6A014A46798005CD56F /* Matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix.h; sourceTree = "<group>"; };
@@ -395,6 +407,11 @@
 				A2E0E37A14B54E3800C62BA4 /* phong.vsh */,
 				A2E0E37E14B54E6E00C62BA4 /* phong.spr */,
 				A2E0E37C14B54E4A00C62BA4 /* phong.fsh */,
+				A2DDB7A614BD60D700C16695 /* depthonly.vsh */,
+				A2DDB7A914BD610A00C16695 /* depthonly.fsh */,
+				A2DDB7AB14BD634D00C16695 /* depthonly.spr */,
+				A2DDB7CD14BF736F00C16695 /* simplephong.spr */,
+				A2DDB7CE14BF739200C16695 /* simplephong.fsh */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
@@ -411,6 +428,8 @@
 		A26B5839149DC706003090A2 /* Meshes */ = {
 			isa = PBXGroup;
 			children = (
+				A2DDB7D114BFD09C00C16695 /* shadowtest.mesh */,
+				A2201ECF14BA92E800048E64 /* level.mesh */,
 				A2201EB514B6B9AB00048E64 /* icosphere.mesh */,
 				A2F800CA14ABF91800AD78B7 /* x.mesh */,
 				A26B583A149DC739003090A2 /* test.mesh */,
@@ -437,6 +456,8 @@
 			children = (
 				A2A6003B14A074FB007E0139 /* test.material */,
 				A2E0E37F14B54E9900C62BA4 /* phong.material */,
+				A2DDB7AC14BD685A00C16695 /* depthonly.material */,
+				A2DDB7CB14BF6E9200C16695 /* shadowtest.material */,
 			);
 			path = Materials;
 			sourceTree = "<group>";
@@ -693,6 +714,9 @@
 				A2E0E37914B5399D00C62BA4 /* GLRenderContext.cpp in Sources */,
 				A2E0E37B14B54E3800C62BA4 /* phong.vsh in Sources */,
 				A2E0E37D14B54E4A00C62BA4 /* phong.fsh in Sources */,
+				A2DDB7A714BD60D700C16695 /* depthonly.vsh in Sources */,
+				A2DDB7AA14BD610A00C16695 /* depthonly.fsh in Sources */,
+				A2DDB7CF14BF739300C16695 /* simplephong.fsh in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

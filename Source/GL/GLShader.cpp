@@ -33,7 +33,7 @@ namespace E4Gamma
           char *infolog = new char[loglen];
           int written;
           glGetShaderInfoLog(m_nShader, loglen, &written, infolog);
-          cout << sShader << "error compiling shader: " << infolog << endl;
+          cout << sShader << ":" << infolog << endl;
           delete infolog;
         }
         glDeleteShader(m_nShader);

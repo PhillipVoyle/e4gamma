@@ -15,26 +15,24 @@ bl_info = {
     "tracker_url": "",
     "category": "Import-Export"}
 
-def write_vertex(f, pos, nrm, u, v):
-  f.write("pos ")
-  f.write(str(pos.x))
-  f.write(" ")
-  f.write(str(pos.z))
-  f.write(" ")
-  f.write(str(pos.y))
-  f.write(" ")
-  f.write("nrm ")
-  f.write(str(nrm.x))
-  f.write(" ")
-  f.write(str(nrm.z))
-  f.write(" ")
-  f.write(str(nrm.y))
-  f.write(" ")
-  f.write("uv ")
-  f.write(str(u))
-  f.write(" ")
-  f.write(str(v))
-  f.write("\n")
+def write_vertex(f, mesh_verts, face_verts, face_index, face_vert_index, data):
+  vert_index = face_verts[face_vert_index]
+  vert = mesh_verts[vert_index]
+  pos = vert.co
+  nrm = vert.normal
+  uv = data[face_index].uv
+  u = uv[face_vert_index][0]
+  v = uv[face_vert_index][1]
+  f.write("vrt " + str(vert_index) + "\n")
+  f.write(" pos " + str(pos.x) + " " + str(pos.z) + " " + str(pos.y) + "\n")
+  f.write(" nrm " + str(nrm.x) + " " + str(nrm.z) + " " + str(nrm.y) + "\n")
+  f.write(" uv " + str(u) + " " + str(v) + "\n")
+
+
+def write_tri(f, mesh_verts, face_verts, face_index, tri_index, data):
+  write_vertex(f, mesh_verts, face_verts, face_index, 0, data);
+  write_vertex(f, mesh_verts, face_verts, face_index, tri_index + 1, data)
+  write_vertex(f, mesh_verts, face_verts, face_index, tri_index + 2, data)
 
 def write_some_data(context, filepath, use_some_setting):
   f = open(filepath, 'w')
@@ -42,25 +40,81 @@ def write_some_data(context, filepath, use_some_setting):
     if (obj.type == 'MESH'):
       f.write("mesh\n")
       b = bpy.data.meshes[obj.name]
-      count = 0
+      countTris = 0
       for countFace in b.faces:
         nLen = len(countFace.vertices)
-        count = count + ((nLen - 2) * 3)
+        countTris = countTris + (nLen - 2)
         
-      f.write("verts ")
-      f.write(str(count))
-      f.write("\n")
+      tri_vert = [[0 for i in range(3)] for j in range(countTris)]
+      tri_uv = [[[0.0 for i in range(2)] for j in range(3)] for k in range(countTris)]
+      tri_face = [0 for i in range(countTris)]
+      
+      #organise triangles
+      tri_index = 0
       for face in b.faces:
-        nIndex = 0
-        while nIndex < len(face.vertices) - 2:
-          v = b.vertices[face.vertices[0]]
-          write_vertex(f, v.co, v.normal, b.uv_textures[0].data[face.index].uv[0][0], b.uv_textures[0].data[face.index].uv[0][1])
-          v = b.vertices[face.vertices[nIndex + 1]]
-          write_vertex(f, v.co, v.normal, b.uv_textures[0].data[face.index].uv[nIndex + 1][0], b.uv_textures[0].data[face.index].uv[nIndex + 1][1])
-          v = b.vertices[face.vertices[nIndex + 2]]
-          write_vertex(f, v.co, v.normal, b.uv_textures[0].data[face.index].uv[nIndex + 2][0], b.uv_textures[0].data[face.index].uv[nIndex + 2][1])
-          nIndex = nIndex + 1
-               
+        for face_tri_index in range(len(face.vertices) - 2):
+          tri_vert[tri_index][0] = face.vertices[0]
+          tri_vert[tri_index][1] = face.vertices[face_tri_index + 1]
+          tri_vert[tri_index][2] = face.vertices[face_tri_index + 2]
+          tri_uv[tri_index][0][0] = b.uv_textures[0].data[face.index].uv[0][0]
+          tri_uv[tri_index][0][1] = b.uv_textures[0].data[face.index].uv[0][1]
+          tri_uv[tri_index][1][0] = b.uv_textures[0].data[face.index].uv[face_tri_index + 1][0]
+          tri_uv[tri_index][1][1] = b.uv_textures[0].data[face.index].uv[face_tri_index + 1][1]
+          tri_uv[tri_index][2][0] = b.uv_textures[0].data[face.index].uv[face_tri_index + 2][0]
+          tri_uv[tri_index][2][1] = b.uv_textures[0].data[face.index].uv[face_tri_index + 2][1]
+          tri_face[tri_index] = face.index
+          tri_index = tri_index + 1
+      
+      #calclulate triangle adjacency
+      tri_adj = [[-1 for i in range(3)] for j in range(countTris)]
+      for first_tri in range(countTris):
+        for second_tri in range(first_tri + 1, countTris):
+          for first_edge in range(3):
+            for second_edge in range(3):  #should we explicitly expect winding to be correct here?
+              if((tri_vert[first_tri][first_edge] == tri_vert[second_tri][second_edge] and
+                tri_vert[first_tri][(first_edge + 1) % 3] == tri_vert[second_tri][(second_edge + 1) % 3]) or
+                (tri_vert[first_tri][(first_edge + 1) % 3] == tri_vert[second_tri][second_edge] and
+                tri_vert[first_tri][first_edge] == tri_vert[second_tri][(second_edge + 1) % 3])):
+                  tri_adj[first_tri][first_edge] = second_tri
+                  tri_adj[second_tri][second_edge] = first_tri #include twice (but we will only export once later)
+      
+      #write vertices
+      f.write("verts " + str(len(b.vertices)) + "\n")
+      for vert in b.vertices:
+        f.write("pos " + str(vert.co.x) + " " + str(vert.co.z) + " " + str(vert.co.y) + " ")
+        f.write("nrm " + str(vert.normal.x) + " " + str(vert.normal.z) + " " + str(vert.normal.y) + "\n")
+      
+      #write tris      
+      f.write("triangle_list " + str(countTris) + "\n")
+      for tri_id in range(countTris):
+        normal = b.faces[tri_face[tri_id]].normal
+        p0 = b.vertices[tri_vert[tri_id][0]].co
+        c = normal.x * p0.x + normal.y * p0.y + normal.z * p0.z
+        f.write("eq " + str(normal.x) + " " + str(normal.z) + " " + str(normal.y) + " " + str(c) + "\n")
+        f.write("v " + str(tri_vert[tri_id][0]) + " uv " + str(tri_uv[tri_id][0][0]) + " " + str(tri_uv[tri_id][0][1]) + "\n")
+        f.write("v " + str(tri_vert[tri_id][1]) + " uv " + str(tri_uv[tri_id][1][0]) + " " + str(tri_uv[tri_id][1][1]) + "\n")
+        f.write("v " + str(tri_vert[tri_id][2]) + " uv " + str(tri_uv[tri_id][2][0]) + " " + str(tri_uv[tri_id][2][1]) + "\n")
+      
+      #count edges
+      edge_count = 0
+      for tri in range(countTris):
+        if tri_adj[tri][0] > tri or tri_adj[tri][0] == -1:
+          edge_count = edge_count + 1
+        if tri_adj[tri][1] > tri or tri_adj[tri][1] == -1:
+          edge_count = edge_count + 1
+        if tri_adj[tri][2] > tri or tri_adj[tri][2] == -1:
+          edge_count = edge_count + 1
+          
+      #write adjacency info
+      f.write("edges " + str(edge_count) + "\n");
+      for tri in range(countTris):
+        if tri_adj[tri][0] > tri or tri_adj[tri][0] == -1:
+          f.write("e " + str(tri) + " " + str(tri_adj[tri][0]) + " v " + str(tri_vert[tri][0]) + " " + str(tri_vert[tri][1]) + "\n")
+        if tri_adj[tri][1] > tri or tri_adj[tri][1] == -1:
+          f.write("e " + str(tri) + " " + str(tri_adj[tri][1]) + " v " + str(tri_vert[tri][1]) + " " + str(tri_vert[tri][2]) + "\n")
+        if tri_adj[tri][2] > tri or tri_adj[tri][2] == -1:
+          f.write("e " + str(tri) + " " + str(tri_adj[tri][2]) + " v " + str(tri_vert[tri][2]) + " " + str(tri_vert[tri][0]) + "\n")
+        
   f.close()
   return {'FINISHED'}
 

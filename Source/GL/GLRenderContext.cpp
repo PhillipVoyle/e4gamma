@@ -31,7 +31,7 @@ namespace E4Gamma
     glLightfv(GL_LIGHT0, GL_AMBIENT, (float[]){0.2, 0.2, 0.2, 1.0});
     glLightfv(GL_LIGHT0, GL_DIFFUSE, (float[]){1.0, 1.0, 1.0, 1.0});
     glLightfv(GL_LIGHT0, GL_SPECULAR, (float[]){1.0, 1.0, 1.0, 1.0});
-    glLightfv(GL_LIGHT0, GL_POSITION, (float[]){m_vLightPosition.x, m_vLightPosition.y, -m_vLightPosition.z, 1.0f});
+    glLightfv(GL_LIGHT0, GL_POSITION, (float[]){m_vLightPosition.x, m_vLightPosition.y, m_vLightPosition.z, 1.0f});
  
     glMatrixMode(GL_PROJECTION);
     glLoadMatrixf((float*) &m_projection);
