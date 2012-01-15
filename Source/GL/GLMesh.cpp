@@ -238,9 +238,19 @@ namespace E4Gamma
     SharedPtr<CGLMesh> m_pParent;
   public:
 
-    std::vector<Vector> m_shadowVolume;
+    struct Vector4
+    {
+      float x, y, z, w;
+    };
+
+    std::vector<Vector4> m_shadowVolume;
     
     Vector m_lightPosition;
+    
+    static Vector4 tovec4(const Vector& v, float f)
+    {
+      return {v.x, v.y, v.z, f};
+    }
     
     CGLMeshShadowVolume(SharedPtr<CGLMesh> pParent):m_pParent(pParent)
     {
@@ -248,26 +258,26 @@ namespace E4Gamma
       
       std::vector<bool> facingTri(m_pParent->m_nTriangles, false);
       
-      float fAlpha = 10.0f;    
+      //float fAlpha = 10.0f;    
       for (int nTri = 0; nTri < m_pParent->m_nTriangles; nTri++)
       {
         const CGLMesh::Triangle& tri = m_pParent->m_triangles[nTri];
-        bool bFacingTri = Dot(tri.normal, m_lightPosition) > tri.offset;
-        if(bFacingTri)
+        //bool bFacingTri = Dot(tri.normal, m_lightPosition) > tri.offset;
+        if(Dot(tri.normal, m_lightPosition) > tri.offset)
         {
           facingTri[nTri] = true;
           //we don't need facing tris...
-          
         }
-        else
+        
+        if(Dot(tri.normal, m_lightPosition) < tri.offset)
         {
-          m_shadowVolume.push_back(m_pParent->m_geometryVerts[tri.verts[0]]);
-          m_shadowVolume.push_back(m_pParent->m_geometryVerts[tri.verts[1]]);
-          m_shadowVolume.push_back(m_pParent->m_geometryVerts[tri.verts[2]]);
+          m_shadowVolume.push_back(tovec4(m_pParent->m_geometryVerts[tri.verts[0]], 1.0f));
+          m_shadowVolume.push_back(tovec4(m_pParent->m_geometryVerts[tri.verts[1]], 1.0f));
+          m_shadowVolume.push_back(tovec4(m_pParent->m_geometryVerts[tri.verts[2]], 1.0f));
 
-          m_shadowVolume.push_back(m_pParent->m_geometryVerts[tri.verts[1]] * fAlpha + m_lightPosition * (1.0f - fAlpha));
-          m_shadowVolume.push_back(m_pParent->m_geometryVerts[tri.verts[0]] * fAlpha + m_lightPosition * (1.0f - fAlpha));
-          m_shadowVolume.push_back(m_pParent->m_geometryVerts[tri.verts[2]] * fAlpha + m_lightPosition * (1.0f - fAlpha));
+          m_shadowVolume.push_back(tovec4(m_pParent->m_geometryVerts[tri.verts[1]] - m_lightPosition, 0.0f));
+          m_shadowVolume.push_back(tovec4(m_pParent->m_geometryVerts[tri.verts[0]] - m_lightPosition, 0.0f));
+          m_shadowVolume.push_back(tovec4(m_pParent->m_geometryVerts[tri.verts[2]] - m_lightPosition, 0.0f));
         }
       }
       
@@ -281,16 +291,16 @@ namespace E4Gamma
           Vector v1 = m_pParent->m_geometryVerts[bInvert?edge.v2:edge.v1];
           Vector v2 = m_pParent->m_geometryVerts[bInvert?edge.v1:edge.v2];
 
-          Vector v3 = v1 * fAlpha + m_lightPosition * (1.0f - fAlpha);
-          Vector v4 = v2 * fAlpha + m_lightPosition * (1.0f - fAlpha); 
+          Vector v3 = v1 - m_lightPosition;
+          Vector v4 = v2 - m_lightPosition; 
           
-          m_shadowVolume.push_back(v1);
-          m_shadowVolume.push_back(v2);
-          m_shadowVolume.push_back(v3);
+          m_shadowVolume.push_back(tovec4(v1, 1.0f));
+          m_shadowVolume.push_back(tovec4(v2, 1.0f));
+          m_shadowVolume.push_back(tovec4(v3, 0.0f));
           
-          m_shadowVolume.push_back(v3);
-          m_shadowVolume.push_back(v2);
-          m_shadowVolume.push_back(v4);
+          m_shadowVolume.push_back(tovec4(v3, 0.0f));
+          m_shadowVolume.push_back(tovec4(v2, 1.0f));
+          m_shadowVolume.push_back(tovec4(v4, 0.0f));
         }
       }
     }
@@ -306,7 +316,7 @@ namespace E4Gamma
       
       glEnableClientState(GL_VERTEX_ARRAY);	 // Enable Vertex Arrays
       
-      glVertexPointer(3, GL_FLOAT, 0, (void*)&m_shadowVolume[0]);
+      glVertexPointer(4, GL_FLOAT, 0, (void*)&m_shadowVolume[0]);
       glDrawArrays(GL_TRIANGLES, 0, (int)m_shadowVolume.size());
       
       Matrix4 oldProjection = m_pParent->m_renderContext->m_projection;
@@ -321,7 +331,6 @@ namespace E4Gamma
       m_pParent->m_renderContext->FlushContext();
       glDrawArrays(GL_TRIANGLES, 0, (int)m_shadowVolume.size());
       m_pParent->m_renderContext->m_projection = oldProjection;
-      
       glDisableClientState(GL_VERTEX_ARRAY);
     }
     

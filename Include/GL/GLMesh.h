@@ -41,8 +41,7 @@ namespace E4Gamma{
       int t1, t2; //triangle
       unsigned v1, v2; //edge
     };
-    
-    
+
     GLuint m_nEdges;
     Edge* m_edges;
     

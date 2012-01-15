@@ -38,6 +38,8 @@ SharedPtr<ILight> g_pLight = nullptr;
 
 void init()
 {
+  glClearColor(0.3,0.3,0.3,1.0);
+  
   glEnable(GL_TEXTURE_2D);
   //glEnable(GL_BLEND);
   glEnable(GL_DEPTH_TEST);
@@ -89,11 +91,14 @@ Quaternion qYaw;
 
 float fActualPitch = 0;
 
+float fTheta = 0;
+
 void display()
 {
+  glClearDepth(1.0);
   g_pRenderer->BeginScene();
   glClear(GL_DEPTH_BUFFER_BIT);
-    
+  glClear(GL_STENCIL_BUFFER_BIT);
   
   SharedPtr<IFrame> pFrame = g_pCamera->GetFrame();
   
@@ -101,6 +106,10 @@ void display()
   fActualPitch += (fPitchUp - fPitchDown) * 0.01;
   
   const float fLimitPitch = 90.0f * M_PI / 180.0f;
+  
+  fTheta = fTheta + 0.01;
+  float fSin = sinf(fTheta);
+  float fCos = cosf(fTheta);
   
   if(fActualPitch > fLimitPitch)
   {
@@ -117,13 +126,13 @@ void display()
   Matrix4 mFrame = pFrame->GetTransform();
   
   pFrame = g_pLight->GetFrame();
-  pFrame->SetPosition(Vector(0, 0, 2.0));
+  pFrame->SetPosition(Vector(0.0f, 0.0f, 1.0f));
           
   g_pLight->Select();  
   g_pCamera->Select();
   
   SharedPtr<IMesh> shadowMesh = g_pMesh->CreateShadowVolume();
-    
+
 //* 
   bool bRenderDepth = true;
   if(bRenderDepth)
@@ -146,7 +155,6 @@ void display()
 
     glDepthFunc(GL_LESS);  
     glDepthMask(GL_FALSE);
-    glClear(GL_STENCIL_BUFFER_BIT);
     glColorMask(GL_FALSE,GL_FALSE,GL_FALSE,GL_FALSE);
     glDisable(GL_LIGHTING);
     
@@ -197,29 +205,29 @@ void display()
     glColorMask(1, 1, 1, 1);
     glEnable(GL_LIGHTING);
   
-    g_pMesh->RenderPose(nullptr);  
+    g_pMesh->RenderPose(nullptr);
+    
   }
-  bool bStencilWireframes = false;
   
-  if(bStencilWireframes)
+  if(!bRenderStencils)
   {
+    glDepthFunc(GL_LESS);
     g_pDepthMaterial->RenderSet();
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE);
     
     glDisable(GL_STENCIL_TEST);
     glCullFace(GL_NONE);
     
-    glDisable(GL_DEPTH_TEST);
-    glDepthMask(GL_FALSE);  
+    glEnable(GL_DEPTH_CLAMP);
+    glEnable(GL_DEPTH_TEST);
+    glDepthMask(GL_FALSE);
     glColorMask(GL_TRUE,GL_TRUE,GL_TRUE,GL_TRUE);
-    
-    glPolygonMode(GL_FRONT, GL_LINE);
-    glPolygonMode(GL_BACK, GL_LINE);
-    
     
     shadowMesh->RenderPose(nullptr);
     
-    glPolygonMode(GL_FRONT, GL_FILL);
-    glPolygonMode(GL_BACK, GL_FILL);
+    glDisable(GL_DEPTH_CLAMP);
+    glDisable(GL_BLEND);
   }
 
   g_pRenderer->Present();

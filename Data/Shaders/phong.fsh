@@ -26,7 +26,7 @@ void main()
     //if there's a specular term, calculate that
     vec3 V = normalize(view_vector);
     
-    float falloff = 1.0 - dot(L, vertex_to_light_vector)/5.0;
+    float falloff = 1.0 - dot(L, vertex_to_light_vector)/8.0;
 
     vec3 bump = normalize(texture2D(tex, gl_TexCoord[0].st).xyz * 2.0 - 1.0);
     mat3 tangentFrame = mat3(T, B, N);

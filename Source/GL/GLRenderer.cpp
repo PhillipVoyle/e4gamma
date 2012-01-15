@@ -41,8 +41,6 @@ namespace E4Gamma
     m_materialCache = new IUnknownImpl<TAssetCache<CGLMaterial>>(CGLMaterial::createFactory(m_programCache, m_textureCache));
     m_meshCache = new IUnknownImpl<TAssetCache<CGLMesh>>(CGLMesh::createFactory(m_renderContext));
     m_modelCache = new IUnknownImpl<TAssetCache<CGLModel>>(CGLModel::createFactory(m_meshCache, m_materialCache));
-    
-    glClearColor(128,128,0,255);
   }
   
   CGLRenderer::~CGLRenderer()
