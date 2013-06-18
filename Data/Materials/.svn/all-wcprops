@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/28/trunk/Data/Materials
+END
+shadowtest.material
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/35/trunk/Data/Materials/shadowtest.material
+END
+depthonly.material
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/35/trunk/Data/Materials/depthonly.material
+END
+phong.material
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/35/trunk/Data/Materials/phong.material
+END
+test.material
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/28/trunk/Data/Materials/test.material
+END

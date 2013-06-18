@@ -1,0 +1,294 @@
+TE4Ggl
+v5
+r1
+cCheck dependencies
+cCompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLMaterial.o /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLMaterial.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLMesh.o /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLMesh.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLModel.o /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLModel.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLRenderer.o /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLRenderer.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLShader.o /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLShader.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLTexture.o /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLTexture.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLShaderProgram.o /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLShaderProgram.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLCamera.o /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLCamera.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLLight.o /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLLight.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLRenderContext.o /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLRenderContext.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cLibtool /Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/libE4Ggl.a normal x86_64
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
+c0000000051734B2400000000000000AA
+t1366510372
+s170
+
+N/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/libE4Ggl.a
+t2
+s0
+
+N/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/E4Ggl.LinkFileList
+c0000000051C0DBCA00000000000003C5
+t1371593674
+s965
+
+N/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLCamera.o
+t2
+s0
+
+N/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLLight.o
+t2
+s0
+
+N/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLMaterial.o
+t2
+s0
+
+N/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLMesh.o
+t2
+s0
+
+N/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLModel.o
+t2
+s0
+
+N/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLRenderContext.o
+t2
+s0
+
+N/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLRenderer.o
+t2
+s0
+
+N/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLShader.o
+t2
+s0
+
+N/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLShaderProgram.o
+t2
+s0
+
+N/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLTexture.o
+t2
+s0
+
+N/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLCamera.cpp
+c0000000051C0DABB000000000000056F
+t1371593403
+s1391
+
+N/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLLight.cpp
+c0000000051C0DABB0000000000000333
+t1371593403
+s819
+
+N/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLMaterial.cpp
+c0000000051C0DABB0000000000000D32
+t1371593403
+s3378
+
+N/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLMesh.cpp
+c0000000051C0DABB0000000000003B5A
+t1371593403
+s15194
+
+N/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLModel.cpp
+c0000000051C0DABB0000000000000ABA
+t1371593403
+s2746
+
+N/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLRenderContext.cpp
+c0000000051C0DABB000000000000040F
+t1371593403
+s1039
+
+N/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLRenderer.cpp
+c0000000051C0DABB0000000000000C87
+t1371593403
+s3207
+
+N/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLShader.cpp
+c0000000051C0DABB000000000000071D
+t1371593403
+s1821
+
+N/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLShaderProgram.cpp
+c0000000051C0DABB0000000000000EA2
+t1371593403
+s3746
+
+N/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLTexture.cpp
+c0000000051C0DABB00000000000005BE
+t1371593403
+s1470
+
+CBuild AST from /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLCamera.cpp
+r0
+
+CBuild AST from /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLLight.cpp
+r0
+
+CBuild AST from /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLMaterial.cpp
+r0
+
+CBuild AST from /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLMesh.cpp
+r0
+
+CBuild AST from /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLModel.cpp
+r0
+
+CBuild AST from /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLRenderContext.cpp
+r0
+
+CBuild AST from /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLRenderer.cpp
+r0
+
+CBuild AST from /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLShader.cpp
+r0
+
+CBuild AST from /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLShaderProgram.cpp
+r0
+
+CBuild AST from /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLTexture.cpp
+r0
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies93c71f4a1371b741^4c1c2d4a1371b741^-859"warning: no rule to process file '$(PROJECT_DIR)/Data/Shaders/test.fsh' of type sourcecode.glsl for architecture x86_64warning: no rule to process file '$(PROJECT_DIR)/Data/Shaders/test.vsh' of type sourcecode.glsl for architecture x86_64warning: no rule to process file '$(PROJECT_DIR)/Data/Shaders/phong.vsh' of type sourcecode.glsl for architecture x86_64warning: no rule to process file '$(PROJECT_DIR)/Data/Shaders/phong.fsh' of type sourcecode.glsl for architecture x86_64warning: no rule to process file '$(PROJECT_DIR)/Data/Shaders/depthonly.vsh' of type sourcecode.glsl for architecture x86_64warning: no rule to process file '$(PROJECT_DIR)/Data/Shaders/depthonly.fsh' of type sourcecode.glsl for architecture x86_64warning: no rule to process file '$(PROJECT_DIR)/Data/Shaders/simplephong.fsh' of type sourcecode.glsl for architecture x86_647(21%IDEActivityLogMessage2@119"Warning: no rule to process file '$(PROJECT_DIR)/Data/Shaders/test.fsh' of type sourcecode.glsl for architecture x86_64-393286474#18446744073709551615#0#-1#27"com.apple.dt.IDE.LogMessage-27"Dependency Analysis Warning--2@119"Warning: no rule to process file '$(PROJECT_DIR)/Data/Shaders/test.vsh' of type sourcecode.glsl for architecture x86_64-393286474#18446744073709551615#0#-1#27"com.apple.dt.IDE.LogMessage-27"Dependency Analysis Warning--2@120"Warning: no rule to process file '$(PROJECT_DIR)/Data/Shaders/phong.vsh' of type sourcecode.glsl for architecture x86_64-393286474#18446744073709551615#0#-1#27"com.apple.dt.IDE.LogMessage-27"Dependency Analysis Warning--2@120"Warning: no rule to process file '$(PROJECT_DIR)/Data/Shaders/phong.fsh' of type sourcecode.glsl for architecture x86_64-393286474#18446744073709551615#0#-1#27"com.apple.dt.IDE.LogMessage-27"Dependency Analysis Warning--2@124"Warning: no rule to process file '$(PROJECT_DIR)/Data/Shaders/depthonly.vsh' of type sourcecode.glsl for architecture x86_64-393286474#18446744073709551615#0#-1#27"com.apple.dt.IDE.LogMessage-27"Dependency Analysis Warning--2@124"Warning: no rule to process file '$(PROJECT_DIR)/Data/Shaders/depthonly.fsh' of type sourcecode.glsl for architecture x86_64-393286474#18446744073709551615#0#-1#27"com.apple.dt.IDE.LogMessage-27"Dependency Analysis Warning--2@126"Warning: no rule to process file '$(PROJECT_DIR)/Data/Shaders/simplephong.fsh' of type sourcecode.glsl for architecture x86_64-393286474#18446744073709551615#0#-1#27"com.apple.dt.IDE.LogMessage-27"Dependency Analysis Warning--0#1#0#--18"Check dependencies36"AB6EB2A6-126F-4767-A074-CF2474C5777B-
+
+CCompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLCamera.o /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLCamera.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s393286477.132875
+e393286477.186567
+r1
+xCompileC
+xObject/Debug/E4Ggl.build/Objects-normal/x86_64/GLCamera.o
+x/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLCamera.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection67"Compile /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLCamera.cpp3f1a224d1371b741^fcc22f4d1371b741^---0#0#0#-19%DVTDocumentLocation2@75"file://localhost/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLCamera.cpp0000000000000000^2275"CompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLCamera.o Source/GL/GLCamera.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/phillipvoyle/Projects/e4gamma    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Werror -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -Wno-sign-conversion -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-generated-files.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-own-target-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-all-target-headers.hmap -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-project-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/include -IInclude -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/DerivedSources/x86_64 -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/DerivedSources -F/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug -MMD -MT dependencies -MF /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLCamera.d --serialize-diagnostics /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLCamera.dia -c /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLCamera.cpp -o /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLCamera.o36"E5DB67EE-15B4-4111-B540-BD573B82324D-
+
+CCompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLLight.o /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLLight.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s393286477.187854
+e393286477.222590
+r1
+xCompileC
+xObject/Debug/E4Ggl.build/Objects-normal/x86_64/GLLight.o
+x/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLLight.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection66"Compile /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLLight.cpp832f304d1371b741^dbfb384d1371b741^---0#0#0#-19%DVTDocumentLocation2@74"file://localhost/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLLight.cpp0000000000000000^2269"CompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLLight.o Source/GL/GLLight.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/phillipvoyle/Projects/e4gamma    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Werror -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -Wno-sign-conversion -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-generated-files.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-own-target-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-all-target-headers.hmap -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-project-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/include -IInclude -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/DerivedSources/x86_64 -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/DerivedSources -F/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug -MMD -MT dependencies -MF /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLLight.d --serialize-diagnostics /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLLight.dia -c /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLLight.cpp -o /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLLight.o36"47BA8D6D-9157-4636-8467-38E33C58A5D9-
+
+CCompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLMaterial.o /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLMaterial.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s393286475.410276
+e393286475.901976
+r1
+xCompileC
+xObject/Debug/E4Ggl.build/Objects-normal/x86_64/GLMaterial.o
+x/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLMaterial.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection69"Compile /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLMaterial.cppcd1d694b1371b741^29e8e64b1371b741^---0#0#0#-19%DVTDocumentLocation2@77"file://localhost/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLMaterial.cpp0000000000000000^2287"CompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLMaterial.o Source/GL/GLMaterial.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/phillipvoyle/Projects/e4gamma    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Werror -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -Wno-sign-conversion -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-generated-files.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-own-target-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-all-target-headers.hmap -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-project-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/include -IInclude -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/DerivedSources/x86_64 -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/DerivedSources -F/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug -MMD -MT dependencies -MF /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLMaterial.d --serialize-diagnostics /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLMaterial.dia -c /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLMaterial.cpp -o /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLMaterial.o36"350816A0-2698-4F54-9FC6-CF8A9D9FF832-
+
+CCompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLMesh.o /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLMesh.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s393286475.423012
+e393286476.001515
+r1
+xCompileC
+xObject/Debug/E4Ggl.build/Objects-normal/x86_64/GLMesh.o
+x/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLMesh.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection65"Compile /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLMesh.cpp46606c4b1371b741^4165004c1371b741^---0#0#0#-19%DVTDocumentLocation2@73"file://localhost/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLMesh.cpp0000000000000000^2263"CompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLMesh.o Source/GL/GLMesh.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/phillipvoyle/Projects/e4gamma    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Werror -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -Wno-sign-conversion -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-generated-files.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-own-target-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-all-target-headers.hmap -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-project-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/include -IInclude -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/DerivedSources/x86_64 -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/DerivedSources -F/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug -MMD -MT dependencies -MF /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLMesh.d --serialize-diagnostics /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLMesh.dia -c /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLMesh.cpp -o /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLMesh.o36"654403E1-D803-4EA4-A277-63741C06ADF0-
+
+CCompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLModel.o /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLModel.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s393286475.956468
+e393286476.490580
+r1
+xCompileC
+xObject/Debug/E4Ggl.build/Objects-normal/x86_64/GLModel.o
+x/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLModel.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection66"Compile /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLModel.cppd8f0f44b1371b741^81977d4c1371b741^---0#0#0#-19%DVTDocumentLocation2@74"file://localhost/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLModel.cpp0000000000000000^2269"CompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLModel.o Source/GL/GLModel.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/phillipvoyle/Projects/e4gamma    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Werror -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -Wno-sign-conversion -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-generated-files.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-own-target-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-all-target-headers.hmap -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-project-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/include -IInclude -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/DerivedSources/x86_64 -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/DerivedSources -F/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug -MMD -MT dependencies -MF /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLModel.d --serialize-diagnostics /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLModel.dia -c /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLModel.cpp -o /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLModel.o36"80806A4B-90C2-4798-BD64-FDC789FC66AC-
+
+CCompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLRenderContext.o /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLRenderContext.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s393286477.223883
+e393286477.582116
+r1
+xCompileC
+xObject/Debug/E4Ggl.build/Objects-normal/x86_64/GLRenderContext.o
+x/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLRenderContext.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection74"Compile /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLRenderContext.cpp5a66394d1371b741^6c05954d1371b741^---0#0#0#-19%DVTDocumentLocation2@82"file://localhost/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLRenderContext.cpp0000000000000000^2317"CompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLRenderContext.o Source/GL/GLRenderContext.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/phillipvoyle/Projects/e4gamma    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Werror -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -Wno-sign-conversion -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-generated-files.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-own-target-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-all-target-headers.hmap -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-project-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/include -IInclude -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/DerivedSources/x86_64 -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/DerivedSources -F/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug -MMD -MT dependencies -MF /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLRenderContext.d --serialize-diagnostics /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLRenderContext.dia -c /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLRenderContext.cpp -o /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLRenderContext.o36"162CDAF6-9A96-4CDA-B0A9-97CF41773FCD-
+
+CCompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLRenderer.o /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLRenderer.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s393286476.003847
+e393286477.008930
+r1
+xCompileC
+xObject/Debug/E4Ggl.build/Objects-normal/x86_64/GLRenderer.o
+x/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLRenderer.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection69"Compile /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLRenderer.cppe717014c1371b741^5e49024d1371b741^---0#0#0#-19%DVTDocumentLocation2@77"file://localhost/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLRenderer.cpp0000000000000000^2287"CompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLRenderer.o Source/GL/GLRenderer.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/phillipvoyle/Projects/e4gamma    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Werror -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -Wno-sign-conversion -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-generated-files.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-own-target-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-all-target-headers.hmap -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-project-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/include -IInclude -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/DerivedSources/x86_64 -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/DerivedSources -F/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug -MMD -MT dependencies -MF /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLRenderer.d --serialize-diagnostics /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLRenderer.dia -c /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLRenderer.cpp -o /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLRenderer.o36"58398D4B-4EF1-4D82-86FD-93FD0E388198-
+
+CCompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLShader.o /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLShader.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s393286476.491934
+e393286476.918297
+r1
+xCompileC
+xObject/Debug/E4Ggl.build/Objects-normal/x86_64/GLShader.o
+x/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLShader.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection67"Compile /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLShader.cpp5f077e4c1371b741^2f15eb4c1371b741^---0#0#0#-19%DVTDocumentLocation2@75"file://localhost/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLShader.cpp0000000000000000^2275"CompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLShader.o Source/GL/GLShader.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/phillipvoyle/Projects/e4gamma    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Werror -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -Wno-sign-conversion -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-generated-files.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-own-target-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-all-target-headers.hmap -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-project-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/include -IInclude -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/DerivedSources/x86_64 -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/DerivedSources -F/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug -MMD -MT dependencies -MF /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLShader.d --serialize-diagnostics /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLShader.dia -c /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLShader.cpp -o /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLShader.o36"FF850B6A-C106-499E-AB5D-F4FFDA3AB2F7-
+
+CCompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLShaderProgram.o /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLShaderProgram.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s393286477.010237
+e393286477.477067
+r1
+xCompileC
+xObject/Debug/E4Ggl.build/Objects-normal/x86_64/GLShaderProgram.o
+x/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLShaderProgram.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection74"Compile /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLShaderProgram.cppb7b4024d1371b741^70227a4d1371b741^---0#0#0#-19%DVTDocumentLocation2@82"file://localhost/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLShaderProgram.cpp0000000000000000^2317"CompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLShaderProgram.o Source/GL/GLShaderProgram.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/phillipvoyle/Projects/e4gamma    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Werror -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -Wno-sign-conversion -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-generated-files.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-own-target-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-all-target-headers.hmap -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-project-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/include -IInclude -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/DerivedSources/x86_64 -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/DerivedSources -F/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug -MMD -MT dependencies -MF /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLShaderProgram.d --serialize-diagnostics /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLShaderProgram.dia -c /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLShaderProgram.cpp -o /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLShaderProgram.o36"4E148552-12F1-4205-BC5F-66A329DBC48E-
+
+CCompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLTexture.o /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLTexture.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s393286476.919619
+e393286477.131566
+r1
+xCompileC
+xObject/Debug/E4Ggl.build/Objects-normal/x86_64/GLTexture.o
+x/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLTexture.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection68"Compile /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLTexture.cpp2783eb4c1371b741^79b0214d1371b741^---0#0#0#-19%DVTDocumentLocation2@76"file://localhost/Users/phillipvoyle/Projects/e4gamma/Source/GL/GLTexture.cpp0000000000000000^2281"CompileC Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLTexture.o Source/GL/GLTexture.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/phillipvoyle/Projects/e4gamma    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Werror -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -Wno-sign-conversion -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-generated-files.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-own-target-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-all-target-headers.hmap -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/E4Ggl-project-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/include -IInclude -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/DerivedSources/x86_64 -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/DerivedSources -F/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug -MMD -MT dependencies -MF /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLTexture.d --serialize-diagnostics /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLTexture.dia -c /Users/phillipvoyle/Projects/e4gamma/Source/GL/GLTexture.cpp -o /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/GLTexture.o36"01393916-E135-4AC7-8D08-728D0D04B8FA-
+
+CLibtool /Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/libE4Ggl.a normal x86_64
+s393286477.589678
+e393286477.672552
+r1
+xLibtool
+x/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/libE4Ggl.a
+xnormal
+xx86_64
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection48"Libtool Lib/Debug/Debug/libE4Ggl.a normal x86_648e03974d1371b741^d42cac4d1371b741^---0#0#0#--611"Libtool Lib/Debug/Debug/libE4Ggl.a normal x86_64    cd /Users/phillipvoyle/Projects/e4gamma    setenv MACOSX_DEPLOYMENT_TARGET 10.7    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -static -arch_only x86_64 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -L/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug -LLib -filelist /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Ggl.build/Objects-normal/x86_64/E4Ggl.LinkFileList -o /Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/libE4Ggl.a36"06F1FE24-AF9C-4EF1-92D9-485079AF6D2F-
+

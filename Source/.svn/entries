@@ -1,0 +1,54 @@
+10
+
+dir
+27
+https://e4gamma.googlecode.com/svn/trunk/Source
+https://e4gamma.googlecode.com/svn
+
+
+
+2011-12-18T08:16:37.998831Z
+27
+phillip.g.voyle@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+a1e4fb25-2b40-0410-ba13-8f6c52a25eff
+
+GL
+dir
+
+Physics
+dir
+
+Core
+dir
+
+
+
+add
+
+Math
+dir
+
+Collision
+dir
+
+
+
+add
+
+stdcpp
+dir
+

@@ -42,22 +42,18 @@ namespace E4Gamma{
       unsigned v1, v2; //edge
     };
 
-    GLuint m_nEdges;
-    Edge* m_edges;
-    
-    GLuint m_nTriangles;
-    Triangle* m_triangles;
+    std::vector<Edge>     m_edges;
+    std::vector<Triangle> m_triangles;
+    std::vector<Vector>   m_geometryVerts;
     
     GLuint m_vertexBuffer;
     GLuint m_nTexturedVerts;
 
-  public:
 
     SharedPtr<CGLRenderContext> m_renderContext;
-    GLuint m_nGeometryVerts;
-    Vector* m_geometryVerts;
 
-    CGLMesh(SharedPtr<CGLRenderContext> renderContext, const std::string& sMesh);
+    //CGLMesh(SharedPtr<CGLRenderContext> renderContext, const std::string& sMesh);
+    CGLMesh(SharedPtr<CGLRenderContext> renderContext, const std::vector<Vector>& geometryVerts, const std::vector<Triangle>& triangles, const std::vector<Edge>& edges, const std::vector<TexturedVertex>& texturedVertices);
     virtual ~CGLMesh();
 
     virtual void RenderPose(IPose* pPose);

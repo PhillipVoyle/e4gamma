@@ -1,0 +1,9 @@
+ffffffffffffffffffffffffffffffff d136194ef59fcff6c00723e5e5d2994b ffffffffffffffffffffffffffffffff 0 /Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/libE4Gcpp.a
+0000000051c0dabb0000000000000483 332707946e19a7317991ff3d45ec05d9 ffffffffffffffffffffffffffffffff 0 /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Vector.o
+0000000051c0dabb0000000000000837 0292e25f89b89d02d4c1e6743e66e6ee ffffffffffffffffffffffffffffffff 0 /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Quaternion.o
+0000000051c0dabb0000000000001b21 5b3790d0d440da89ef6724fea52e007c ffffffffffffffffffffffffffffffff 0 /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Matrix.o
+0000000051c0dabb0000000000000628 10bfbb3130d05b8414154eee94148253 ffffffffffffffffffffffffffffffff 0 /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/TextFile.o
+0000000051c0dabb000000000000131a e3bc55c822926d763ee68d02d5259239 ffffffffffffffffffffffffffffffff 0 /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Frame.o
+0000000051c0dabb0000000000000c05 1c4f3553667684cdb63c03089f5e8ec1 ffffffffffffffffffffffffffffffff 0 /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Iris.o
+0000000051c0dabb00000000000003ec 6818bdeed0ac47e0e60e777a8518bad8 ffffffffffffffffffffffffffffffff 0 /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/FileSystemDataStore.o
+0000000051c0dabb00000000000008bb 23948700d53ce9af844fd7b01e92c57c ffffffffffffffffffffffffffffffff 0 /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/FlatFile.o

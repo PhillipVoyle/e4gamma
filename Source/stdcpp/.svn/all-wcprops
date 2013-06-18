@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/27/trunk/Source/stdcpp
+END
+TextFile.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/29/trunk/Source/stdcpp/TextFile.cpp
+END
+FlatFile.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/27/trunk/Source/stdcpp/FlatFile.cpp
+END
+Iris.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/33/trunk/Source/stdcpp/Iris.cpp
+END
+Frame.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/31/trunk/Source/stdcpp/Frame.cpp
+END
+FileSystemDataStore.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/27/trunk/Source/stdcpp/FileSystemDataStore.cpp
+END

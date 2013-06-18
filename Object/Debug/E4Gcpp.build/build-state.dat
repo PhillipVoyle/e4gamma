@@ -1,0 +1,242 @@
+TE4Gcpp
+v5
+r1
+cCheck dependencies
+cCompileC Object/Debug/E4Gcpp.build/Objects-normal/x86_64/FileSystemDataStore.o /Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/FileSystemDataStore.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Object/Debug/E4Gcpp.build/Objects-normal/x86_64/FlatFile.o /Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/FlatFile.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Iris.o /Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/Iris.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Object/Debug/E4Gcpp.build/Objects-normal/x86_64/TextFile.o /Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/TextFile.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Frame.o /Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/Frame.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Matrix.o /Users/phillipvoyle/Projects/e4gamma/Source/Math/Matrix.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Quaternion.o /Users/phillipvoyle/Projects/e4gamma/Source/Math/Quaternion.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Vector.o /Users/phillipvoyle/Projects/e4gamma/Source/Math/Vector.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cLibtool /Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/libE4Gcpp.a normal x86_64
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
+c0000000051734B2400000000000000AA
+t1366510372
+s170
+
+N/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/libE4Gcpp.a
+t2
+s0
+
+N/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/E4Gcpp.LinkFileList
+c0000000051C0DBCA0000000000000302
+t1371593674
+s770
+
+N/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/FileSystemDataStore.o
+t2
+s0
+
+N/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/FlatFile.o
+t2
+s0
+
+N/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Frame.o
+t2
+s0
+
+N/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Iris.o
+t2
+s0
+
+N/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Matrix.o
+t2
+s0
+
+N/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Quaternion.o
+t2
+s0
+
+N/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/TextFile.o
+t2
+s0
+
+N/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Vector.o
+t2
+s0
+
+N/Users/phillipvoyle/Projects/e4gamma/Source/Math/Matrix.cpp
+c0000000051C0DABB0000000000001B21
+t1371593403
+s6945
+
+N/Users/phillipvoyle/Projects/e4gamma/Source/Math/Quaternion.cpp
+c0000000051C0DABB0000000000000837
+t1371593403
+s2103
+
+N/Users/phillipvoyle/Projects/e4gamma/Source/Math/Vector.cpp
+c0000000051C0DABB0000000000000483
+t1371593403
+s1155
+
+N/Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/FileSystemDataStore.cpp
+c0000000051C0DABB00000000000003EC
+t1371593403
+s1004
+
+N/Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/FlatFile.cpp
+c0000000051C0DABB00000000000008BB
+t1371593403
+s2235
+
+N/Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/Frame.cpp
+c0000000051C0DABB000000000000131A
+t1371593403
+s4890
+
+N/Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/Iris.cpp
+c0000000051C0DABB0000000000000C05
+t1371593403
+s3077
+
+N/Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/TextFile.cpp
+c0000000051C0DABB0000000000000628
+t1371593403
+s1576
+
+CBuild AST from /Users/phillipvoyle/Projects/e4gamma/Source/Math/Matrix.cpp
+r0
+
+CBuild AST from /Users/phillipvoyle/Projects/e4gamma/Source/Math/Quaternion.cpp
+r0
+
+CBuild AST from /Users/phillipvoyle/Projects/e4gamma/Source/Math/Vector.cpp
+r0
+
+CBuild AST from /Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/FileSystemDataStore.cpp
+r0
+
+CBuild AST from /Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/FlatFile.cpp
+r0
+
+CBuild AST from /Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/Frame.cpp
+r0
+
+CBuild AST from /Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/Iris.cpp
+r0
+
+CBuild AST from /Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/TextFile.cpp
+r0
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies99ba1f4a1371b741^bdfb274a1371b741^---0#1#0#--18"Check dependencies36"6A0A3CC5-24D0-4A82-BAC7-5C0556BA3F4C-
+
+CCompileC Object/Debug/E4Gcpp.build/Objects-normal/x86_64/FileSystemDataStore.o /Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/FileSystemDataStore.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s393286474.161226
+e393286474.918067
+r1
+xCompileC
+xObject/Debug/E4Gcpp.build/Objects-normal/x86_64/FileSystemDataStore.o
+x/Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/FileSystemDataStore.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection82"Compile /Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/FileSystemDataStore.cppfd6b294a1371b741^f706eb4a1371b741^---0#0#0#-19%DVTDocumentLocation2@90"file://localhost/Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/FileSystemDataStore.cpp0000000000000000^2355"CompileC Object/Debug/E4Gcpp.build/Objects-normal/x86_64/FileSystemDataStore.o Source/stdcpp/FileSystemDataStore.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/phillipvoyle/Projects/e4gamma    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -Wno-sign-conversion -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-generated-files.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-own-target-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-all-target-headers.hmap -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-project-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/include -IInclude -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/DerivedSources/x86_64 -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/DerivedSources -F/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug -MMD -MT dependencies -MF /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/FileSystemDataStore.d --serialize-diagnostics /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/FileSystemDataStore.dia -c /Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/FileSystemDataStore.cpp -o /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/FileSystemDataStore.o36"696E7F5E-D039-4BCC-9571-538A8E56B841-
+
+CCompileC Object/Debug/E4Gcpp.build/Objects-normal/x86_64/FlatFile.o /Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/FlatFile.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s393286474.162099
+e393286474.917972
+r1
+xCompileC
+xObject/Debug/E4Gcpp.build/Objects-normal/x86_64/FlatFile.o
+x/Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/FlatFile.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"Compile /Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/FlatFile.cpp8995294a1371b741^7102eb4a1371b741^---0#0#0#-19%DVTDocumentLocation2@79"file://localhost/Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/FlatFile.cpp0000000000000000^2289"CompileC Object/Debug/E4Gcpp.build/Objects-normal/x86_64/FlatFile.o Source/stdcpp/FlatFile.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/phillipvoyle/Projects/e4gamma    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -Wno-sign-conversion -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-generated-files.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-own-target-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-all-target-headers.hmap -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-project-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/include -IInclude -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/DerivedSources/x86_64 -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/DerivedSources -F/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug -MMD -MT dependencies -MF /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/FlatFile.d --serialize-diagnostics /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/FlatFile.dia -c /Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/FlatFile.cpp -o /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/FlatFile.o36"5B3D28B6-3B18-4549-9E84-54A5B8EA5638-
+
+CCompileC Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Frame.o /Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/Frame.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s393286475.298655
+e393286475.339919
+r1
+xCompileC
+xObject/Debug/E4Gcpp.build/Objects-normal/x86_64/Frame.o
+x/Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/Frame.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection68"Compile /Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/Frame.cppdb8b4c4b1371b741^3205574b1371b741^---0#0#0#-19%DVTDocumentLocation2@76"file://localhost/Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/Frame.cpp0000000000000000^2271"CompileC Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Frame.o Source/stdcpp/Frame.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/phillipvoyle/Projects/e4gamma    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -Wno-sign-conversion -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-generated-files.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-own-target-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-all-target-headers.hmap -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-project-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/include -IInclude -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/DerivedSources/x86_64 -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/DerivedSources -F/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug -MMD -MT dependencies -MF /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Frame.d --serialize-diagnostics /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Frame.dia -c /Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/Frame.cpp -o /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Frame.o36"C0A1B278-9960-490E-A344-BCB8A66D2573-
+
+CCompileC Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Iris.o /Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/Iris.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s393286474.919432
+e393286475.297364
+r1
+xCompileC
+xObject/Debug/E4Gcpp.build/Objects-normal/x86_64/Iris.o
+x/Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/Iris.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection67"Compile /Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/Iris.cpp2175eb4a1371b741^eb1f4c4b1371b741^---0#0#0#-19%DVTDocumentLocation2@75"file://localhost/Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/Iris.cpp0000000000000000^2265"CompileC Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Iris.o Source/stdcpp/Iris.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/phillipvoyle/Projects/e4gamma    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -Wno-sign-conversion -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-generated-files.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-own-target-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-all-target-headers.hmap -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-project-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/include -IInclude -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/DerivedSources/x86_64 -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/DerivedSources -F/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug -MMD -MT dependencies -MF /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Iris.d --serialize-diagnostics /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Iris.dia -c /Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/Iris.cpp -o /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Iris.o36"7D193D4B-5BB9-4711-8224-F71D2A9462B0-
+
+CCompileC Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Matrix.o /Users/phillipvoyle/Projects/e4gamma/Source/Math/Matrix.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s393286475.341225
+e393286475.398770
+r1
+xCompileC
+xObject/Debug/E4Gcpp.build/Objects-normal/x86_64/Matrix.o
+x/Users/phillipvoyle/Projects/e4gamma/Source/Math/Matrix.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection67"Compile /Users/phillipvoyle/Projects/e4gamma/Source/Math/Matrix.cpp2670574b1371b741^fd15664b1371b741^---0#0#0#-19%DVTDocumentLocation2@75"file://localhost/Users/phillipvoyle/Projects/e4gamma/Source/Math/Matrix.cpp0000000000000000^2273"CompileC Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Matrix.o Source/Math/Matrix.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/phillipvoyle/Projects/e4gamma    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -Wno-sign-conversion -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-generated-files.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-own-target-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-all-target-headers.hmap -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-project-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/include -IInclude -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/DerivedSources/x86_64 -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/DerivedSources -F/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug -MMD -MT dependencies -MF /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Matrix.d --serialize-diagnostics /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Matrix.dia -c /Users/phillipvoyle/Projects/e4gamma/Source/Math/Matrix.cpp -o /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Matrix.o36"3F22EF32-D766-4A13-8095-69B7A7BBCE8D-
+
+CCompileC Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Quaternion.o /Users/phillipvoyle/Projects/e4gamma/Source/Math/Quaternion.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s393286475.381689
+e393286475.408964
+r1
+xCompileC
+xObject/Debug/E4Gcpp.build/Objects-normal/x86_64/Quaternion.o
+x/Users/phillipvoyle/Projects/e4gamma/Source/Math/Quaternion.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"Compile /Users/phillipvoyle/Projects/e4gamma/Source/Math/Quaternion.cppfbcc614b1371b741^3eb3684b1371b741^---0#0#0#-19%DVTDocumentLocation2@79"file://localhost/Users/phillipvoyle/Projects/e4gamma/Source/Math/Quaternion.cpp0000000000000000^2297"CompileC Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Quaternion.o Source/Math/Quaternion.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/phillipvoyle/Projects/e4gamma    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -Wno-sign-conversion -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-generated-files.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-own-target-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-all-target-headers.hmap -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-project-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/include -IInclude -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/DerivedSources/x86_64 -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/DerivedSources -F/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug -MMD -MT dependencies -MF /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Quaternion.d --serialize-diagnostics /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Quaternion.dia -c /Users/phillipvoyle/Projects/e4gamma/Source/Math/Quaternion.cpp -o /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Quaternion.o36"58F2AD3F-27E6-4BA6-BF44-D6FFB0372717-
+
+CCompileC Object/Debug/E4Gcpp.build/Objects-normal/x86_64/TextFile.o /Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/TextFile.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s393286474.919898
+e393286475.380364
+r1
+xCompileC
+xObject/Debug/E4Gcpp.build/Objects-normal/x86_64/TextFile.o
+x/Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/TextFile.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"Compile /Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/TextFile.cppc990eb4a1371b741^575f614b1371b741^---0#0#0#-19%DVTDocumentLocation2@79"file://localhost/Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/TextFile.cpp0000000000000000^2289"CompileC Object/Debug/E4Gcpp.build/Objects-normal/x86_64/TextFile.o Source/stdcpp/TextFile.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/phillipvoyle/Projects/e4gamma    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -Wno-sign-conversion -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-generated-files.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-own-target-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-all-target-headers.hmap -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-project-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/include -IInclude -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/DerivedSources/x86_64 -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/DerivedSources -F/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug -MMD -MT dependencies -MF /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/TextFile.d --serialize-diagnostics /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/TextFile.dia -c /Users/phillipvoyle/Projects/e4gamma/Source/stdcpp/TextFile.cpp -o /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/TextFile.o36"251993C9-721C-49FF-A9A2-24283BBDEB1A-
+
+CCompileC Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Vector.o /Users/phillipvoyle/Projects/e4gamma/Source/Math/Vector.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s393286475.399948
+e393286475.421700
+r1
+xCompileC
+xObject/Debug/E4Gcpp.build/Objects-normal/x86_64/Vector.o
+x/Users/phillipvoyle/Projects/e4gamma/Source/Math/Vector.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection67"Compile /Users/phillipvoyle/Projects/e4gamma/Source/Math/Vector.cpp207a664b1371b741^99f46b4b1371b741^---0#0#0#-19%DVTDocumentLocation2@75"file://localhost/Users/phillipvoyle/Projects/e4gamma/Source/Math/Vector.cpp0000000000000000^2273"CompileC Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Vector.o Source/Math/Vector.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/phillipvoyle/Projects/e4gamma    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -Wno-sign-conversion -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-generated-files.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-own-target-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-all-target-headers.hmap -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/E4Gcpp-project-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/include -IInclude -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/DerivedSources/x86_64 -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/DerivedSources -F/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug -MMD -MT dependencies -MF /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Vector.d --serialize-diagnostics /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Vector.dia -c /Users/phillipvoyle/Projects/e4gamma/Source/Math/Vector.cpp -o /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/Vector.o36"AEF57BE4-E7D7-460E-918F-9655CBAE7719-
+
+CLibtool /Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/libE4Gcpp.a normal x86_64
+s393286475.903267
+e393286475.955178
+r1
+xLibtool
+x/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/libE4Gcpp.a
+xnormal
+xx86_64
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection49"Libtool Lib/Debug/Debug/libE4Gcpp.a normal x86_643c4ce74b1371b741^ad86f44b1371b741^---0#0#0#--615"Libtool Lib/Debug/Debug/libE4Gcpp.a normal x86_64    cd /Users/phillipvoyle/Projects/e4gamma    setenv MACOSX_DEPLOYMENT_TARGET 10.7    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -static -arch_only x86_64 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -L/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug -LLib -filelist /Users/phillipvoyle/Projects/e4gamma/Object/Debug/E4Gcpp.build/Objects-normal/x86_64/E4Gcpp.LinkFileList -o /Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/libE4Gcpp.a36"C87943BB-9ECB-4DDA-8A38-9D2AEC51BB34-
+

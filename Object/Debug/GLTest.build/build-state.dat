@@ -1,0 +1,96 @@
+TGLTest
+v5
+r1
+cCheck dependencies
+cCompileC Object/Debug/GLTest.build/Objects-normal/x86_64/TestGLRenderer.o /Users/phillipvoyle/Projects/e4gamma/Tests/GLRenderer/TestGLRenderer.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/GLTest normal x86_64
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
+c0000000051734B2400000000000000AA
+t1366510372
+s170
+
+N/Applications/Xcode.app/Contents/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/GLUT.framework/GLUT
+c00000000000000000000000000000000
+t2
+s0
+
+N/Applications/Xcode.app/Contents/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/OpenGL
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/GLTest
+t2
+s0
+
+N/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/libE4Gcpp.a
+c0000000051C0DBCB00000000000B5EE0
+t1371593675
+s745184
+
+N/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/libE4Ggl.a
+c0000000051C0DBCD0000000000277E30
+t1371593677
+s2588208
+
+N/Users/phillipvoyle/Projects/e4gamma/Object/Debug/GLTest.build/Objects-normal/x86_64/GLTest.LinkFileList
+c0000000051C0DBCD0000000000000066
+t1371593677
+s102
+
+N/Users/phillipvoyle/Projects/e4gamma/Object/Debug/GLTest.build/Objects-normal/x86_64/TestGLRenderer.o
+t2
+s0
+
+N/Users/phillipvoyle/Projects/e4gamma/Tests/GLRenderer/TestGLRenderer.cpp
+c0000000051C0DABB0000000000001F7B
+t1371593403
+s8059
+
+CBuild AST from /Users/phillipvoyle/Projects/e4gamma/Tests/GLRenderer/TestGLRenderer.cpp
+r0
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies97aab04d1371b741^166eb14d1371b741^---0#1#0#--18"Check dependencies36"75368DD1-5D4A-4F2E-8512-6831ADC27944-
+
+CCompileC Object/Debug/GLTest.build/Objects-normal/x86_64/TestGLRenderer.o /Users/phillipvoyle/Projects/e4gamma/Tests/GLRenderer/TestGLRenderer.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s393286477.699365
+e393286478.091430
+r1
+xCompileC
+xObject/Debug/GLTest.build/Objects-normal/x86_64/TestGLRenderer.o
+x/Users/phillipvoyle/Projects/e4gamma/Tests/GLRenderer/TestGLRenderer.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+o/Users/phillipvoyle/Projects/e4gamma/Tests/GLRenderer/TestGLRenderer.cpp:111:9: warning: unused variable 'fSin' [-Wunused-variable]
+o  float fSin = sinf(fTheta);
+o        ^
+o/Users/phillipvoyle/Projects/e4gamma/Tests/GLRenderer/TestGLRenderer.cpp:112:9: warning: unused variable 'fCos' [-Wunused-variable]
+o  float fCos = cosf(fTheta);
+o        ^
+o/Users/phillipvoyle/Projects/e4gamma/Tests/GLRenderer/TestGLRenderer.cpp:126:11: warning: unused variable 'mFrame' [-Wunused-variable]
+o  Matrix4 mFrame = pFrame->GetTransform();
+o          ^
+o/Users/phillipvoyle/Projects/e4gamma/Tests/GLRenderer/TestGLRenderer.cpp:301:6: warning: no previous prototype for function 'specialDown' [-Wmissing-prototypes]
+ovoid specialDown(int key, int x, int y)
+o     ^
+o/Users/phillipvoyle/Projects/e4gamma/Tests/GLRenderer/TestGLRenderer.cpp:321:6: warning: no previous prototype for function 'specialUp' [-Wmissing-prototypes]
+ovoid specialUp(int key, int x, int y)
+o     ^
+o5 warnings generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection80"Compile /Users/phillipvoyle/Projects/e4gamma/Tests/GLRenderer/TestGLRenderer.cpp7b32b34d1371b741^4d67174e1371b741^-966"/Users/phillipvoyle/Projects/e4gamma/Tests/GLRenderer/TestGLRenderer.cpp:111:9: warning: unused variable 'fSin' [-Wunused-variable]  float fSin = sinf(fTheta);        ^/Users/phillipvoyle/Projects/e4gamma/Tests/GLRenderer/TestGLRenderer.cpp:112:9: warning: unused variable 'fCos' [-Wunused-variable]  float fCos = cosf(fTheta);        ^/Users/phillipvoyle/Projects/e4gamma/Tests/GLRenderer/TestGLRenderer.cpp:126:11: warning: unused variable 'mFrame' [-Wunused-variable]  Matrix4 mFrame = pFrame->GetTransform();          ^/Users/phillipvoyle/Projects/e4gamma/Tests/GLRenderer/TestGLRenderer.cpp:301:6: warning: no previous prototype for function 'specialDown' [-Wmissing-prototypes]void specialDown(int key, int x, int y)     ^/Users/phillipvoyle/Projects/e4gamma/Tests/GLRenderer/TestGLRenderer.cpp:321:6: warning: no previous prototype for function 'specialUp' [-Wmissing-prototypes]void specialUp(int key, int x, int y)     ^5 warnings generated.5(36%IDEClangDiagnosticActivityLogMessage2@22"Unused variable 'fSin'-393286478#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@88"file://localhost/Users/phillipvoyle/Projects/e4gamma/Tests/GLRenderer/TestGLRenderer.cpp0000000000000000^110#8#110#8#2784#0#19"Unused Entity Issue--2@22"Unused variable 'fCos'-393286478#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@88"file://localhost/Users/phillipvoyle/Projects/e4gamma/Tests/GLRenderer/TestGLRenderer.cpp0000000000000000^111#8#111#8#2813#0#19"Unused Entity Issue--2@24"Unused variable 'mFrame'-393286478#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@88"file://localhost/Users/phillipvoyle/Projects/e4gamma/Tests/GLRenderer/TestGLRenderer.cpp0000000000000000^125#10#125#10#3239#0#19"Unused Entity Issue--2@48"No previous prototype for function 'specialDown'-393286478#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@88"file://localhost/Users/phillipvoyle/Projects/e4gamma/Tests/GLRenderer/TestGLRenderer.cpp0000000000000000^300#5#300#5#6749#0#14"Semantic Issue--2@46"No previous prototype for function 'specialUp'-393286478#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@88"file://localhost/Users/phillipvoyle/Projects/e4gamma/Tests/GLRenderer/TestGLRenderer.cpp0000000000000000^320#5#320#5#7037#0#14"Semantic Issue--0#0#0#-19%DVTDocumentLocation4@88"file://localhost/Users/phillipvoyle/Projects/e4gamma/Tests/GLRenderer/TestGLRenderer.cpp0000000000000000^2359"CompileC Object/Debug/GLTest.build/Objects-normal/x86_64/TestGLRenderer.o Tests/GLRenderer/TestGLRenderer.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/phillipvoyle/Projects/e4gamma    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/GLTest.build/GLTest-generated-files.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/GLTest.build/GLTest-own-target-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/GLTest.build/GLTest-all-target-headers.hmap -iquote /Users/phillipvoyle/Projects/e4gamma/Object/Debug/GLTest.build/GLTest-project-headers.hmap -I/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/include -IInclude -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/GLTest.build/DerivedSources/x86_64 -I/Users/phillipvoyle/Projects/e4gamma/Object/Debug/GLTest.build/DerivedSources -F/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug -MMD -MT dependencies -MF /Users/phillipvoyle/Projects/e4gamma/Object/Debug/GLTest.build/Objects-normal/x86_64/TestGLRenderer.d --serialize-diagnostics /Users/phillipvoyle/Projects/e4gamma/Object/Debug/GLTest.build/Objects-normal/x86_64/TestGLRenderer.dia -c /Users/phillipvoyle/Projects/e4gamma/Tests/GLRenderer/TestGLRenderer.cpp -o /Users/phillipvoyle/Projects/e4gamma/Object/Debug/GLTest.build/Objects-normal/x86_64/TestGLRenderer.o36"9728C540-C899-43B2-968B-535238CE046D-
+
+CLd /Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/GLTest normal x86_64
+s393286478.098242
+e393286478.705558
+r1
+xLd
+x/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/GLTest
+xnormal
+xx86_64
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection64"Link /Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/GLTestbd38194e1371b741^0aa0b44e1371b741^---0#0#0#--732"Ld Lib/Debug/Debug/GLTest normal x86_64    cd /Users/phillipvoyle/Projects/e4gamma    setenv MACOSX_DEPLOYMENT_TARGET 10.7    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -L/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug -LLib -F/Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug -filelist /Users/phillipvoyle/Projects/e4gamma/Object/Debug/GLTest.build/Objects-normal/x86_64/GLTest.LinkFileList -mmacosx-version-min=10.7 -stdlib=libc++ -lE4Gcpp -lE4Ggl -framework OpenGL -framework GLUT -o /Users/phillipvoyle/Projects/e4gamma/Lib/Debug/Debug/GLTest36"79A5DC86-BA64-4A3F-99B8-BE0A1793AC0D-
+

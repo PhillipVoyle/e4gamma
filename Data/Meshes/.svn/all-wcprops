@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/27/trunk/Data/Meshes
+END
+shadowtest.mesh
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/35/trunk/Data/Meshes/shadowtest.mesh
+END
+x.mesh
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/29/trunk/Data/Meshes/x.mesh
+END
+level.mesh
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/35/trunk/Data/Meshes/level.mesh
+END
+test.mesh
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/28/trunk/Data/Meshes/test.mesh
+END
+icosphere.mesh
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/35/trunk/Data/Meshes/icosphere.mesh
+END

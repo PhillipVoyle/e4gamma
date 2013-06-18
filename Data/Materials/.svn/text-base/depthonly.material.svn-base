@@ -1,0 +1,3 @@
+material
+settings 1
+shader_program Data/Shaders/depthonly.spr

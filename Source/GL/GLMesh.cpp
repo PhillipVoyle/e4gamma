@@ -11,222 +11,25 @@ using namespace std;
 
 namespace E4Gamma
 {
-  CGLMesh::CGLMesh(SharedPtr<CGLRenderContext> renderContext, const std::string &sMeshFile):m_vertexBuffer(0), m_geometryVerts(nullptr), m_nGeometryVerts(0), m_nTexturedVerts(0)
+
+  CGLMesh::CGLMesh(
+    SharedPtr<CGLRenderContext> renderContext,
+    const std::vector<Vector>& geometryVerts,
+    const std::vector<Triangle>& triangles,
+    const std::vector<Edge>& edges,
+    const std::vector<TexturedVertex>& texturedVerts)
   {
     m_renderContext = renderContext;
     
-    string sMesh;
-    CFileSystemDataStore ds;
-    SharedPtr<ISequenceReader> pSeq = ds.OpenTextSequence(sMeshFile); //get this from somewhere
-    if(pSeq != nullptr)
-    {
-      if(pSeq->ReadString(sMesh) && sMesh == "mesh")
-      {
-        string sVerts;
-        if(pSeq->ReadString(sVerts) && sVerts == "verts")
-        {
-          if(pSeq->ReadU32(m_nGeometryVerts))
-          {
-            m_geometryVerts = new Vector[m_nGeometryVerts];
-            Vector *pNormals = new Vector[m_nGeometryVerts];
 
-            bool bFailed = false;
-            for(int nVert = 0; nVert < m_nGeometryVerts; nVert++)
-            {
-              string sPos, sNrm, sUV;
-              if(!(
-                 pSeq->ReadString(sPos) && (sPos == "pos") &&
-                 pSeq->ReadFloat(m_geometryVerts[nVert].x) &&
-                 pSeq->ReadFloat(m_geometryVerts[nVert].y) &&
-                 pSeq->ReadFloat(m_geometryVerts[nVert].z)))
-              {
-                cout << sMeshFile << " Bad pos at vert " << nVert << endl;
-                bFailed = true;
-                break;
-              }
-              
-              if(!(
-                 pSeq->ReadString(sNrm) && (sNrm == "nrm") &&
-                 pSeq->ReadFloat(pNormals[nVert].x) &&
-                 pSeq->ReadFloat(pNormals[nVert].y) &&
-                 pSeq->ReadFloat(pNormals[nVert].z)))
-              {
-                cout << sMeshFile << " Bad nrm at vert " << nVert << endl;
-                bFailed = true;
-                break;
-              }                   
-            }
-            
-            TexturedVertex* pTexturedVerts = nullptr;
-            string sMeshType;
-            if(pSeq->ReadString(sMeshType))
-            {
-              if(sMeshType == "triangle_list")
-              {
-                if(pSeq->ReadU32(m_nTriangles))
-                {
-                  m_triangles = new Triangle[m_nTriangles];
-                  m_nTexturedVerts = m_nTriangles * 3;
-                  pTexturedVerts = new TexturedVertex[m_nTexturedVerts];
-                  int nVert = 0;
-                  for(int nTri = 0; nTri < m_nTriangles; nTri ++)
-                  {
-                    string sEq;
-                    if(
-                      pSeq->ReadString(sEq) && (sEq == "eq") &&
-                      pSeq->ReadFloat(m_triangles[nTri].normal.x) &&
-                      pSeq->ReadFloat(m_triangles[nTri].normal.y) &&
-                      pSeq->ReadFloat(m_triangles[nTri].normal.z) &&
-                      pSeq->ReadFloat(m_triangles[nTri].offset)
-                      )
-                    {
-                      for(int nTriVert = 0; nTriVert < 3; nTriVert++, nVert++)
-                      {
-                        string sV, sUV;
-                        unsigned nVertexIndex = 0;
-                      
-                        if(
-                          pSeq->ReadString(sV) && (sV == "v") &&
-                          pSeq->ReadU32(nVertexIndex) &&
-                          pSeq->ReadString(sUV) && (sUV == "uv") &&
-                          pSeq->ReadFloat(pTexturedVerts[nVert].u) &&
-                          pSeq->ReadFloat(pTexturedVerts[nVert].v))
-                        {
-                          m_triangles[nTri].verts[nTriVert] = nVertexIndex;
-                          pTexturedVerts[nVert].position = m_geometryVerts[nVertexIndex];
-                          pTexturedVerts[nVert].normal = pNormals[nVertexIndex];
-                        }
-                        else
-                        {
-                          cout << sMeshFile << " bad textured vertex " << nVert << endl;
-                          bFailed = true;
-                          break;
-                        }
-                      }
-                      
-                      TexturedVertex& v1 = pTexturedVerts[nTri * 3 + 0];
-                      TexturedVertex& v2 = pTexturedVerts[nTri * 3 + 1];
-                      TexturedVertex& v3 = pTexturedVerts[nTri * 3 + 2];
-                      
-                      float x1 = v2.position.x - v1.position.x;
-                      float x2 = v3.position.x - v1.position.x;
-                      
-                      float y1 = v2.position.y - v1.position.y;
-                      float y2 = v3.position.y - v1.position.y;
-                      
-                      float z1 = v2.position.z - v1.position.z;
-                      float z2 = v3.position.z - v1.position.z;
-                      
-                      float s1 = v2.u - v1.u;
-                      float s2 = v3.u - v1.u;
-                      
-                      float t1 = v2.v - v1.v;
-                      float t2 = v3.v - v1.v;
-                      
-                      float ir= (s1 * t2 - s2 * t1);
-                      float r = 1.0f;
-                      
-                      if(fabs(ir) > FLT_EPSILON)
-                      {
-                        r = 1.0f / ir;
-                      }
-                      else
-                      {
-                        cout << "Degenerate tri at " << nTri << endl;
-                      }
-                      
-                      Vector sdir(
-                        (t2 * x1 - t1 * x2) * r,
-                        (t2 * y1 - t1 * y2) * r,
-                        (t2 * z1 - t1 * z2) * r);
-                        
-                      Vector tdir(
-                        (s1 * x2 - s2 * x1) * r,
-                        (s1 * y2 - s2 * y1) * r,
-                        (s1 * z2 - s2 * z1) * r);
-                      
-                      v1.tangent = (sdir - v1.normal * Dot(sdir, v1.normal)).normalize();
-                      v2.tangent = (sdir - v2.normal * Dot(sdir, v2.normal)).normalize(); 
-                      v3.tangent = (sdir - v3.normal * Dot(sdir, v3.normal)).normalize();
-                      
-                      v1.binormal = (tdir - v1.normal * Dot(tdir, v1.normal)).normalize(); 
-                      v2.binormal = (tdir - v2.normal * Dot(tdir, v2.normal)).normalize(); 
-                      v3.binormal = (tdir - v3.normal * Dot(tdir, v3.normal)).normalize();                      
-                    }
-                    else
-                    {
-                      cout << sMeshFile << " bad tri " << nTri << endl;
-                      bFailed = true;
-                      break;
-                    }
-                  }
-                }
-                else
-                {
-                  cout << sMeshFile << " could not read triangle count" << endl;
-                  bFailed = true;
-                }
-              }
-              else
-              {
-                cout << sMeshFile << " unrecognised mesh type: " << sMeshType << endl;
-                bFailed = true;
-              }
-            }
-            
-            string sEdges;
-            if (pSeq->ReadString(sEdges) && (sEdges == "edges") &&
-              pSeq->ReadU32(m_nEdges))
-            {
-              m_edges = new Edge[m_nEdges];
-              for(int nEdge = 0; nEdge < m_nEdges; nEdge ++)
-              {
-                string sE, sV;
-                if(!(
-                  pSeq->ReadString(sE) && (sE == "e") &&
-                  pSeq->ReadI32(m_edges[nEdge].t1) &&
-                  pSeq->ReadI32(m_edges[nEdge].t2) &&
-                  pSeq->ReadString(sV) && (sV == "v") &&
-                  pSeq->ReadU32(m_edges[nEdge].v1) &&
-                  pSeq->ReadU32(m_edges[nEdge].v2)))
-                {
-                  cout << sMeshFile << " error loading edge " << nEdge << endl;
-                }
-              }
-            }
-            else
-            {
-              cout << sMeshFile << " error loading edges" << endl;
-              bFailed = true;
-            }
-            
-            if(!bFailed)
-            {
-              cout << sMeshFile << " Read " << m_nGeometryVerts << " geometry verts OK" << endl;
-              cout << sMeshFile << " Read " << m_nTexturedVerts << " textured verts OK" << endl;
-              
-              glGenBuffers(1, &m_vertexBuffer);
-              glBindBuffer(GL_ARRAY_BUFFER, m_vertexBuffer);
-              glBufferData(GL_ARRAY_BUFFER, sizeof(TexturedVertex) * m_nTexturedVerts, pTexturedVerts, GL_STATIC_DRAW);
-            }
-            else if (m_geometryVerts != nullptr)
-            {
-              cout << sMeshFile << " Error during load" << endl;
-              delete [] m_geometryVerts;
-              m_geometryVerts = nullptr;
-            }
-            if(pNormals != nullptr)
-            {
-              delete[] pNormals;
-            }
-            if(pTexturedVerts != nullptr)
-            {
-              delete[] pTexturedVerts;
-            }
-          }
-        }
-      }
-    }
+    m_geometryVerts = geometryVerts;
+    m_triangles = triangles;
+    m_edges = edges;
+    
+    m_nTexturedVerts = (GLuint)texturedVerts.size();
+    glGenBuffers(1, &m_vertexBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, m_vertexBuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(CGLMesh::TexturedVertex) * m_nTexturedVerts, &(texturedVerts[0]), GL_STATIC_DRAW);
   }
   
   CGLMesh::~CGLMesh()
@@ -256,10 +59,10 @@ namespace E4Gamma
     {
       m_lightPosition = m_pParent->m_renderContext->m_vLightPosition;
       
-      std::vector<bool> facingTri(m_pParent->m_nTriangles, false);
+      std::vector<bool> facingTri(m_pParent->m_triangles.size(), false);
       
       //float fAlpha = 10.0f;    
-      for (int nTri = 0; nTri < m_pParent->m_nTriangles; nTri++)
+      for (int nTri = 0; nTri < m_pParent->m_triangles.size(); nTri++)
       {
         const CGLMesh::Triangle& tri = m_pParent->m_triangles[nTri];
         //bool bFacingTri = Dot(tri.normal, m_lightPosition) > tri.offset;
@@ -281,7 +84,7 @@ namespace E4Gamma
         }
       }
       
-      for(int nEdge = 0; nEdge < m_pParent->m_nEdges; nEdge ++)
+      for(int nEdge = 0; nEdge < m_pParent->m_edges.size(); nEdge ++)
       {
         const CGLMesh::Edge& edge = m_pParent->m_edges[nEdge];
         if((edge.t2 == -1) || (facingTri[edge.t1] != facingTri[edge.t2]))
@@ -396,9 +199,221 @@ namespace E4Gamma
     
     virtual ~CGLMeshFactory() { }
     
-    SharedPtr<CGLMesh> LoadAsset(const std::string& sAsset)
+    SharedPtr<CGLMesh> LoadAsset(const std::string& sMeshFile)
     {
-      return new IUnknownImpl<CGLMesh>(m_renderContext, sAsset);
+      SharedPtr<CGLMesh> result;
+      std::vector<Vector> geometryVerts;
+      std::vector<Vector> normals;
+      std::vector<CGLMesh::TexturedVertex> texturedVerts;
+      std::vector<CGLMesh::Triangle> triangles;
+      std::vector<CGLMesh::Edge> edges;
+
+      string sMesh;
+      CFileSystemDataStore ds;
+      SharedPtr<ISequenceReader> pSeq = ds.OpenTextSequence(sMeshFile); //get this from somewhere
+      if(pSeq != nullptr)
+      {
+        if(pSeq->ReadString(sMesh) && sMesh == "mesh")
+        {
+          string sVerts;
+          if(pSeq->ReadString(sVerts) && sVerts == "verts")
+          {
+            uint32_t nVerts = 0;
+            if(pSeq->ReadU32(nVerts))
+            {
+              geometryVerts.resize(nVerts);
+              
+              normals.resize(nVerts);
+
+              bool bFailed = false;
+              for(int nVert = 0; nVert < geometryVerts.size(); nVert++)
+              {
+                string sPos, sNrm, sUV;
+                if(!(
+                   pSeq->ReadString(sPos) && (sPos == "pos") &&
+                   pSeq->ReadFloat(geometryVerts[nVert].x) &&
+                   pSeq->ReadFloat(geometryVerts[nVert].y) &&
+                   pSeq->ReadFloat(geometryVerts[nVert].z)))
+                {
+                  cout << sMeshFile << " Bad pos at vert " << nVert << endl;
+                  bFailed = true;
+                  break;
+                }
+                
+                if(!(
+                   pSeq->ReadString(sNrm) && (sNrm == "nrm") &&
+                   pSeq->ReadFloat(normals[nVert].x) &&
+                   pSeq->ReadFloat(normals[nVert].y) &&
+                   pSeq->ReadFloat(normals[nVert].z)))
+                {
+                  cout << sMeshFile << " Bad nrm at vert " << nVert << endl;
+                  bFailed = true;
+                  break;
+                }                   
+              }
+              
+              
+              string sMeshType;
+              if(pSeq->ReadString(sMeshType))
+              {
+                if(sMeshType == "triangle_list")
+                {
+                  uint32_t nTriangles = 0;
+                  if(pSeq->ReadU32(nTriangles))
+                  {
+                    triangles.resize(nTriangles);
+                    texturedVerts.resize(nTriangles * 3);
+                    
+                    int nVert = 0;
+                    for(int nTri = 0; nTri < triangles.size(); nTri ++)
+                    {
+                      string sEq;
+                      if(
+                        pSeq->ReadString(sEq) && (sEq == "eq") &&
+                        pSeq->ReadFloat(triangles[nTri].normal.x) &&
+                        pSeq->ReadFloat(triangles[nTri].normal.y) &&
+                        pSeq->ReadFloat(triangles[nTri].normal.z) &&
+                        pSeq->ReadFloat(triangles[nTri].offset)
+                        )
+                      {
+                        for(int nTriVert = 0; nTriVert < 3; nTriVert++, nVert++)
+                        {
+                          string sV, sUV;
+                          unsigned nVertexIndex = 0;
+                        
+                          if(
+                            pSeq->ReadString(sV) && (sV == "v") &&
+                            pSeq->ReadU32(nVertexIndex) &&
+                            pSeq->ReadString(sUV) && (sUV == "uv") &&
+                            pSeq->ReadFloat(texturedVerts[nVert].u) &&
+                            pSeq->ReadFloat(texturedVerts[nVert].v))
+                          {
+                            triangles[nTri].verts[nTriVert] = nVertexIndex;
+                            texturedVerts[nVert].position = geometryVerts[nVertexIndex];
+                            texturedVerts[nVert].normal = normals[nVertexIndex];
+                          }
+                          else
+                          {
+                            cout << sMeshFile << " bad textured vertex " << nVert << endl;
+                            bFailed = true;
+                            break;
+                          }
+                        }
+                        
+                        CGLMesh::TexturedVertex& v1 = texturedVerts[nTri * 3 + 0];
+                        CGLMesh::TexturedVertex& v2 = texturedVerts[nTri * 3 + 1];
+                        CGLMesh::TexturedVertex& v3 = texturedVerts[nTri * 3 + 2];
+                        
+                        float x1 = v2.position.x - v1.position.x;
+                        float x2 = v3.position.x - v1.position.x;
+                        
+                        float y1 = v2.position.y - v1.position.y;
+                        float y2 = v3.position.y - v1.position.y;
+                        
+                        float z1 = v2.position.z - v1.position.z;
+                        float z2 = v3.position.z - v1.position.z;
+                        
+                        float s1 = v2.u - v1.u;
+                        float s2 = v3.u - v1.u;
+                        
+                        float t1 = v2.v - v1.v;
+                        float t2 = v3.v - v1.v;
+                        
+                        float ir= (s1 * t2 - s2 * t1);
+                        float r = 1.0f;
+                        
+                        if(fabs(ir) > FLT_EPSILON)
+                        {
+                          r = 1.0f / ir;
+                        }
+                        else
+                        {
+                          cout << "Degenerate tri at " << nTri << endl;
+                        }
+                        
+                        Vector sdir(
+                          (t2 * x1 - t1 * x2) * r,
+                          (t2 * y1 - t1 * y2) * r,
+                          (t2 * z1 - t1 * z2) * r);
+                          
+                        Vector tdir(
+                          (s1 * x2 - s2 * x1) * r,
+                          (s1 * y2 - s2 * y1) * r,
+                          (s1 * z2 - s2 * z1) * r);
+                        
+                        v1.tangent = (sdir - v1.normal * Dot(sdir, v1.normal)).normalize();
+                        v2.tangent = (sdir - v2.normal * Dot(sdir, v2.normal)).normalize(); 
+                        v3.tangent = (sdir - v3.normal * Dot(sdir, v3.normal)).normalize();
+                        
+                        v1.binormal = (tdir - v1.normal * Dot(tdir, v1.normal)).normalize(); 
+                        v2.binormal = (tdir - v2.normal * Dot(tdir, v2.normal)).normalize(); 
+                        v3.binormal = (tdir - v3.normal * Dot(tdir, v3.normal)).normalize();                      
+                      }
+                      else
+                      {
+                        cout << sMeshFile << " bad tri " << nTri << endl;
+                        bFailed = true;
+                        break;
+                      }
+                    }
+                  }
+                  else
+                  {
+                    cout << sMeshFile << " could not read triangle count" << endl;
+                    bFailed = true;
+                  }
+                }
+                else
+                {
+                  cout << sMeshFile << " unrecognised mesh type: " << sMeshType << endl;
+                  bFailed = true;
+                }
+              }
+              
+              string sEdges;
+              uint32_t nEdges = 0;
+              if (pSeq->ReadString(sEdges) && (sEdges == "edges") &&
+                pSeq->ReadU32(nEdges))
+              {
+                edges.resize(nEdges);
+                for(int nEdge = 0; nEdge < nEdges; nEdge ++)
+                {
+                  string sE, sV;
+                  if(!(
+                    pSeq->ReadString(sE) && (sE == "e") &&
+                    pSeq->ReadI32(edges[nEdge].t1) &&
+                    pSeq->ReadI32(edges[nEdge].t2) &&
+                    pSeq->ReadString(sV) && (sV == "v") &&
+                    pSeq->ReadU32(edges[nEdge].v1) &&
+                    pSeq->ReadU32(edges[nEdge].v2)))
+                  {
+                    cout << sMeshFile << " error loading edge " << nEdge << endl;
+                  }
+                }
+              }
+              else
+              {
+                cout << sMeshFile << " error loading edges" << endl;
+                bFailed = true;
+              }
+              
+              if(!bFailed)
+              {
+                cout << sMeshFile << " Read " << geometryVerts.size() << " geometry verts OK" << endl;
+                cout << sMeshFile << " Read " << texturedVerts.size() << " textured verts OK" << endl;
+                result = new IUnknownImpl<CGLMesh>(m_renderContext, geometryVerts, triangles, edges, texturedVerts);
+              }
+              else
+              {
+                cout << sMeshFile << " Error during load" << endl;
+              }
+            }
+          }
+        }
+      }
+
+    
+      return result;
     }
   };
   

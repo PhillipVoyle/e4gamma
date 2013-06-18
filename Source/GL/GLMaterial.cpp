@@ -40,7 +40,7 @@ namespace E4Gamma
                   m_glTextures[GL_TEXTURE0 + nTexture] = textureFactory->LoadAsset(sTexture);
                 }
               }
-              if(sSetting == "shader_program")
+              else if(sSetting == "shader_program")
               {
                 std::string sShaderProgram;
                 if(pSeq->ReadString(sShaderProgram))

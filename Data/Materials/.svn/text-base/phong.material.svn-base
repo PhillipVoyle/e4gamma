@@ -1,0 +1,4 @@
+material
+settings 2
+texture 0 Data/Textures/levelnrm.rgba
+shader_program Data/Shaders/phong.spr

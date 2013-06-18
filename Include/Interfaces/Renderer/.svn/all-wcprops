@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/19/trunk/Include/Interfaces/Renderer
+END
+IModel.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/19/trunk/Include/Interfaces/Renderer/IModel.h
+END
+IRenderer.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/31/trunk/Include/Interfaces/Renderer/IRenderer.h
+END
+ILight.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/31/trunk/Include/Interfaces/Renderer/ILight.h
+END
+ICamera.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/29/trunk/Include/Interfaces/Renderer/ICamera.h
+END
+IMesh.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/35/trunk/Include/Interfaces/Renderer/IMesh.h
+END
+IMaterial.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/19/trunk/Include/Interfaces/Renderer/IMaterial.h
+END

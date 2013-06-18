@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/27/trunk/Include/Interfaces/Foundation
+END
+IDataStore.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/26/trunk/Include/Interfaces/Foundation/IDataStore.h
+END
+IAssetLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/28/trunk/Include/Interfaces/Foundation/IAssetLoader.h
+END
+ITableReader.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/26/trunk/Include/Interfaces/Foundation/ITableReader.h
+END
+IFrame.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/31/trunk/Include/Interfaces/Foundation/IFrame.h
+END
+ISequenceReader.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/27/trunk/Include/Interfaces/Foundation/ISequenceReader.h
+END
+TAssetCache.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/28/trunk/Include/Interfaces/Foundation/TAssetCache.h
+END
+IUnknown.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/29/trunk/Include/Interfaces/Foundation/IUnknown.h
+END

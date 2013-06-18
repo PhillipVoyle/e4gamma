@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/27/trunk/Include/stdcpp
+END
+Frame.h
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/31/trunk/Include/stdcpp/Frame.h
+END
+FileSystemDataStore.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/27/trunk/Include/stdcpp/FileSystemDataStore.h
+END
+TextFile.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/27/trunk/Include/stdcpp/TextFile.h
+END
+Iris.h
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/28/trunk/Include/stdcpp/Iris.h
+END
+FlatFile.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/27/trunk/Include/stdcpp/FlatFile.h
+END

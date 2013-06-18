@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/27/trunk/Data/Shaders
+END
+test.spr
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/28/trunk/Data/Shaders/test.spr
+END
+simplephong.fsh
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/35/trunk/Data/Shaders/simplephong.fsh
+END
+depthonly.fsh
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/36/trunk/Data/Shaders/depthonly.fsh
+END
+depthonly.vsh
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/35/trunk/Data/Shaders/depthonly.vsh
+END
+simplephong.spr
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/35/trunk/Data/Shaders/simplephong.spr
+END
+depthonly.spr
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/35/trunk/Data/Shaders/depthonly.spr
+END
+phong.fsh
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/36/trunk/Data/Shaders/phong.fsh
+END
+phong.vsh
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/35/trunk/Data/Shaders/phong.vsh
+END
+test.fsh
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/27/trunk/Data/Shaders/test.fsh
+END
+test.vsh
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/27/trunk/Data/Shaders/test.vsh
+END
+phong.spr
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/31/trunk/Data/Shaders/phong.spr
+END

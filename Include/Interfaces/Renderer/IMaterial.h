@@ -10,7 +10,7 @@ namespace E4Gamma
   public:
     virtual ~IMaterial() {}
     virtual void RenderSet() = 0;
-    virtual void RenderReset() = 0;
+//    virtual void RenderReset() = 0;
   };
 }
 

@@ -54,7 +54,6 @@ void init()
 
   g_pMesh = g_pRenderer->LoadMesh("Data/Meshes/level.mesh");
   g_pPhongMaterial = g_pRenderer->LoadMaterial("Data/Materials/phong.material");
-  
   g_pDepthMaterial = g_pRenderer->LoadMaterial("Data/Materials/depthonly.material");
   
   float fovy = 30.0;
@@ -69,9 +68,6 @@ void init()
   
   g_pLight = g_pRenderer->CreateLight();
 }
-
-float g_theta = 0.0f;
-float g_dTheta = 0.001;
 
 int nLastX = 0;
 int nLastY = 0;
@@ -91,47 +87,66 @@ Quaternion qYaw;
 
 float fActualPitch = 0;
 
-float fTheta = 0;
+int nPreviousTime = 0;
 
 void display()
 {
+  int nTimeElapsed = glutGet(GLUT_ELAPSED_TIME);
+  float fFrameTime = ((float)(nTimeElapsed - nPreviousTime))/1000.0f;
+  nPreviousTime = nTimeElapsed;
+  
+  static float fF = 1.0f;
+  static float dF = 5;
+  
+  if(fFrameTime > 0.0f)
+  {
+    SharedPtr<IFrame> pFrame = g_pCamera->GetFrame();
+    
+    qYaw = Quaternion::Transform(Quaternion::FromAxisAngle(Vector::J, (fTurnLeft - fTurnRight) * fFrameTime), qYaw);
+    fActualPitch += (fPitchUp - fPitchDown) * fFrameTime;
+    
+    const float fLimitPitch = 90.0f * M_PI / 180.0f;
+    
+    if(fActualPitch > fLimitPitch)
+    {
+      fActualPitch = fLimitPitch;
+    }
+    else if(fActualPitch < -fLimitPitch)
+    {
+      fActualPitch = -fLimitPitch;
+    }
+    
+    pFrame->SetOrientation(Quaternion::Transform(Quaternion::FromAxisAngle(Vector::I, fActualPitch), qYaw));
+    pFrame->TranslateWorld(Quaternion::Transform(qYaw, Vector(fFrameTime * (fStrafeRight - fStrafeLeft), 0, fFrameTime * (fFwd - fBack))));
+    
+    Matrix4 mFrame = pFrame->GetTransform();
+    
+    fF += dF * fFrameTime;
+    
+    if(fF > 9.5f)
+    {
+      dF = -5;
+    }
+    
+    if(fF < 1.0f)
+    {
+      dF = 5; 
+    }
+    
+    pFrame = g_pLight->GetFrame();
+    pFrame->SetPosition(Vector(0.0f, 0.0f, fF));
+  }
+  
+  g_pLight->Select();  
+  g_pCamera->Select();  
+  SharedPtr<IMesh> shadowMesh = g_pMesh->CreateShadowVolume();
+  
   glClearDepth(1.0);
   g_pRenderer->BeginScene();
   glClear(GL_DEPTH_BUFFER_BIT);
   glClear(GL_STENCIL_BUFFER_BIT);
   
-  SharedPtr<IFrame> pFrame = g_pCamera->GetFrame();
-  
-  qYaw = Quaternion::Transform(Quaternion::FromAxisAngle(Vector::J, (fTurnLeft - fTurnRight) * 0.01), qYaw);
-  fActualPitch += (fPitchUp - fPitchDown) * 0.01;
-  
-  const float fLimitPitch = 90.0f * M_PI / 180.0f;
-  
-  fTheta = fTheta + 0.01;
-  float fSin = sinf(fTheta);
-  float fCos = cosf(fTheta);
-  
-  if(fActualPitch > fLimitPitch)
-  {
-    fActualPitch = fLimitPitch;
-  }
-  else if(fActualPitch < -fLimitPitch)
-  {
-    fActualPitch = -fLimitPitch;
-  }
-  
-  pFrame->SetOrientation(Quaternion::Transform(Quaternion::FromAxisAngle(Vector::I, fActualPitch), qYaw));
-  pFrame->TranslateWorld(Quaternion::Transform(qYaw, Vector(0.05 * (fStrafeRight - fStrafeLeft), 0, 0.05 * (fFwd - fBack))));
-  
-  Matrix4 mFrame = pFrame->GetTransform();
-  
-  pFrame = g_pLight->GetFrame();
-  pFrame->SetPosition(Vector(0.0f, 0.0f, 1.0f));
-          
-  g_pLight->Select();  
-  g_pCamera->Select();
-  
-  SharedPtr<IMesh> shadowMesh = g_pMesh->CreateShadowVolume();
+
 
 //* 
   bool bRenderDepth = true;
@@ -258,7 +273,7 @@ void keyDown(unsigned char key, int x, int y)
 {
   if((char)key == 'w')
   {
-    fFwd = 1.0f;
+    fFwd = 5.0f;
   }
   else if((char)key == 's')
   {
@@ -266,11 +281,11 @@ void keyDown(unsigned char key, int x, int y)
   }
   else if((char)key == 'a')
   {
-    fStrafeLeft = 1.0f;
+    fStrafeLeft = 2.0f;
   }
   else if((char)key == 'd')
   {
-    fStrafeRight = 1.0f;
+    fStrafeRight = 2.0f;
   }
   else if((char)key == 27)
   {
@@ -310,11 +325,11 @@ void specialDown(int key, int x, int y)
   }
   else if(key == GLUT_KEY_RIGHT)
   {
-    fTurnRight = 1.0f;
+    fTurnRight = 2.0f;
   }
   else if(key == GLUT_KEY_LEFT)
   {
-    fTurnLeft = 1.0f;
+    fTurnLeft = 2.0f;
   }
 }
 

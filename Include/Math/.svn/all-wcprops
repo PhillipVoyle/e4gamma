@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/8/trunk/Include/Math
+END
+Vector.h
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/35/trunk/Include/Math/Vector.h
+END
+Matrix.h
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/35/trunk/Include/Math/Matrix.h
+END
+Quaternion.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/30/trunk/Include/Math/Quaternion.h
+END
