@@ -24,7 +24,7 @@ namespace E4Gamma
   public:
     CGLModel(const std::string& szModel, SharedPtr<IAssetLoader<E4Gamma::CGLMesh> > meshFactory, SharedPtr<IAssetLoader<E4Gamma::CGLMaterial> > materialFactory);
     virtual ~CGLModel();
-    void RenderPose(IPose* pPose);
+    void RenderPose(SharedPtr<IFrame> pPose);
     
     static SharedPtr<IAssetLoader<CGLModel>> createFactory(SharedPtr<IAssetLoader<CGLMesh>> meshFactory, SharedPtr<IAssetLoader<CGLMaterial>> materialFactory);
   };

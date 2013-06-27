@@ -20,19 +20,19 @@ namespace E4Gamma
   {
   public:
     virtual Vector GetPosition() = 0;
-    virtual Quaternion GetOrientation() = 0;
+    virtual UnitQuaternion GetOrientation() = 0;
     virtual Matrix4 GetTransform() = 0;
     
     virtual void SetPosition(const Vector& vPosition) = 0;
-    virtual void SetOrientation(const Quaternion& qOrientation) = 0;
+    virtual void SetOrientation(const UnitQuaternion& qOrientation) = 0;
     virtual void SetTransform(const Matrix4& mTransform) = 0;    
     
     virtual void TranslateWorld(const Vector& vDisplacement) = 0;
-    virtual void RotateWorld(const Quaternion& qRotation) = 0;
+    virtual void RotateWorld(const UnitQuaternion& qRotation) = 0;
     virtual void TransformWorld(const Matrix4& mTransform) = 0;
     
     virtual void TranslateLocal(const Vector& vDisplacement) = 0;
-    virtual void RotateLocal(const Quaternion& qRotation) = 0;
+    virtual void RotateLocal(const UnitQuaternion& qRotation) = 0;
     virtual void TransformLocal(const Matrix4& mTransform) = 0;
   };
 }

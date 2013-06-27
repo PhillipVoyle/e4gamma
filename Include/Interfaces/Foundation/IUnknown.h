@@ -116,7 +116,7 @@ namespace E4Gamma
   class SharedPtr
   {
   public:
-    T* m_ptr;
+    mutable T* m_ptr;
     
     SharedPtr()
     {

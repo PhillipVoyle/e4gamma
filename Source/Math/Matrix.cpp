@@ -85,7 +85,7 @@ namespace E4Gamma {
     _tw = m4._tw;
   }
   
-  Matrix4::Matrix4(const Vector &v, const Quaternion& q)
+  Matrix4::Matrix4(const Vector &v, const UnitQuaternion& q)
   {
     _rx = 1.0f - 2.0f * q.v.y * q.v.y - 2.0f * q.v.z * q.v.z;
     _ry = 2.0f * q.v.x * q.v.y - 2.0f * q.v.z * q.s;
@@ -121,7 +121,7 @@ namespace E4Gamma {
     _tw = 1.0f;
   }
   
-  Quaternion Matrix4::GetOrientation() const
+  UnitQuaternion Matrix4::GetOrientation() const
   {
     float qw = sqrtf(1.0f + _rx + _uy + _fz) * 0.5;
     float invqw4 = 1.0f / (4.0f * qw);
@@ -129,10 +129,10 @@ namespace E4Gamma {
       qw,
       (_fy - _uz) * invqw4,
       (_rz - _fx) * invqw4,
-      (_ux - _ry) * invqw4);
+      (_ux - _ry) * invqw4).normalize(); //todo: prove already normalized
   }
   
-  void Matrix4::SetOrientation(const Quaternion& q)
+  void Matrix4::SetOrientation(const UnitQuaternion& q)
   {
     _rx = 1.0f - 2.0f * q.v.y * q.v.y - 2.0f * q.v.z * q.v.z;
     _ry = 2.0f * q.v.x * q.v.y - 2.0f * q.v.z * q.s;

@@ -12,6 +12,7 @@
 namespace E4Gamma
 {
   struct Quaternion;
+  struct UnitQuaternion;
   struct Vector;
   
   struct Matrix4
@@ -28,7 +29,7 @@ namespace E4Gamma
     float fx, float fy, float fz, float fw,
     float tx, float ty, float tz, float tw);
     
-    Matrix4(const Vector& position, const Quaternion& orientation);
+    Matrix4(const Vector& position, const UnitQuaternion& orientation);
     Matrix4(const Matrix4& matrix);
     
       
@@ -37,8 +38,8 @@ namespace E4Gamma
     void TranslateWorld(const Vector& vDisplacement);
     void TranslateLocal(const Vector& vDisplacement);
     
-    Quaternion GetOrientation() const;
-    void SetOrientation(const Quaternion&q);
+    UnitQuaternion GetOrientation() const;
+    void SetOrientation(const UnitQuaternion&q);
     
     Matrix4 Inverse() const;
     

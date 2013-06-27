@@ -11,7 +11,7 @@
 
 namespace E4Gamma {
 
-  Quaternion Quaternion::Identity(1.0f, Vector::Origin);
+  UnitQuaternion Quaternion::Identity = Quaternion(1.0f, Vector::Origin).normalize();
 
   Quaternion operator*(const Quaternion& q1, const Quaternion& q2)
   {
@@ -70,9 +70,15 @@ namespace E4Gamma {
     return (~qWorld * vLocal * qWorld).v;
   }
   
-  Quaternion Quaternion::FromAxisAngle(const Vector& vAxis, float fAngle)
+  UnitQuaternion Quaternion::FromAxisAngle(const Vector& vAxis, float fAngle)
   {
     float fHalfAngle = fAngle * 0.5f;
-    return Quaternion(cosf(fHalfAngle), vAxis * sinf(fHalfAngle));
+    return Quaternion(cosf(fHalfAngle), vAxis * sinf(fHalfAngle)).normalize();
+  }
+  
+  UnitQuaternion Quaternion::normalize() const
+  {
+    float fLength = sqrtf(s * s + v.x * v.x + v.y * v.y + v.z * v.z);
+    return UnitQuaternion(Quaternion(s / fLength, v.x / fLength, v.y / fLength, v.z / fLength));
   }
 }

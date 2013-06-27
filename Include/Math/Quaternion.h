@@ -14,6 +14,7 @@
 namespace E4Gamma
 {
   struct Matrix4;
+  struct UnitQuaternion;
 
   struct Quaternion
   {
@@ -49,11 +50,7 @@ namespace E4Gamma
       v = q.v;
     }
     
-    Quaternion normalize()const
-    {
-      float fLength = sqrtf(s * s + v.x * v.x + v.y * v.y + v.z * v.z);
-      return Quaternion(s / fLength, v.x / fLength, v.y / fLength, v.z / fLength);
-    }
+    UnitQuaternion normalize() const;
     
     Quaternion operator~()const
     {
@@ -65,9 +62,22 @@ namespace E4Gamma
     
     void ToMatrix4(Matrix4& matrix);
     
-    static Quaternion Identity;
+    static UnitQuaternion Identity;
     
-    static Quaternion FromAxisAngle(const Vector& vAxis, float fAngle);
+    static UnitQuaternion FromAxisAngle(const Vector& vAxis, float fAngle);
+  };
+  
+  struct UnitQuaternion:public Quaternion
+  {
+    friend UnitQuaternion Quaternion::normalize() const;
+  private:
+    UnitQuaternion(const Quaternion& q):Quaternion(q)
+    {
+    }
+  public:
+    UnitQuaternion():Quaternion(Quaternion::Identity)
+    {
+    }
   };
 
 

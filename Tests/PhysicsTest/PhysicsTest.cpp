@@ -1,21 +1,30 @@
 
 #include <GL/GLRenderer.h>
+#include <GL/GLRenderContext.h>
+#include <GL/GLMesh.h>
 #include <Interfaces/Renderer/IModel.h>
 #include <Interfaces/Renderer/ICamera.h>
 #include <Interfaces/Foundation/IFrame.h>
 #include <Interfaces/Renderer/ILight.h>
+#include <stdcpp/Frame.h>
 
 #include <Interfaces/Renderer/IMaterial.h>
 #include <Interfaces/Renderer/IMesh.h>
 
 #include <Interfaces/Foundation/ISequenceReader.h>
+#include <Physics/PhysicsFrame.h>
+#include <Physics/RK4.h>
+//#include <Physics/Euler.h>
 
 #include <stdcpp/FileSystemDataStore.h>
 #include <iostream>
-using namespace std;
-using namespace E4Gamma;
 
 #include <GLUT/glut.h>
+#include <vector>
+
+using namespace std;
+using namespace E4Gamma;
+using namespace E4Gamma::Physics;
 
 //tell g++ not to warn me
 void init();
@@ -27,18 +36,88 @@ void mouseFunc(int button, int state, int x, int y);
 void motionFunc(int x, int y);
 
 SharedPtr<CGLRenderer> g_pRenderer = nullptr;
-//SharedPtr<IModel> g_pModel = nullptr;
-SharedPtr<IMesh> g_pMesh = nullptr;
-SharedPtr<IMesh> g_pOccluder = nullptr;
 SharedPtr<IMaterial> g_pDepthMaterial = nullptr;
-SharedPtr<IMaterial> g_pPhongMaterial = nullptr;
 
 SharedPtr<ICamera> g_pCamera = nullptr;
-SharedPtr<ILight> g_pLight = nullptr;
+
+std::vector<SharedPtr<IMesh>> g_meshes;
+std::vector<SharedPtr<CRigidBodyFrame>> g_bodies;
+
+SharedPtr<CRotPosFrame> g_frame = new IUnknownImpl<CRotPosFrame>();
+
+CGLMesh::TexturedVertex CreateTexturedVert(Vector pos, Vector normal, Vector binormal, Vector tangent, float u, float v)
+{
+  CGLMesh::TexturedVertex result;
+  result.binormal = binormal;
+  result.tangent = tangent;
+  result.normal = normal;
+  result.position = pos;
+  result.u = u;
+  result.v = v;
+  return result;
+}
+
+SharedPtr<IMesh> CreateBoxMesh(float fWidth, float fHeight, float fDepth)
+{
+  std::vector<Vector> geometryVerts;
+  std::vector<CGLMesh::Triangle> triangles;
+  std::vector<CGLMesh::Edge> edges;
+  std::vector<CGLMesh::TexturedVertex> texturedVerts;
+  
+  //front face
+  texturedVerts.push_back(CreateTexturedVert(Vector( fWidth/2.0,-fHeight/2.0, fDepth/2.0), Vector( 1, 0, 0), Vector(0, 1, 0), Vector(0, 0, 1), 1.0, 0.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector(-fWidth/2.0, fHeight/2.0, fDepth/2.0), Vector( 1, 0, 0), Vector(0, 1, 0), Vector(0, 0, 1), 0.0, 1.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector( fWidth/2.0, fHeight/2.0, fDepth/2.0), Vector( 1, 0, 0), Vector(0, 1, 0), Vector(0, 0, 1), 1.0, 1.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector( fWidth/2.0,-fHeight/2.0, fDepth/2.0), Vector( 1, 0, 0), Vector(0, 1, 0), Vector(0, 0, 1), 1.0, 0.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector(-fWidth/2.0,-fHeight/2.0, fDepth/2.0), Vector( 1, 0, 0), Vector(0, 1, 0), Vector(0, 0, 1), 0.0, 0.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector(-fWidth/2.0, fHeight/2.0, fDepth/2.0), Vector( 1, 0, 0), Vector(0, 1, 0), Vector(0, 0, 1), 0.0, 1.0));
+  
+  //back face
+  texturedVerts.push_back(CreateTexturedVert(Vector(-fWidth/2.0,-fHeight/2.0,-fDepth/2.0), Vector(-1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 1.0, 0.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector(-fWidth/2.0, fHeight/2.0,-fDepth/2.0), Vector(-1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 1.0, 1.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector( fWidth/2.0, fHeight/2.0,-fDepth/2.0), Vector(-1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 0.0, 1.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector(-fWidth/2.0,-fHeight/2.0,-fDepth/2.0), Vector(-1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 1.0, 0.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector( fWidth/2.0, fHeight/2.0,-fDepth/2.0), Vector(-1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 0.0, 1.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector( fWidth/2.0,-fHeight/2.0,-fDepth/2.0), Vector(-1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 0.0, 0.0));
+  
+  //bottom face (ha ha)
+  texturedVerts.push_back(CreateTexturedVert(Vector(-fWidth/2.0,-fHeight/2.0,-fDepth/2.0), Vector(1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 1.0, 0.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector(-fWidth/2.0,-fHeight/2.0, fDepth/2.0), Vector(1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 1.0, 1.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector( fWidth/2.0,-fHeight/2.0, fDepth/2.0), Vector(1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 0.0, 1.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector(-fWidth/2.0,-fHeight/2.0,-fDepth/2.0), Vector(1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 1.0, 0.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector( fWidth/2.0,-fHeight/2.0, fDepth/2.0), Vector(1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 0.0, 1.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector( fWidth/2.0,-fHeight/2.0,-fDepth/2.0), Vector(1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 0.0, 0.0));
+  
+  //top face
+  texturedVerts.push_back(CreateTexturedVert(Vector(-fWidth/2.0, fHeight/2.0, fDepth/2.0), Vector(1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 1.0, 1.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector(-fWidth/2.0, fHeight/2.0,-fDepth/2.0), Vector(1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 1.0, 0.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector( fWidth/2.0, fHeight/2.0, fDepth/2.0), Vector(1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 0.0, 1.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector( fWidth/2.0, fHeight/2.0, fDepth/2.0), Vector(1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 0.0, 1.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector(-fWidth/2.0, fHeight/2.0,-fDepth/2.0), Vector(1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 1.0, 0.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector( fWidth/2.0, fHeight/2.0,-fDepth/2.0), Vector(1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 0.0, 0.0));
+  
+  //left face
+  texturedVerts.push_back(CreateTexturedVert(Vector(-fWidth/2.0,-fHeight/2.0, fDepth/2.0), Vector(1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 1.0, 1.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector(-fWidth/2.0,-fHeight/2.0,-fDepth/2.0), Vector(1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 1.0, 0.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector(-fWidth/2.0, fHeight/2.0, fDepth/2.0), Vector(1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 0.0, 1.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector(-fWidth/2.0, fHeight/2.0, fDepth/2.0), Vector(1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 0.0, 1.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector(-fWidth/2.0,-fHeight/2.0,-fDepth/2.0), Vector(1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 1.0, 0.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector(-fWidth/2.0, fHeight/2.0,-fDepth/2.0), Vector(1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 0.0, 0.0));
+
+  //right face
+  texturedVerts.push_back(CreateTexturedVert(Vector( fWidth/2.0,-fHeight/2.0, fDepth/2.0), Vector(1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 1.0, 1.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector( fWidth/2.0,-fHeight/2.0,-fDepth/2.0), Vector(1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 1.0, 0.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector( fWidth/2.0, fHeight/2.0, fDepth/2.0), Vector(1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 0.0, 1.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector( fWidth/2.0, fHeight/2.0, fDepth/2.0), Vector(1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 0.0, 1.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector( fWidth/2.0,-fHeight/2.0,-fDepth/2.0), Vector(1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 1.0, 0.0));
+  texturedVerts.push_back(CreateTexturedVert(Vector( fWidth/2.0, fHeight/2.0,-fDepth/2.0), Vector(1, 0, 0), Vector(0, 1, 0), Vector(0, 0, -1), 0.0, 0.0));
+  
+  return SharedPtr<IMesh>(new IUnknownImpl<CGLMesh>(g_pRenderer->GetRenderContext(), geometryVerts, triangles, edges, texturedVerts));
+}
 
 void init()
 {
-  glClearColor(0.3,0.3,0.3,1.0);
+  glClearColor(0.6,0.6,0.6,1.0);
   
   glEnable(GL_TEXTURE_2D);
   //glEnable(GL_BLEND);
@@ -52,8 +131,13 @@ void init()
   //g_pMesh = g_pRenderer->LoadMesh("Data/Meshes/shadowtest.mesh");
   //g_pPhongMaterial = g_pRenderer->LoadMaterial("Data/Materials/shadowtest.material");
 
-  g_pMesh = g_pRenderer->LoadMesh("Data/Meshes/level.mesh");
-  g_pPhongMaterial = g_pRenderer->LoadMaterial("Data/Materials/phong.material");
+  //g_meshes.push_back(g_pRenderer->LoadMesh("Data/Meshes/level.mesh"));
+  g_meshes.push_back(CreateBoxMesh(0.2, 0.2, 1.0));
+  g_bodies.push_back(new IUnknownImpl<CRigidBodyFrame>());
+  g_bodies[0].m_ptr->GetBody().linear.inverseMass = 1;
+  g_bodies[0].m_ptr->GetBody().angular.inverseInertia = 1;
+  g_bodies[0].m_ptr->SetOrientation(Quaternion::FromAxisAngle(Vector(0.0, 0.0, 1.0), 0.5));
+
   g_pDepthMaterial = g_pRenderer->LoadMaterial("Data/Materials/depthonly.material");
   
   float fovy = 30.0;
@@ -63,10 +147,9 @@ void init()
   
   g_pCamera = g_pRenderer->CreateCamera(aspect, znear, zfar, fovy);
   SharedPtr<IFrame> pFrame = g_pCamera->GetFrame();
-  pFrame->SetPosition(Vector(0.0f, 0.0f, 0.0f));
+  pFrame->SetPosition(Vector(0.0f, 0.0f, -10.0f));
+
   pFrame = nullptr;
-  
-  g_pLight = g_pRenderer->CreateLight();
 }
 
 int nLastX = 0;
@@ -90,124 +173,91 @@ float fActualPitch = 0;
 int nPreviousTime = 0;
 int nPhysics = 0;
 
+bool bSimulate = false;
+
 const int kPhysicsDurn = 1000/60;
+
+RigidBody::Derivative Simulate(const RigidBody& rigidBody)
+{
+  RigidBody::Derivative result;
+  result.angular.spin = rigidBody.angular.spin;
+  //result.angular.torque = Vector(0, 0.1, 0);
+  //*
+  result.linear.force = Vector(0, -100 / rigidBody.linear.inverseMass, 0)  //gravity
+                      - rigidBody.linear.velocity * 100;                    //friction
+  
+  
+  if(rigidBody.linear.position.y < 0)
+  {
+    result.linear.force = result.linear.force - rigidBody.linear.position * 100; //spring
+  }
+  //*/
+  
+  result.linear.velocity = rigidBody.linear.velocity;// copy velocity from body
+  return result;
+}
 
 void display()
 {
   int nTimeElapsed = glutGet(GLUT_ELAPSED_TIME);
   float fFrameTime = ((float)(nTimeElapsed - nPreviousTime))/1000.0f;
-  nPhysics += nTimeElapsed - nPreviousTime;
-  nPreviousTime = nTimeElapsed;
   
-  g_pLight->Select();  
+  if(bSimulate)
+  {
+    nPhysics += nTimeElapsed - nPreviousTime;
+    while (nPhysics > kPhysicsDurn) {
+      nPhysics -= kPhysicsDurn;
+      g_bodies[0]->GetBody() = IntegrateRK4<RigidBody, RigidBody::Derivative, RigidBody::Derivative (&)(const RigidBody& rigidBody)>(g_bodies[0]->GetBody(), Simulate, ((double)kPhysicsDurn) * 0.001);
+      g_bodies[0]->GetBody().recalculate();
+    }
+  }
+  nPreviousTime = nTimeElapsed;
+
+  SharedPtr<IFrame> pFrame = g_pCamera->GetFrame();
+  
+  qYaw = Quaternion::Transform(Quaternion::FromAxisAngle(Vector::J, (fTurnLeft - fTurnRight) * fFrameTime), qYaw);
+  fActualPitch += (fPitchUp - fPitchDown) * fFrameTime;
+  
+  const float fLimitPitch = 90.0f * M_PI / 180.0f;
+  
+  if(fActualPitch > fLimitPitch)
+  {
+    fActualPitch = fLimitPitch;
+  }
+  else if(fActualPitch < -fLimitPitch)
+  {
+    fActualPitch = -fLimitPitch;
+  }
+  
+  pFrame->SetOrientation(Quaternion::Transform(Quaternion::FromAxisAngle(Vector::I, fActualPitch), qYaw).normalize());
+  pFrame->TranslateWorld(Quaternion::Transform(qYaw, Vector(fFrameTime * (fStrafeRight - fStrafeLeft), 0, fFrameTime * (fFwd - fBack))));
+  
   g_pCamera->Select();  
-  SharedPtr<IMesh> shadowMesh = g_pMesh->CreateShadowVolume();
   
   glClearDepth(1.0);
   g_pRenderer->BeginScene();
   glClear(GL_DEPTH_BUFFER_BIT);
   glClear(GL_STENCIL_BUFFER_BIT);
 
-  while (nPhysics > kPhysicsDurn) {
-    nPhysics -= kPhysicsDurn;
-  }
+  glEnable(GL_DEPTH_TEST);
+  glDepthMask(GL_TRUE);
+  glDepthFunc(GL_LESS);
 
+  glColorMask(1, 1, 1, 1);
+  glEnable(GL_LIGHTING);
 
-//* 
-  bool bRenderDepth = true;
-  if(bRenderDepth)
+  g_frame->SetPosition(Vector(1.0, 0.0, 0.0));
+  g_frame->SetOrientation(Quaternion::FromAxisAngle(Vector(1.0, 0.0, 0.0), 0.1));
+  for(int i = 0; i < g_meshes.size(); i++)
   {
-    //Render depth-only geometry
-    g_pDepthMaterial->RenderSet();
-    glDepthMask(GL_TRUE);
-    glDepthFunc(GL_LESS);
-    glEnable(GL_LIGHT0);
-    //glColorMask(0, 0, 0, 0);
-    glDisable(GL_STENCIL_TEST);
-    g_pMesh->RenderPose(nullptr);
-  }
-
-  bool bRenderStencils = true;
-
-  if(bRenderStencils)
-  {
-    glEnable(GL_STENCIL_TEST);
-
-    glDepthFunc(GL_LESS);  
-    glDepthMask(GL_FALSE);
-    glColorMask(GL_FALSE,GL_FALSE,GL_FALSE,GL_FALSE);
-    glDisable(GL_LIGHTING);
-    
-    glEnable(GL_DEPTH_CLAMP);
-    
-    glStencilFuncSeparate(GL_BACK, GL_ALWAYS, 0x00, 0xff);
-    glStencilOpSeparate(GL_BACK, GL_KEEP, GL_KEEP, GL_INCR_WRAP);
-    glStencilFuncSeparate(GL_FRONT, GL_ALWAYS, 0x00, 0xff);
-    glStencilOpSeparate(GL_FRONT, GL_KEEP, GL_KEEP, GL_DECR_WRAP);
-    
-    glDisable(GL_DEPTH_TEST);
-    glDepthMask(GL_FALSE);  
-    
-    
-    glCullFace(GL_NONE);
-    
-    glEnable(GL_DEPTH_TEST);
-    
-    //g_pDepthMaterial->RenderSet();
-    shadowMesh->RenderPose(nullptr);
-    
-    glStencilFuncSeparate(GL_BACK, GL_EQUAL, 0x00, 0xff);
-    glStencilOpSeparate(GL_BACK, GL_KEEP, GL_KEEP, GL_KEEP);
-    glStencilFuncSeparate(GL_FRONT, GL_EQUAL, 0x00, 0xff);
-    glStencilOpSeparate(GL_FRONT, GL_KEEP, GL_KEEP, GL_KEEP); 
-    
-    glDisable(GL_DEPTH_CLAMP);
-    
-    glColorMask(GL_TRUE,GL_TRUE,GL_TRUE,GL_TRUE);
-  
-  }
-  
-  bool bRenderLitGeometry = true;
-  if(bRenderLitGeometry)
-  {
-    g_pPhongMaterial->RenderSet();
-    glEnable(GL_DEPTH_TEST);
-    if(bRenderDepth)
+    if(i < g_bodies.size())
     {
-      glDepthMask(GL_FALSE); 
-      glDepthFunc(GL_EQUAL);
+      g_meshes[i]->RenderPose(g_bodies[i]);
     }
     else
     {
-      glDepthMask(GL_TRUE); 
-      glDepthFunc(GL_LESS);
+      g_meshes[i]->RenderPose(nullptr);
     }
-    glColorMask(1, 1, 1, 1);
-    glEnable(GL_LIGHTING);
-  
-    g_pMesh->RenderPose(nullptr);
-    
-  }
-  
-  if(!bRenderStencils)
-  {
-    glDepthFunc(GL_LESS);
-    g_pDepthMaterial->RenderSet();
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE);
-    
-    glDisable(GL_STENCIL_TEST);
-    glCullFace(GL_NONE);
-    
-    glEnable(GL_DEPTH_CLAMP);
-    glEnable(GL_DEPTH_TEST);
-    glDepthMask(GL_FALSE);
-    glColorMask(GL_TRUE,GL_TRUE,GL_TRUE,GL_TRUE);
-    
-    shadowMesh->RenderPose(nullptr);
-    
-    glDisable(GL_DEPTH_CLAMP);
-    glDisable(GL_BLEND);
   }
 
   g_pRenderer->Present();
@@ -221,14 +271,11 @@ void display()
 
 void cleanup()
 {
-  g_pLight = nullptr;
   g_pCamera = nullptr;
   
-  g_pMesh = nullptr;
-  g_pOccluder = nullptr;
+  g_meshes.clear();
   
   g_pDepthMaterial = nullptr;
-  g_pPhongMaterial = nullptr;
   g_pRenderer = nullptr;
 }
 
@@ -249,6 +296,10 @@ void keyDown(unsigned char key, int x, int y)
   else if((char)key == 'd')
   {
     fStrafeRight = 2.0f;
+  }
+  else if((char)key == 'p')
+  {
+    bSimulate = !bSimulate;
   }
   else if((char)key == 27)
   {
@@ -288,11 +339,11 @@ void specialDown(int key, int x, int y)
   }
   else if(key == GLUT_KEY_RIGHT)
   {
-    fTurnRight = 2.0f;
+    fTurnRight = 0.7f;
   }
   else if(key == GLUT_KEY_LEFT)
   {
-    fTurnLeft = 2.0f;
+    fTurnLeft = 0.7f;
   }
 }
 

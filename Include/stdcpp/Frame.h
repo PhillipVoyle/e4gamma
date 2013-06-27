@@ -20,41 +20,41 @@ namespace E4Gamma {
     Matrix4 m_transform;
   public:
     Vector GetPosition();
-    Quaternion GetOrientation();
+    UnitQuaternion GetOrientation();
     Matrix4 GetTransform();
     
     void SetPosition(const Vector& vPosition);
-    void SetOrientation(const Quaternion& qOrientation);
+    void SetOrientation(const UnitQuaternion& qOrientation);
     void SetTransform(const Matrix4& mTransform);    
     
     void TranslateWorld(const Vector& vDisplacement);
-    void RotateWorld(const Quaternion& qRotation);
+    void RotateWorld(const UnitQuaternion& qRotation);
     void TransformWorld(const Matrix4& mTransform);
     
     void TranslateLocal(const Vector& vDisplacement);
-    void RotateLocal(const Quaternion& qRotation);
+    void RotateLocal(const UnitQuaternion& qRotation);
     void TransformLocal(const Matrix4& mTransform);   
   };
 
   class CRotPosFrame: public IFrame
   {
-    Quaternion m_orientation;
+    UnitQuaternion m_orientation;
     Vector m_position;
   public:
     Vector GetPosition();
-    Quaternion GetOrientation();
+    UnitQuaternion GetOrientation();
     Matrix4 GetTransform();
     
     void SetPosition(const Vector& vPosition);
-    void SetOrientation(const Quaternion& qOrientation);
+    void SetOrientation(const UnitQuaternion& qOrientation);
     void SetTransform(const Matrix4& mTransform);    
     
     void TranslateWorld(const Vector& vDisplacement);
-    void RotateWorld(const Quaternion& qRotation);
+    void RotateWorld(const UnitQuaternion& qRotation);
     void TransformWorld(const Matrix4& mTransform);
     
     void TranslateLocal(const Vector& vDisplacement);
-    void RotateLocal(const Quaternion& qRotation);
+    void RotateLocal(const UnitQuaternion& qRotation);
     void TransformLocal(const Matrix4& mTransform);
   };
   
@@ -63,19 +63,19 @@ namespace E4Gamma {
     Vector m_position;
   public:
     Vector GetPosition();
-    Quaternion GetOrientation();
+    UnitQuaternion GetOrientation();
     Matrix4 GetTransform();
     
     void SetPosition(const Vector& vPosition);
-    void SetOrientation(const Quaternion& qOrientation);
+    void SetOrientation(const UnitQuaternion& qOrientation);
     void SetTransform(const Matrix4& mTransform);    
     
     void TranslateWorld(const Vector& vDisplacement);
-    void RotateWorld(const Quaternion& qRotation);
+    void RotateWorld(const UnitQuaternion& qRotation);
     void TransformWorld(const Matrix4& mTransform);
     
     void TranslateLocal(const Vector& vDisplacement);
-    void RotateLocal(const Quaternion& qRotation);
+    void RotateLocal(const UnitQuaternion& qRotation);
     void TransformLocal(const Matrix4& mTransform);
   };
 }

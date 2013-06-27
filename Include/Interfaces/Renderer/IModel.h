@@ -2,17 +2,16 @@
 #define _E4Gamma_IMODEL_H
 
 #include <Interfaces/Foundation/IUnknown.h>
+#include <Interfaces/Foundation/IFrame.h>
 
 namespace E4Gamma{
-  
-  class IPose;
   
   class IModel:public IUnknown
   {
   public:
     virtual ~IModel(){}
     
-    virtual void RenderPose(IPose* pPose) = 0;    
+    virtual void RenderPose(SharedPtr<IFrame> pPose) = 0;
   };
 }
 

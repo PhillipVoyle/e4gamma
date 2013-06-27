@@ -56,7 +56,7 @@ namespace E4Gamma{
     CGLMesh(SharedPtr<CGLRenderContext> renderContext, const std::vector<Vector>& geometryVerts, const std::vector<Triangle>& triangles, const std::vector<Edge>& edges, const std::vector<TexturedVertex>& texturedVertices);
     virtual ~CGLMesh();
 
-    virtual void RenderPose(IPose* pPose);
+    virtual void RenderPose(SharedPtr<IFrame> pPose);
     SharedPtr<IMesh> CreateShadowVolume();
     void GenerateSilhouette(std::vector<int>& vSil);
     

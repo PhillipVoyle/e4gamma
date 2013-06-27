@@ -110,4 +110,10 @@ namespace E4Gamma
   {
     return new IUnknownImpl<CGLLight>(m_renderContext);
   }
+  
+  SharedPtr<CGLRenderContext> CGLRenderer::GetRenderContext()
+  {
+    return m_renderContext;
+  }
+
 }

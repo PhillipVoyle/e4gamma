@@ -7,6 +7,7 @@
 
 #include <Interfaces/Foundation/IAssetLoader.h>
 
+
 namespace E4Gamma
 {
   class CGLShader;
@@ -55,6 +56,8 @@ namespace E4Gamma
     
     SharedPtr<ICamera>          CreateCamera(float aspect, float znear, float zfar, float fovy);
     SharedPtr<ILight>           CreateLight();
+    
+    SharedPtr<CGLRenderContext> GetRenderContext();
     
     void BeginScene();
     void Present();

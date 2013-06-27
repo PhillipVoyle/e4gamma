@@ -2,16 +2,16 @@
 #define _E4Gamma_IMESH_H
 
 #include <Interfaces/Foundation/IUnknown.h>
+#include <Interfaces/Foundation/IFrame.h>
 
 namespace E4Gamma
 {
-  class IPose;
 
   class IMesh: public IUnknown
   {
   public:
     virtual ~IMesh() {}
-    virtual void RenderPose(IPose* pPose) = 0;
+    virtual void RenderPose(SharedPtr<IFrame> pPose) = 0;
     virtual SharedPtr<IMesh> CreateShadowVolume() = 0;
   };
 }

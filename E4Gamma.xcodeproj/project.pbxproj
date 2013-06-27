@@ -15,7 +15,6 @@
 		A216BCE2148B6BA200EDE365 /* FlatFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A216BCD7148B6B6900EDE365 /* FlatFile.cpp */; };
 		A216BCE3148B6BA200EDE365 /* Iris.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A216BCD8148B6B6900EDE365 /* Iris.cpp */; };
 		A216BCE8148B6CEE00EDE365 /* libE4Gcpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A216BCDD148B6B9100EDE365 /* libE4Gcpp.a */; };
-		A26B5815149D4B4E003090A2 /* GLSkinnedMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = A26B5814149D4B4E003090A2 /* GLSkinnedMesh.h */; };
 		A26B581A149DC3AF003090A2 /* TextFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A26B5818149DC313003090A2 /* TextFile.cpp */; };
 		A26B5837149DC6D7003090A2 /* test.fsh in Sources */ = {isa = PBXBuildFile; fileRef = A26B5830149DC6D7003090A2 /* test.fsh */; };
 		A26B5838149DC6D7003090A2 /* test.vsh in Sources */ = {isa = PBXBuildFile; fileRef = A26B5831149DC6D7003090A2 /* test.vsh */; };
@@ -50,6 +49,15 @@
 		A2E0E37914B5399D00C62BA4 /* GLRenderContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2E0E37814B5399D00C62BA4 /* GLRenderContext.cpp */; };
 		A2E0E37B14B54E3800C62BA4 /* phong.vsh in Sources */ = {isa = PBXBuildFile; fileRef = A2E0E37A14B54E3800C62BA4 /* phong.vsh */; };
 		A2E0E37D14B54E4A00C62BA4 /* phong.fsh in Sources */ = {isa = PBXBuildFile; fileRef = A2E0E37C14B54E4A00C62BA4 /* phong.fsh */; };
+		A2EEC7781771385C006D9490 /* PhysicsTest.h in Headers */ = {isa = PBXBuildFile; fileRef = A2EEC7761771385C006D9490 /* PhysicsTest.h */; };
+		A2EEC77917713871006D9490 /* PhysicsTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2EEC7751771385C006D9490 /* PhysicsTest.cpp */; };
+		A2EEC77A17713885006D9490 /* libE4Ggl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A24CC858148AFBBD00DC07E8 /* libE4Ggl.a */; };
+		A2EEC77B17713889006D9490 /* libE4Gcpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A216BCDD148B6B9100EDE365 /* libE4Gcpp.a */; };
+		A2EEC77D17713899006D9490 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EEC77C17713899006D9490 /* OpenGL.framework */; };
+		A2EEC77F177138A2006D9490 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EEC77E177138A2006D9490 /* GLUT.framework */; };
+		A2EEC7831775636B006D9490 /* RigidBody.h in Headers */ = {isa = PBXBuildFile; fileRef = A2EEC7811775636B006D9490 /* RigidBody.h */; };
+		A2EEC7841775636B006D9490 /* RK4.h in Headers */ = {isa = PBXBuildFile; fileRef = A2EEC7821775636B006D9490 /* RK4.h */; };
+		A2EEC7881775681F006D9490 /* PhysicsFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2EEC7871775681F006D9490 /* PhysicsFrame.cpp */; };
 		A2F800CE14AC01B000AD78B7 /* Frame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2F800CC14AC010400AD78B7 /* Frame.cpp */; };
 		A2F800D614AC0D9A00AD78B7 /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2F800D014AC02B500AD78B7 /* Matrix.cpp */; };
 		A2F800D714AC0DA300AD78B7 /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2F800D114AC02B500AD78B7 /* Quaternion.cpp */; };
@@ -76,6 +84,15 @@
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 		A2DD466D14B43123002822A0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		A2EEC7691771383B006D9490 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -114,7 +131,6 @@
 		A24CC871148AFC8100DC07E8 /* GLRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLRenderer.h; path = Include/GL/GLRenderer.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		A24CC872148AFC8100DC07E8 /* GLShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLShader.h; path = Include/GL/GLShader.h; sourceTree = "<group>"; };
 		A24CC873148AFC8100DC07E8 /* GLTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLTexture.h; path = Include/GL/GLTexture.h; sourceTree = "<group>"; };
-		A26B5814149D4B4E003090A2 /* GLSkinnedMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLSkinnedMesh.h; sourceTree = "<group>"; };
 		A26B5817149DC2EF003090A2 /* TextFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextFile.h; sourceTree = "<group>"; };
 		A26B5818149DC313003090A2 /* TextFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextFile.cpp; sourceTree = "<group>"; };
 		A26B5830149DC6D7003090A2 /* test.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = test.fsh; sourceTree = "<group>"; };
@@ -166,6 +182,16 @@
 		A2E0E37C14B54E4A00C62BA4 /* phong.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = phong.fsh; sourceTree = "<group>"; };
 		A2E0E37E14B54E6E00C62BA4 /* phong.spr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = phong.spr; sourceTree = "<group>"; };
 		A2E0E37F14B54E9900C62BA4 /* phong.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = phong.material; sourceTree = "<group>"; };
+		A2EEC76B1771383B006D9490 /* PhysicsTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PhysicsTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2EEC7751771385C006D9490 /* PhysicsTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PhysicsTest.cpp; path = PhysicsTest/PhysicsTest.cpp; sourceTree = "<group>"; };
+		A2EEC7761771385C006D9490 /* PhysicsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhysicsTest.h; path = PhysicsTest/PhysicsTest.h; sourceTree = "<group>"; };
+		A2EEC77C17713899006D9490 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
+		A2EEC77E177138A2006D9490 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/GLUT.framework; sourceTree = DEVELOPER_DIR; };
+		A2EEC7811775636B006D9490 /* RigidBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RigidBody.h; sourceTree = "<group>"; };
+		A2EEC7821775636B006D9490 /* RK4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RK4.h; sourceTree = "<group>"; };
+		A2EEC7851775650D006D9490 /* PhysicsFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhysicsFrame.h; sourceTree = "<group>"; };
+		A2EEC7871775681F006D9490 /* PhysicsFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicsFrame.cpp; sourceTree = "<group>"; };
+		A2EEC789177AE5DA006D9490 /* Euler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Euler.h; sourceTree = "<group>"; };
 		A2F800BA14A85BF400AD78B7 /* static_mesh_export.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = static_mesh_export.py; sourceTree = "<group>"; };
 		A2F800CA14ABF91800AD78B7 /* x.mesh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = x.mesh; sourceTree = "<group>"; };
 		A2F800CC14AC010400AD78B7 /* Frame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Frame.cpp; sourceTree = "<group>"; };
@@ -215,12 +241,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A2EEC7681771383B006D9490 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2EEC77F177138A2006D9490 /* GLUT.framework in Frameworks */,
+				A2EEC77D17713899006D9490 /* OpenGL.framework in Frameworks */,
+				A2EEC77B17713889006D9490 /* libE4Gcpp.a in Frameworks */,
+				A2EEC77A17713885006D9490 /* libE4Ggl.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		A20B5A77148B574B00C3992A /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				A2EEC7861775681F006D9490 /* Physics */,
 				A2F800CF14AC02B500AD78B7 /* Math */,
 				A216BCD5148B6B4500EDE365 /* stdcpp */,
 				A24CC868148AFC0F00DC07E8 /* GL */,
@@ -231,6 +269,7 @@
 		A20B5A78148B578B00C3992A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				A2EEC7741771384D006D9490 /* PhysicsTest */,
 				A2DD466814B430E3002822A0 /* Math */,
 				A216BCBE148B62CB00EDE365 /* GLRenderer */,
 				A20B5A7F148B57BC00C3992A /* Unk */,
@@ -307,6 +346,8 @@
 		A24CC8331489C9D000DC07E8 = {
 			isa = PBXGroup;
 			children = (
+				A2EEC77E177138A2006D9490 /* GLUT.framework */,
+				A2EEC77C17713899006D9490 /* OpenGL.framework */,
 				A26B581B149DC6B5003090A2 /* Data */,
 				A216BCCF148B68E300EDE365 /* Frameworks */,
 				A20B5A78148B578B00C3992A /* Tests */,
@@ -314,6 +355,7 @@
 				A20B5A77148B574B00C3992A /* Source */,
 				A24CC86B148AFC4400DC07E8 /* Include */,
 				A2DD466F14B43123002822A0 /* MathTest */,
+				A2EEC76B1771383B006D9490 /* PhysicsTest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -349,6 +391,7 @@
 		A24CC86B148AFC4400DC07E8 /* Include */ = {
 			isa = PBXGroup;
 			children = (
+				A2EEC7801775636B006D9490 /* Physics */,
 				A2DEA69F14A46798005CD56F /* Math */,
 				A216BCE4148B6C8700EDE365 /* stdcpp */,
 				A24CC87B148AFC9700DC07E8 /* Interfaces */,
@@ -363,7 +406,6 @@
 				A24CC86D148AFC8100DC07E8 /* GLIncludes.h */,
 				A24CC86E148AFC8100DC07E8 /* GLMaterial.h */,
 				A24CC86F148AFC8100DC07E8 /* GLMesh.h */,
-				A26B5814149D4B4E003090A2 /* GLSkinnedMesh.h */,
 				A24CC870148AFC8100DC07E8 /* GLModel.h */,
 				A24CC871148AFC8100DC07E8 /* GLRenderer.h */,
 				A24CC872148AFC8100DC07E8 /* GLShader.h */,
@@ -489,6 +531,36 @@
 			path = Include/Math;
 			sourceTree = "<group>";
 		};
+		A2EEC7741771384D006D9490 /* PhysicsTest */ = {
+			isa = PBXGroup;
+			children = (
+				A2EEC7751771385C006D9490 /* PhysicsTest.cpp */,
+				A2EEC7761771385C006D9490 /* PhysicsTest.h */,
+			);
+			name = PhysicsTest;
+			sourceTree = "<group>";
+		};
+		A2EEC7801775636B006D9490 /* Physics */ = {
+			isa = PBXGroup;
+			children = (
+				A2EEC7811775636B006D9490 /* RigidBody.h */,
+				A2EEC7821775636B006D9490 /* RK4.h */,
+				A2EEC7851775650D006D9490 /* PhysicsFrame.h */,
+				A2EEC789177AE5DA006D9490 /* Euler.h */,
+			);
+			name = Physics;
+			path = Include/Physics;
+			sourceTree = "<group>";
+		};
+		A2EEC7861775681F006D9490 /* Physics */ = {
+			isa = PBXGroup;
+			children = (
+				A2EEC7871775681F006D9490 /* PhysicsFrame.cpp */,
+			);
+			name = Physics;
+			path = Source/Physics;
+			sourceTree = "<group>";
+		};
 		A2F800B714A85BAD00AD78B7 /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
@@ -533,7 +605,6 @@
 				A26F6B8B148C9C32003C1F9F /* IMesh.h in Headers */,
 				A26F6B8C148C9C32003C1F9F /* IModel.h in Headers */,
 				A26F6B8D148C9C32003C1F9F /* IRenderer.h in Headers */,
-				A26B5815149D4B4E003090A2 /* GLSkinnedMesh.h in Headers */,
 				A2A6004B14A080F0007E0139 /* TAssetCache.h in Headers */,
 				A2DEA69B14A466D5005CD56F /* ICamera.h in Headers */,
 				A2DEA6A314A46798005CD56F /* Matrix.h in Headers */,
@@ -544,6 +615,9 @@
 				A2E0E36D14B4E7D200C62BA4 /* ILight.h in Headers */,
 				A2E0E37414B4EF7B00C62BA4 /* GLLight.h in Headers */,
 				A2E0E37714B5394400C62BA4 /* GLRenderContext.h in Headers */,
+				A2EEC7781771385C006D9490 /* PhysicsTest.h in Headers */,
+				A2EEC7831775636B006D9490 /* RigidBody.h in Headers */,
+				A2EEC7841775636B006D9490 /* RK4.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,6 +709,23 @@
 			productReference = A2DD466F14B43123002822A0 /* MathTest */;
 			productType = "com.apple.product-type.tool";
 		};
+		A2EEC76A1771383B006D9490 /* PhysicsTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2EEC7731771383B006D9490 /* Build configuration list for PBXNativeTarget "PhysicsTest" */;
+			buildPhases = (
+				A2EEC7671771383B006D9490 /* Sources */,
+				A2EEC7681771383B006D9490 /* Frameworks */,
+				A2EEC7691771383B006D9490 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PhysicsTest;
+			productName = PhysicsTest;
+			productReference = A2EEC76B1771383B006D9490 /* PhysicsTest */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -660,6 +751,7 @@
 				A216BCC2148B63AC00EDE365 /* GLTest */,
 				A216BCDC148B6B9100EDE365 /* E4Gcpp */,
 				A2DD466E14B43123002822A0 /* MathTest */,
+				A2EEC76A1771383B006D9490 /* PhysicsTest */,
 			);
 		};
 /* End PBXProject section */
@@ -717,6 +809,7 @@
 				A2DDB7A714BD60D700C16695 /* depthonly.vsh in Sources */,
 				A2DDB7AA14BD610A00C16695 /* depthonly.fsh in Sources */,
 				A2DDB7CF14BF739300C16695 /* simplephong.fsh in Sources */,
+				A2EEC7881775681F006D9490 /* PhysicsFrame.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,6 +818,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2DD467914B43143002822A0 /* MathTest.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2EEC7671771383B006D9490 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2EEC77917713871006D9490 /* PhysicsTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1018,6 +1119,63 @@
 			};
 			name = Release;
 		};
+		A2EEC7711771383B006D9490 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A2EEC7721771383B006D9490 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1071,6 +1229,15 @@
 			buildConfigurations = (
 				A2DD467714B43124002822A0 /* Debug */,
 				A2DD467814B43124002822A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A2EEC7731771383B006D9490 /* Build configuration list for PBXNativeTarget "PhysicsTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2EEC7711771383B006D9490 /* Debug */,
+				A2EEC7721771383B006D9490 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

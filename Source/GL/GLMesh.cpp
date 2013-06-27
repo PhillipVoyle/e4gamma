@@ -112,7 +112,7 @@ namespace E4Gamma
     {
     }
     
-    void RenderPose(IPose* pPose)
+    void RenderPose(SharedPtr<IFrame> pPose)
     {
       m_pParent->m_renderContext->m_model = Matrix4();
       m_pParent->m_renderContext->FlushContext();
@@ -148,9 +148,16 @@ namespace E4Gamma
     return new IUnknownImpl<CGLMeshShadowVolume>(this);
   }
 
-  void CGLMesh::RenderPose(IPose* pPose)
-  {    
-    m_renderContext->m_model = Matrix4();
+  void CGLMesh::RenderPose(SharedPtr<IFrame> pPose)
+  {
+    if (pPose.m_ptr == nullptr)
+    {
+      m_renderContext->m_model = Matrix4();
+    }
+    else
+    {
+      m_renderContext->m_model = pPose->GetTransform();
+    }
     m_renderContext->FlushContext();
     
     glEnableClientState(GL_VERTEX_ARRAY);	 // Enable Vertex Arrays

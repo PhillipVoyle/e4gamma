@@ -48,7 +48,7 @@ namespace E4Gamma
   {
   }
 
-  void CGLModel::RenderPose(IPose* pPose)
+  void CGLModel::RenderPose(SharedPtr<IFrame> pPose)
   {
     for(auto it = m_surfaces.begin(); it != m_surfaces.end(); it++)
     {
