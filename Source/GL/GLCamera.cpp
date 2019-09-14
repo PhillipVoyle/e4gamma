@@ -3,13 +3,13 @@
 //  E4Gamma
 //
 //  Created by Phillip Voyle on 23/12/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2011 Phillip Voyle. All rights reserved.
 //
 
 #include <GL/GLCamera.h>
 #include <GL/GLRenderContext.h>
 
-#include <OpenGL/gl.h>
+#include <GL/GLIncludes.h>
 #include <math.h>
 
 namespace E4Gamma {

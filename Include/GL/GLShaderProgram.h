@@ -3,14 +3,13 @@
 //  E4Gamma
 //
 //  Created by Phillip Voyle on 20/12/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2011 Phillip Voyle. All rights reserved.
 //
 
 #ifndef E4Gamma_GLShaderProgram_h
 #define E4Gamma_GLShaderProgram_h
 
-#include <OpenGL/OpenGL.h>
-#include <OpenGL/gl.h>
+#include <GL/GLIncludes.h>
 #include <Interfaces/Foundation/IUnknown.h>
 #include <list>
 

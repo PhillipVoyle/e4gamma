@@ -3,7 +3,7 @@
  *  GameEngine
  *
  *  Created by Phillip Voyle on 18/06/11.
- *  Copyright 2011 __MyCompanyName__. All rights reserved.
+ *  Copyright 2011 Phillip Voyle. All rights reserved.
  *
  */
 
@@ -70,11 +70,10 @@ namespace E4Gamma
   struct UnitQuaternion:public Quaternion
   {
     friend UnitQuaternion Quaternion::normalize() const;
-  private:
+  public:
     UnitQuaternion(const Quaternion& q):Quaternion(q)
     {
     }
-  public:
     UnitQuaternion():Quaternion(Quaternion::Identity)
     {
     }

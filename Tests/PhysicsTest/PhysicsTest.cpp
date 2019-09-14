@@ -1,4 +1,7 @@
 
+#include <GL/GLIncludes.h>
+
+
 #include <GL/GLRenderer.h>
 #include <GL/GLRenderContext.h>
 #include <GL/GLMesh.h>
@@ -19,8 +22,9 @@
 #include <stdcpp/FileSystemDataStore.h>
 #include <iostream>
 
-#include <GLUT/glut.h>
+
 #include <vector>
+#include <cmath>
 
 using namespace std;
 using namespace E4Gamma;

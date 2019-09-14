@@ -3,7 +3,7 @@
 //  E4Gamma
 //
 //  Created by Phillip Voyle on 23/12/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2011 Phillip Voyle. All rights reserved.
 //
 
 #ifndef E4Gamma_IFrame_h

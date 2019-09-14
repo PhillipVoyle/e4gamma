@@ -1,4 +1,5 @@
-#include <OpenGL/GL.h>
+#include <GL/GLIncludes.h>
+
 
 #include <Interfaces/Foundation/ISequenceReader.h>
 #include <Interfaces/Foundation/TAssetCache.h>

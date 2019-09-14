@@ -1,5 +1,6 @@
 
-#include <OpenGL/gl.h>
+#include <GL/GLIncludes.h>
+
 #include <GL/GLRenderer.h>
 #include <GL/GLMaterial.h>
 

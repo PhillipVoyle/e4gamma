@@ -2,8 +2,12 @@
 #define _E4Gamma_GLMESH_H
 
 #include <Interfaces/Renderer/IMesh.h>
+#ifdef _WIN32
+#include <gl/GL.h>
+#else
 #include <OpenGL/OpenGL.h>
 #include <OpenGL/gl.h>
+#endif
 #include <Interfaces/Foundation/IAssetLoader.h>
 #include <Math/Vector.h>
 

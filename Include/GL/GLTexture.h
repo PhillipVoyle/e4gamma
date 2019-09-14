@@ -1,7 +1,12 @@
 #ifndef _E4Gamma_GLTEXTURE_H
 #define _E4Gamma_GLTEXTURE_H
 
+#ifdef _WIN32
+#include <Windows.h>
+#include <GL/gl.h>
+#else
 #include <OpenGL/gl.h>
+#endif
 #include <Interfaces/Foundation/IAssetLoader.h>
 
 namespace E4Gamma

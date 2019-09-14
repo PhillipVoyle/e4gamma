@@ -2,9 +2,10 @@
 //  GLLight.cpp
 //  E4Gamma
 //
-//  Created by Stacey Voyle on 5/01/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Phillip Voyle on 5/01/12.
+//  Copyright (c) 2012 Phillip Voyle. All rights reserved.
 //
+#include <GL/GLIncludes.h>
 
 #include <GL/GLLight.h>
 #include <GL/GLRenderContext.h>
