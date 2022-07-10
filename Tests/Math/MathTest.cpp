@@ -26,7 +26,7 @@ void check_rot(Matrix4 mat1, Matrix4 mat2)
   Quaternion qOut2 = Quaternion::Transform(mat1.GetOrientation(), mat2.GetOrientation());
   Vector vOut2 = Quaternion::Transform(mat1.GetOrientation(), mat2.GetPosition()) + mat1.GetPosition();
   
-  Matrix4 matQ(vOut1, qOut1);
+  Matrix4 matQ(vOut1, qOut1.normalize());
 }
 
 void check_pos(Matrix4 mat1, Vector v)

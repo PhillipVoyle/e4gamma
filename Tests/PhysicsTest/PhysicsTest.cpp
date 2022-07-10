@@ -19,7 +19,7 @@
 #include <stdcpp/FileSystemDataStore.h>
 #include <iostream>
 
-#include <GLUT/glut.h>
+#include <GL/glut.h>
 #include <vector>
 
 using namespace std;

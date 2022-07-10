@@ -2,3 +2,4 @@ Object/*
 Lib/*
 Tests/GLRenderer/TestGLRenderer
 .vscode/
+build/*
