@@ -7,8 +7,8 @@
  *
  */
 
-#include "Matrix.h"
-#include "Quaternion.h"
+#include <Math/Matrix.h>
+#include <Math/Quaternion.h>
 
 namespace E4Gamma {
 

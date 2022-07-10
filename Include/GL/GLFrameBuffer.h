@@ -12,7 +12,8 @@
 #include <Interfaces/Foundation/IUnknown.h>
 #include <Interfaces/Foundation/IAssetLoader.h>
 #include <string>
-#include <OpenGL/GL.h>
+
+#include "GL/GLIncludes.h"
 
 namespace E4Gamma {
   

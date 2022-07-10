@@ -1,5 +1,3 @@
-#include <OpenGL/GL.h>
-
 #include <Interfaces/Foundation/ISequenceReader.h>
 #include <Interfaces/Foundation/TAssetCache.h>
 #include <GL/GLRenderer.h>

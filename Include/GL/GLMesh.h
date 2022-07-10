@@ -2,8 +2,7 @@
 #define _E4Gamma_GLMESH_H
 
 #include <Interfaces/Renderer/IMesh.h>
-#include <OpenGL/OpenGL.h>
-#include <OpenGL/gl.h>
+#include "GL/GLIncludes.h"
 #include <Interfaces/Foundation/IAssetLoader.h>
 #include <Math/Vector.h>
 

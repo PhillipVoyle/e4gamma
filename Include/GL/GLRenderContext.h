@@ -12,6 +12,7 @@
 #include <Math/Matrix.h>
 #include <Math/Vector.h>
 #include <Interfaces/Foundation/IUnknown.h>
+#include "GL/GLIncludes.h"
 
 namespace E4Gamma
 {

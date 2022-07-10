@@ -9,7 +9,6 @@
 #include <GL/GLCamera.h>
 #include <GL/GLRenderContext.h>
 
-#include <OpenGL/gl.h>
 #include <math.h>
 
 namespace E4Gamma {

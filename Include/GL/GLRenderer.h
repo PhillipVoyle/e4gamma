@@ -2,8 +2,7 @@
 #define _E4Gamma_GLRENDERER_H
 
 #include <Interfaces/Renderer/IRenderer.h>
-#include <OpenGL/gl.h>
-
+#include "GL/GLIncludes.h"
 
 #include <Interfaces/Foundation/IAssetLoader.h>
 

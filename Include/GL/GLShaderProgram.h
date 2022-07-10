@@ -9,8 +9,8 @@
 #ifndef E4Gamma_GLShaderProgram_h
 #define E4Gamma_GLShaderProgram_h
 
-#include <OpenGL/OpenGL.h>
-#include <OpenGL/gl.h>
+#include "GL/GLIncludes.h"
+
 #include <Interfaces/Foundation/IUnknown.h>
 #include <list>
 

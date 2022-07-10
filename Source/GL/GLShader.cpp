@@ -1,7 +1,6 @@
 #include <GL/GLShader.h>
 #include <iostream>
 
-#include <OpenGL/gl.h>
 #include <stdcpp/FileSystemDataStore.h>
 
 using namespace std;

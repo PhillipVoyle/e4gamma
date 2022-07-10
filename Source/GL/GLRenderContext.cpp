@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#include <OpenGL/GL.h>
 #include <GL/GLRenderContext.h>
 
 #include <map>
@@ -219,10 +218,18 @@ namespace E4Gamma
   {
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    glLightfv(GL_LIGHT0, GL_AMBIENT, (float[]){0.2, 0.2, 0.2, 1.0});
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, (float[]){1.0, 1.0, 1.0, 1.0});
-    glLightfv(GL_LIGHT0, GL_SPECULAR, (float[]){1.0, 1.0, 1.0, 1.0});
-    glLightfv(GL_LIGHT0, GL_POSITION, (float[]){m_vLightPosition.x, m_vLightPosition.y, m_vLightPosition.z, 1.0f});
+
+
+    float ambient[] = {0.2, 0.2, 0.2, 1.0};
+    float diffuse[] = {1.0, 1.0, 1.0, 1.0};
+    float specular[] = {1.0, 1.0, 1.0, 1.0};
+    float position[] = {m_vLightPosition.x, m_vLightPosition.y, m_vLightPosition.z, 1.0f};
+
+
+    glLightfv(GL_LIGHT0, GL_AMBIENT, ambient);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);
+    glLightfv(GL_LIGHT0, GL_SPECULAR, specular);
+    glLightfv(GL_LIGHT0, GL_POSITION, position);
  
     glMatrixMode(GL_PROJECTION);
     glLoadMatrixf((float*) &m_projection);

@@ -6,6 +6,8 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
+#define GL_GLEXT_PROTOTYPES
+
 #include <Interfaces/Foundation/IUnknown.h>
 #include <GL/GLShader.h>
 #include <GL/GLShaderProgram.h>

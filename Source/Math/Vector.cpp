@@ -7,7 +7,7 @@
  *
  */
 
-#include "Vector.h"
+#include <Math/Vector.h>
 
 namespace E4Gamma {
 

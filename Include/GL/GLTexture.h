@@ -1,7 +1,7 @@
 #ifndef _E4Gamma_GLTEXTURE_H
 #define _E4Gamma_GLTEXTURE_H
 
-#include <OpenGL/gl.h>
+#include "GL/GLIncludes.h"
 #include <Interfaces/Foundation/IAssetLoader.h>
 
 namespace E4Gamma

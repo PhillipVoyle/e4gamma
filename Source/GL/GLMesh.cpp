@@ -2,8 +2,7 @@
 #include <Interfaces/Foundation/ISequenceReader.h>
 #include <iostream>
 #include <string>
-#include <OpenGL/gl.h>
-#include <OpenGL/OpenGL.h>
+
 #include <stdcpp/FileSystemDataStore.h>
 #include <GL/GLRenderContext.h>
 

@@ -15,7 +15,7 @@
 using namespace std;
 using namespace E4Gamma;
 
-#include <GLUT/glut.h>
+#include <GL/glut.h>
 
 //tell g++ not to warn me
 void init();
@@ -116,7 +116,7 @@ void display()
       fActualPitch = -fLimitPitch;
     }
     
-    pFrame->SetOrientation(Quaternion::Transform(Quaternion::FromAxisAngle(Vector::I, fActualPitch), qYaw));
+    pFrame->SetOrientation(Quaternion::Transform(Quaternion::FromAxisAngle(Vector::I, fActualPitch), qYaw).normalize());
     pFrame->TranslateWorld(Quaternion::Transform(qYaw, Vector(fFrameTime * (fStrafeRight - fStrafeLeft), 0, fFrameTime * (fFwd - fBack))));
     
     Matrix4 mFrame = pFrame->GetTransform();

@@ -9,7 +9,6 @@
 #include <GL/GLTexture.h>
 #include <GL/GLFrameBuffer.h>
 
-
 namespace E4Gamma {
   
   CGLFrameBuffer::CGLFrameBuffer(int nWidth, int nHeight, GLuint nTargets, GLuint *pFormats, GLuint *pTargets)
