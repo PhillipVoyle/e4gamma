@@ -28,6 +28,8 @@ namespace E4Gamma {
     CGLShaderProgram(SharedPtr<CGLRenderContext> renderContext, const std::string& sProgram, SharedPtr<IAssetLoader<CGLShader>> m_vertexShaderFactory, SharedPtr<IAssetLoader<CGLShader>> m_fragmentShaderFactory);
     virtual ~CGLShaderProgram();
     void RenderSet();
+
+    GLuint GetUniformLocation(const std::string& location);
     
     static SharedPtr<IAssetLoader<CGLShaderProgram>> createFactory(SharedPtr<CGLRenderContext> renderContext, SharedPtr<IAssetLoader<CGLShader>> m_vertexShaderFactory, SharedPtr<IAssetLoader<CGLShader>> m_fragmentShaderFactory);
   };

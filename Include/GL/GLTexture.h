@@ -10,6 +10,7 @@ namespace E4Gamma
   {
   private:
     GLuint m_nTextureID;
+    std::string name;
     
   public:
     CGLTexture(const std::string& sTexture);

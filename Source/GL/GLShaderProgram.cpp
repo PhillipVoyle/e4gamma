@@ -85,6 +85,11 @@ namespace E4Gamma
       cout << "loaded shader program " << sProgram << endl;
     }
   }
+
+  GLuint CGLShaderProgram::GetUniformLocation(const std::string& location)
+  {
+    return glGetUniformLocation(m_nProgram, location.c_str());
+  }
   
   CGLShaderProgram::~CGLShaderProgram()
   {

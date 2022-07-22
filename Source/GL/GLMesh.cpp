@@ -185,6 +185,22 @@ namespace E4Gamma
     
     glTexCoordPointer(2, GL_FLOAT, sizeof(TexturedVertex), (GLvoid*)(&((TexturedVertex*)0)->u));
 
+    int tex0 = glGetUniformLocation(m_renderContext->m_nProgram, "tex0");
+    if (tex0 >= 0)
+    {
+      glEnable(GL_TEXTURE_2D);
+      glUniform1i(tex0, 0);
+    }
+
+    int tex1 = glGetUniformLocation(m_renderContext->m_nProgram, "tex1");
+    if (tex1 >= 0)
+    {
+      glEnable(GL_TEXTURE_2D);
+      glUniform1i(tex1, 1);
+    }
+
+    glActiveTexture(GL_TEXTURE0);
+
     glDrawArrays( GL_TRIANGLES, 0, m_nTexturedVerts ); //Draw the vertices 
     
     glBindBuffer(GL_ARRAY_BUFFER, 0);

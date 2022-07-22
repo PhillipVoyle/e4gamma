@@ -5,12 +5,13 @@ varying vec3 normal;
 varying vec3 tangent;
 varying vec3 binormal;
 
-uniform sampler2D tex;
+uniform sampler2D tex0;
+uniform sampler2D tex1;
 
 void main()
 {
     // Defining The Material Colors
-    vec4 surfaceColor = vec4(0.5, 0.5, 0.2, 1.0);
+    vec4 surfaceColor = texture2D(tex1, gl_TexCoord[0].st);
     vec4 specularColor = vec4(0.3, 0.3, 0.3, 1.0);
     
     float ambientTerm = 0.2;
@@ -28,7 +29,7 @@ void main()
     
     float falloff = 1.0 - dot(L, vertex_to_light_vector)/8.0;
 
-    vec3 bump = normalize(texture2D(tex, gl_TexCoord[0].st).xyz * 2.0 - 1.0);
+    vec3 bump = normalize(texture2D(tex0, gl_TexCoord[0].st).xyz * 2.0 - 1.0);
     mat3 tangentFrame = mat3(T, B, N);
     vec3 perturbed_normal = normalize(tangentFrame * bump);
     
