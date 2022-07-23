@@ -127,18 +127,22 @@ void display()
     
     fF += dF * fFrameTime;
     
-    if(fF > 9.5f)
+    if(fF > 11.0f)
     {
       dF = -5;
     }
     
-    if(fF < 1.0f)
+    if(fF < -0.0f)
     {
       dF = 5; 
     }
     
     pFrame = g_pLight->GetFrame();
-    pFrame->SetPosition(Vector(0.0f, 0.0f, fF));
+    pFrame->SetPosition(Vector(0.0f, -0.3f, fF));
+
+    auto frame = g_pLight2->GetFrame();
+    frame->SetPosition(g_pCamera->GetFrame()->GetPosition());
+
   }
   
   g_pCamera->Select();  
