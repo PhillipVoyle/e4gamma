@@ -35,6 +35,7 @@ SharedPtr<IMaterial> g_pPhongMaterial = nullptr;
 
 SharedPtr<ICamera> g_pCamera = nullptr;
 SharedPtr<ILight> g_pLight = nullptr;
+SharedPtr<ILight> g_pLight2 = nullptr;
 
 void init()
 {
@@ -67,6 +68,9 @@ void init()
   pFrame = nullptr;
   
   g_pLight = g_pRenderer->CreateLight();
+  g_pLight2 = g_pRenderer->CreateLight();
+  auto frame = g_pLight2->GetFrame();
+  frame->SetPosition(Vector(0.0f, 0.0f, 8.0f));
 }
 
 int nLastX = 0;
@@ -137,21 +141,19 @@ void display()
     pFrame->SetPosition(Vector(0.0f, 0.0f, fF));
   }
   
-  g_pLight->Select();  
   g_pCamera->Select();  
-  SharedPtr<IMesh> shadowMesh = g_pMesh->CreateShadowVolume();
   
   glClearDepth(1.0);
   g_pRenderer->BeginScene();
   glClear(GL_DEPTH_BUFFER_BIT);
-  glClear(GL_STENCIL_BUFFER_BIT);
-  
-
 
 //* 
   bool bRenderDepth = true;
   if(bRenderDepth)
   {
+      glDisable(GL_BLEND);
+      glBlendFunc(GL_SRC_COLOR, GL_ONE);
+
     //Render depth-only geometry
     g_pDepthMaterial->RenderSet();
     glDepthMask(GL_TRUE);
@@ -162,87 +164,94 @@ void display()
     g_pMesh->RenderPose(nullptr);
   }
 
-  bool bRenderStencils = true;
-
-  if(bRenderStencils)
+  SharedPtr<ILight> lights[] = {g_pLight, g_pLight2};
+  for(auto light:lights)
   {
-    glEnable(GL_STENCIL_TEST);
+    bool bRenderStencils = true;
+    light->Select();
+    auto shadowMesh = g_pMesh->CreateShadowVolume();
 
-    glDepthFunc(GL_LESS);  
-    glDepthMask(GL_FALSE);
-    glColorMask(GL_FALSE,GL_FALSE,GL_FALSE,GL_FALSE);
-    glDisable(GL_LIGHTING);
-    
-    glEnable(GL_DEPTH_CLAMP);
-    
-    glStencilFuncSeparate(GL_BACK, GL_ALWAYS, 0x00, 0xff);
-    glStencilOpSeparate(GL_BACK, GL_KEEP, GL_KEEP, GL_INCR_WRAP);
-    glStencilFuncSeparate(GL_FRONT, GL_ALWAYS, 0x00, 0xff);
-    glStencilOpSeparate(GL_FRONT, GL_KEEP, GL_KEEP, GL_DECR_WRAP);
-    
-    glDisable(GL_DEPTH_TEST);
-    glDepthMask(GL_FALSE);  
-    
-    
-    glCullFace(GL_NONE);
-    
-    glEnable(GL_DEPTH_TEST);
-    
-    //g_pDepthMaterial->RenderSet();
-    shadowMesh->RenderPose(nullptr);
-    
-    glStencilFuncSeparate(GL_BACK, GL_EQUAL, 0x00, 0xff);
-    glStencilOpSeparate(GL_BACK, GL_KEEP, GL_KEEP, GL_KEEP);
-    glStencilFuncSeparate(GL_FRONT, GL_EQUAL, 0x00, 0xff);
-    glStencilOpSeparate(GL_FRONT, GL_KEEP, GL_KEEP, GL_KEEP); 
-    
-    glDisable(GL_DEPTH_CLAMP);
-    
-    glColorMask(GL_TRUE,GL_TRUE,GL_TRUE,GL_TRUE);
-  
-  }
-  
-  bool bRenderLitGeometry = true;
-  if(bRenderLitGeometry)
-  {
-    g_pPhongMaterial->RenderSet();
-    glEnable(GL_DEPTH_TEST);
-    if(bRenderDepth)
+    if(bRenderStencils)
     {
-      glDepthMask(GL_FALSE); 
-      glDepthFunc(GL_EQUAL);
+      glClear(GL_STENCIL_BUFFER_BIT);
+      glEnable(GL_STENCIL_TEST);
+
+      glDepthFunc(GL_LESS);  
+      glDepthMask(GL_FALSE);
+      glColorMask(GL_FALSE,GL_FALSE,GL_FALSE,GL_FALSE);
+      glDisable(GL_LIGHTING);
+      
+      glEnable(GL_DEPTH_CLAMP);
+      
+      glStencilFuncSeparate(GL_BACK, GL_ALWAYS, 0x00, 0xff);
+      glStencilOpSeparate(GL_BACK, GL_KEEP, GL_KEEP, GL_INCR_WRAP);
+      glStencilFuncSeparate(GL_FRONT, GL_ALWAYS, 0x00, 0xff);
+      glStencilOpSeparate(GL_FRONT, GL_KEEP, GL_KEEP, GL_DECR_WRAP);
+      
+      glDisable(GL_DEPTH_TEST);
+      glDepthMask(GL_FALSE);  
+      
+      
+      glCullFace(GL_NONE);
+      
+      glEnable(GL_DEPTH_TEST);
+      
+      //g_pDepthMaterial->RenderSet();
+      shadowMesh->RenderPose(nullptr);
+      
+      glStencilFuncSeparate(GL_BACK, GL_EQUAL, 0x00, 0xff);
+      glStencilOpSeparate(GL_BACK, GL_KEEP, GL_KEEP, GL_KEEP);
+      glStencilFuncSeparate(GL_FRONT, GL_EQUAL, 0x00, 0xff);
+      glStencilOpSeparate(GL_FRONT, GL_KEEP, GL_KEEP, GL_KEEP); 
+      
+      glDisable(GL_DEPTH_CLAMP);
+      
+      glColorMask(GL_TRUE,GL_TRUE,GL_TRUE,GL_TRUE);
+    
     }
-    else
+    
+    bool bRenderLitGeometry = true;
+    if(bRenderLitGeometry)
     {
-      glDepthMask(GL_TRUE); 
+      light->Select();  
+      g_pPhongMaterial->RenderSet();
+      glEnable(GL_BLEND);
+      glBlendFunc(GL_SRC_COLOR, GL_ONE);
+
+      glEnable(GL_DEPTH_TEST);
+      if(bRenderDepth)
+      {
+        glDepthMask(GL_FALSE); 
+        glDepthFunc(GL_EQUAL);
+      }
+      else
+      {
+        glDepthMask(GL_TRUE); 
+        glDepthFunc(GL_LESS);
+      }
+      glColorMask(1, 1, 1, 1);
+      glEnable(GL_LIGHTING);
+    
+      g_pMesh->RenderPose(nullptr);
+    }
+    
+    if(!bRenderStencils)
+    {
       glDepthFunc(GL_LESS);
+      g_pDepthMaterial->RenderSet();
+      glDisable(GL_STENCIL_TEST);
+      glCullFace(GL_NONE);
+      
+      glEnable(GL_DEPTH_CLAMP);
+      glEnable(GL_DEPTH_TEST);
+      glDepthMask(GL_FALSE);
+      glColorMask(GL_TRUE,GL_TRUE,GL_TRUE,GL_TRUE);
+      
+      shadowMesh->RenderPose(nullptr);
+      
+      glDisable(GL_DEPTH_CLAMP);
+      glDisable(GL_BLEND);
     }
-    glColorMask(1, 1, 1, 1);
-    glEnable(GL_LIGHTING);
-  
-    g_pMesh->RenderPose(nullptr);
-    
-  }
-  
-  if(!bRenderStencils)
-  {
-    glDepthFunc(GL_LESS);
-    g_pDepthMaterial->RenderSet();
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE);
-    
-    glDisable(GL_STENCIL_TEST);
-    glCullFace(GL_NONE);
-    
-    glEnable(GL_DEPTH_CLAMP);
-    glEnable(GL_DEPTH_TEST);
-    glDepthMask(GL_FALSE);
-    glColorMask(GL_TRUE,GL_TRUE,GL_TRUE,GL_TRUE);
-    
-    shadowMesh->RenderPose(nullptr);
-    
-    glDisable(GL_DEPTH_CLAMP);
-    glDisable(GL_BLEND);
   }
 
   g_pRenderer->Present();

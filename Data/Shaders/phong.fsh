@@ -14,7 +14,7 @@ void main()
     vec4 surfaceColor = texture2D(tex1, gl_TexCoord[0].st);
     vec4 specularColor = vec4(0.3, 0.3, 0.3, 1.0);
     
-    float ambientTerm = 0.2;
+    float ambientTerm = 0.0;
     float fShininess = 50.0;
  
     // normalize the 'normal' and vertex-to light vector
@@ -42,11 +42,11 @@ void main()
       vec3 R = reflect(L, perturbed_normal);
       float specular = clamp(pow(max(dot(R, V), 0.0), fShininess), 0.0, 1.0) * falloff;
       
-      gl_FragColor = (ambientTerm + diffuseTerm) * surfaceColor + specularColor * specular;
+      gl_FragColor = gl_FragColor + (ambientTerm + diffuseTerm) * surfaceColor + specularColor * specular;
     }
     else
     {
-      gl_FragColor = ambientTerm * surfaceColor;
+      gl_FragColor = gl_FragColor + ambientTerm * surfaceColor;
     }
 }
 
