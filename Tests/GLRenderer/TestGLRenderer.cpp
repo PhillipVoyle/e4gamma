@@ -30,8 +30,9 @@ SharedPtr<CGLRenderer> g_pRenderer = nullptr;
 //SharedPtr<IModel> g_pModel = nullptr;
 SharedPtr<IMesh> g_pMesh = nullptr;
 SharedPtr<IMesh> g_pOccluder = nullptr;
-SharedPtr<IMaterial> g_pDepthMaterial = nullptr;
+SharedPtr<IMaterial> g_ambientMaterial = nullptr;
 SharedPtr<IMaterial> g_pPhongMaterial = nullptr;
+SharedPtr<IMaterial> g_depthMaterial = nullptr;
 
 SharedPtr<ICamera> g_pCamera = nullptr;
 SharedPtr<ILight> g_pLight = nullptr;
@@ -55,7 +56,8 @@ void init()
 
   g_pMesh = g_pRenderer->LoadMesh("Data/Meshes/level.mesh");
   g_pPhongMaterial = g_pRenderer->LoadMaterial("Data/Materials/phong.material");
-  g_pDepthMaterial = g_pRenderer->LoadMaterial("Data/Materials/depthonly.material");
+  g_ambientMaterial = g_pRenderer->LoadMaterial("Data/Materials/ambientonly.material");
+  g_depthMaterial = g_pRenderer->LoadMaterial("Data/Materials/depthonly.material");
   
   float fovy = 30.0;
   float zfar = 1000.f;
@@ -155,11 +157,11 @@ void display()
   bool bRenderDepth = true;
   if(bRenderDepth)
   {
-      glDisable(GL_BLEND);
-      glBlendFunc(GL_SRC_COLOR, GL_ONE);
+    glDisable(GL_BLEND);
+    glBlendFunc(GL_SRC_COLOR, GL_ONE);
 
     //Render depth-only geometry
-    g_pDepthMaterial->RenderSet();
+    g_ambientMaterial->RenderSet();
     glDepthMask(GL_TRUE);
     glDepthFunc(GL_LESS);
     glEnable(GL_LIGHT0);
@@ -200,7 +202,7 @@ void display()
       
       glEnable(GL_DEPTH_TEST);
       
-      //g_pDepthMaterial->RenderSet();
+      g_depthMaterial->RenderSet();
       shadowMesh->RenderPose(nullptr);
       
       glStencilFuncSeparate(GL_BACK, GL_EQUAL, 0x00, 0xff);
@@ -242,7 +244,7 @@ void display()
     if(!bRenderStencils)
     {
       glDepthFunc(GL_LESS);
-      g_pDepthMaterial->RenderSet();
+      g_depthMaterial->RenderSet();
       glDisable(GL_STENCIL_TEST);
       glCullFace(GL_NONE);
       
@@ -277,7 +279,7 @@ void cleanup()
   g_pMesh = nullptr;
   g_pOccluder = nullptr;
   
-  g_pDepthMaterial = nullptr;
+  g_ambientMaterial = nullptr;
   g_pPhongMaterial = nullptr;
   g_pRenderer = nullptr;
 }

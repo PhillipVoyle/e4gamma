@@ -5,13 +5,13 @@ varying vec3 normal;
 varying vec3 tangent;
 varying vec3 binormal;
 
-uniform sampler2D tex0;
-uniform sampler2D tex1;
+uniform sampler2D diffuse;
+uniform sampler2D bump;
 
 void main()
 {
     // Defining The Material Colors
-    vec4 surfaceColor = texture2D(tex1, gl_TexCoord[0].st);
+    vec4 surfaceColor = texture2D(diffuse, gl_TexCoord[0].st);
     vec4 specularColor = vec4(0.3, 0.3, 0.3, 1.0);
     
     float ambientTerm = 0.0;
@@ -29,9 +29,9 @@ void main()
     
     float falloff = 1.0 - dot(L, vertex_to_light_vector)/8.0;
 
-    vec3 bump = normalize(texture2D(tex0, gl_TexCoord[0].st).xyz * 2.0 - 1.0);
+    vec3 bumpvec = normalize(texture2D(bump, gl_TexCoord[0].st).xyz * 2.0 - 1.0);
     mat3 tangentFrame = mat3(T, B, N);
-    vec3 perturbed_normal = normalize(tangentFrame * bump);
+    vec3 perturbed_normal = normalize(tangentFrame * bumpvec);
     
     // calculate diffuse term
     float diffuseTerm = clamp(dot(perturbed_normal, L), 0.0, 1.0) * falloff;
@@ -42,11 +42,11 @@ void main()
       vec3 R = reflect(L, perturbed_normal);
       float specular = clamp(pow(max(dot(R, V), 0.0), fShininess), 0.0, 1.0) * falloff;
       
-      gl_FragColor = gl_FragColor + (ambientTerm + diffuseTerm) * surfaceColor + specularColor * specular;
+      gl_FragColor = (ambientTerm + diffuseTerm) * surfaceColor + specularColor * specular;
     }
     else
     {
-      gl_FragColor = gl_FragColor + ambientTerm * surfaceColor;
+      gl_FragColor = ambientTerm * surfaceColor;
     }
 }
 

@@ -91,9 +91,8 @@ namespace E4Gamma
 
           bool bInvert = !facingTri[edge.t1];
           Vector v1 = m_pParent->m_geometryVerts[bInvert?edge.v2:edge.v1];
-          Vector v2 = m_pParent->m_geometryVerts[bInvert?edge.v1:edge.v2];
-
           Vector v3 = v1 - m_lightPosition;
+          Vector v2 = m_pParent->m_geometryVerts[bInvert?edge.v1:edge.v2];
           Vector v4 = v2 - m_lightPosition; 
           
           m_shadowVolume.push_back(tovec4(v1, 1.0f));
@@ -185,18 +184,28 @@ namespace E4Gamma
     
     glTexCoordPointer(2, GL_FLOAT, sizeof(TexturedVertex), (GLvoid*)(&((TexturedVertex*)0)->u));
 
-    int tex0 = glGetUniformLocation(m_renderContext->m_nProgram, "tex0");
-    if (tex0 >= 0)
+    int ambient = glGetUniformLocation(m_renderContext->m_nProgram, "ambientColor");
+    float ambientR = 0.2;
+    float ambientG = 0.2;
+    float ambientB = 0.2;
+    if (ambient >= 0)
     {
-      glEnable(GL_TEXTURE_2D);
-      glUniform1i(tex0, 0);
+      glUniform4f(ambient, ambientR, ambientG, ambientB, 1.0);
     }
 
-    int tex1 = glGetUniformLocation(m_renderContext->m_nProgram, "tex1");
-    if (tex1 >= 0)
+
+    int diffuse = glGetUniformLocation(m_renderContext->m_nProgram, "diffuse");
+    if (diffuse >= 0)
     {
       glEnable(GL_TEXTURE_2D);
-      glUniform1i(tex1, 1);
+      glUniform1i(diffuse, 0);
+    }
+
+    int bump = glGetUniformLocation(m_renderContext->m_nProgram, "bump");
+    if (bump >= 0)
+    {
+      glEnable(GL_TEXTURE_2D);
+      glUniform1i(bump, 1);
     }
 
     glActiveTexture(GL_TEXTURE0);

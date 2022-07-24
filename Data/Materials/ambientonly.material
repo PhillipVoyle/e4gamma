@@ -1,0 +1,4 @@
+material
+settings 3
+texture 0 Data/Textures/levelcolour.rgba
+shader_program Data/Shaders/ambientonly.spr

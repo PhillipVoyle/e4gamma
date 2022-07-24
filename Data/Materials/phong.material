@@ -1,5 +1,5 @@
 material
 settings 3
-texture 0 Data/Textures/levelnrm.rgba
-texture 1 Data/Textures/levelcolour.rgba
+texture 0 Data/Textures/levelcolour.rgba
+texture 1 Data/Textures/levelnrm.rgba
 shader_program Data/Shaders/phong.spr
