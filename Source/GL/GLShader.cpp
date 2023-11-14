@@ -35,7 +35,7 @@ namespace E4Gamma
           int written;
           glGetShaderInfoLog(m_nShader, loglen, &written, infolog);
           cout << sShader << ":" << infolog << endl;
-          delete infolog;
+          delete[] infolog;
         }
         glDeleteShader(m_nShader);
         m_nShader = 0;
