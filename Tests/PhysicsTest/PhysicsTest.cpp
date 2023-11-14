@@ -1,4 +1,7 @@
 
+#include <GL/GLIncludes.h>
+
+
 #include <GL/GLRenderer.h>
 #include <GL/GLRenderContext.h>
 #include <GL/GLMesh.h>
@@ -19,8 +22,8 @@
 #include <stdcpp/FileSystemDataStore.h>
 #include <iostream>
 
-#include <GL/glut.h>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 using namespace E4Gamma;
@@ -57,7 +60,7 @@ CGLMesh::TexturedVertex CreateTexturedVert(Vector pos, Vector normal, Vector bin
   return result;
 }
 
-SharedPtr<IMesh> CreateBoxMesh(float fWidth, float fHeight, float fDepth)
+SharedPtr<IMesh> CreateBoxMesh(double fWidth, double fHeight, double fDepth)
 {
   std::vector<Vector> geometryVerts;
   std::vector<CGLMesh::Triangle> triangles;
@@ -175,16 +178,17 @@ int nPhysics = 0;
 
 bool bSimulate = false;
 
-const int kPhysicsDurn = 1000/60;
+const int kPhysicsDurnMs = 1000/60;
+const double milliSecondsToSeconds = 0.001;
 
 RigidBody::Derivative Simulate(const RigidBody& rigidBody)
 {
   RigidBody::Derivative result;
   result.angular.spin = rigidBody.angular.spin;
-  //result.angular.torque = Vector(0, 0.1, 0);
+  result.angular.torque = Vector(0, 0.1, 0);
   //*
   result.linear.force = Vector(0, -100 / rigidBody.linear.inverseMass, 0)  //gravity
-                      - rigidBody.linear.velocity * 100;                    //friction
+       -rigidBody.linear.velocity * 0.4;                    //friction
   
   
   if(rigidBody.linear.position.y < 0)
@@ -205,9 +209,9 @@ void display()
   if(bSimulate)
   {
     nPhysics += nTimeElapsed - nPreviousTime;
-    while (nPhysics > kPhysicsDurn) {
-      nPhysics -= kPhysicsDurn;
-      g_bodies[0]->GetBody() = IntegrateRK4<RigidBody, RigidBody::Derivative, RigidBody::Derivative (&)(const RigidBody& rigidBody)>(g_bodies[0]->GetBody(), Simulate, ((double)kPhysicsDurn) * 0.001);
+    while (nPhysics > kPhysicsDurnMs) {
+      nPhysics -= kPhysicsDurnMs;
+      g_bodies[0]->GetBody() = IntegrateRK4<RigidBody, RigidBody::Derivative, RigidBody::Derivative (&)(const RigidBody& rigidBody)>(g_bodies[0]->GetBody(), Simulate, ((double)kPhysicsDurnMs) * milliSecondsToSeconds);
       g_bodies[0]->GetBody().recalculate();
     }
   }

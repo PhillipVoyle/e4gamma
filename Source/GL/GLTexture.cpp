@@ -1,3 +1,4 @@
+#include <GL/GLIncludes.h>
 #include <GL/GLTexture.h>
 #include <stdcpp/Iris.h>
 #include <Interfaces/Foundation/IDataStore.h>

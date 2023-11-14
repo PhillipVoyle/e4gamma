@@ -11,11 +11,13 @@
 #include <Interfaces/Foundation/ISequenceReader.h>
 
 #include <stdcpp/FileSystemDataStore.h>
+#include <Math/Quaternion.h>
+
 #include <iostream>
+#include <cmath>
 using namespace std;
 using namespace E4Gamma;
 
-#include <GL/glut.h>
 
 //tell g++ not to warn me
 void init();

@@ -2,9 +2,11 @@
 //  GLRenderContext.cpp
 //  E4Gamma
 //
-//  Created by Stacey Voyle on 5/01/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Phillip Voyle on 5/01/12.
+//  Copyright (c) 2012 Phillip Voyle. All rights reserved.
 //
+
+#include <GL/GLIncludes.h>
 
 #include <GL/GLRenderContext.h>
 
@@ -208,6 +210,7 @@ namespace E4Gamma
   
   CGLRenderContext::CGLRenderContext()
   {
+      glewInit();
   }
   
   CGLRenderContext::~CGLRenderContext()
@@ -219,12 +222,10 @@ namespace E4Gamma
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
-
-    float ambient[] = {0.2, 0.2, 0.2, 1.0};
-    float diffuse[] = {1.0, 1.0, 1.0, 1.0};
-    float specular[] = {1.0, 1.0, 1.0, 1.0};
-    float position[] = {m_vLightPosition.x, m_vLightPosition.y, m_vLightPosition.z, 1.0f};
-
+    float ambient []{ 0.2, 0.2, 0.2, 1.0};
+    float diffuse[] {1.0, 1.0, 1.0, 1.0};
+    float specular[] {1.0, 1.0, 1.0, 1.0};
+    float position[] {m_vLightPosition.x, m_vLightPosition.y, m_vLightPosition.z, 1.0f};
 
     glLightfv(GL_LIGHT0, GL_AMBIENT, ambient);
     glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);

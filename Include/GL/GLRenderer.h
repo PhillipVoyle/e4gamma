@@ -1,9 +1,8 @@
 #ifndef _E4Gamma_GLRENDERER_H
 #define _E4Gamma_GLRENDERER_H
 
+#include <GL/GLIncludes.h>
 #include <Interfaces/Renderer/IRenderer.h>
-#include "GL/GLIncludes.h"
-
 #include <Interfaces/Foundation/IAssetLoader.h>
 
 

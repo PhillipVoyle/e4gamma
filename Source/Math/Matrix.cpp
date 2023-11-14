@@ -3,12 +3,12 @@
  *  GameEngine
  *
  *  Created by Phillip Voyle on 18/06/11.
- *  Copyright 2011 __MyCompanyName__. All rights reserved.
+ *  Copyright 2011 Phillip Voyle. All rights reserved.
  *
  */
 
-#include <Math/Matrix.h>
-#include <Math/Quaternion.h>
+#include "Math/Matrix.h"
+#include "Math/Quaternion.h"
 
 namespace E4Gamma {
 

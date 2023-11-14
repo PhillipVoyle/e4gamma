@@ -1,10 +1,13 @@
 #ifndef __GLINCLUDES_H
 #define __GLINCLUDES_H
 
-#define GL_GLEXT_PROTOTYPES
+#ifdef _WIN32
+#include <Windows.h>
+#include <GL/glew.h>
 #include <GL/gl.h>
-#include <GLFW/glfw3.h>
-//#include <GL/glxew.h>
+#include <GL/glut.h>
+#else
+#include <OpenGL/gl.h>
+#endif
 
-
-#endif//__GLINCLUDES_H]
+#endif//__GLINCLUDES_H

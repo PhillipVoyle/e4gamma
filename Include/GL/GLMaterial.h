@@ -2,7 +2,7 @@
 #define _E4Gamma_GLMATERIAL_H
 
 #include <Interfaces/Renderer/IMaterial.h>
-#include "GL/GLIncludes.h"
+#include <GL/GLIncludes.h>
 
 #include <map>
 #include <string>

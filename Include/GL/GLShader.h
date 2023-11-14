@@ -2,7 +2,7 @@
 #define _E4Gamma_GLSHADER_H
 
 #include <string>
-#include "GL/GLIncludes.h"
+#include <GL/GLIncludes.h>
 #include <Interfaces/Foundation/IUnknown.h>
 #include <Interfaces/Foundation/IAssetLoader.h>
 

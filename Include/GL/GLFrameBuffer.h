@@ -2,8 +2,8 @@
 //  GLFrameBuffer.h
 //  E4Gamma
 //
-//  Created by Stacey Voyle on 15/01/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Phillip Voyle on 15/01/12.
+//  Copyright (c) 2012 Phillip Voyle. All rights reserved.
 //
 
 #ifndef E4Gamma_GLFrameBuffer_h
@@ -12,8 +12,7 @@
 #include <Interfaces/Foundation/IUnknown.h>
 #include <Interfaces/Foundation/IAssetLoader.h>
 #include <string>
-
-#include "GL/GLIncludes.h"
+#include <GL/GLIncludes.h>
 
 namespace E4Gamma {
   

@@ -1,3 +1,5 @@
+#include <GL/GLIncludes.h>
+
 #include <GL/GLMesh.h>
 #include <Interfaces/Foundation/ISequenceReader.h>
 #include <iostream>
@@ -19,7 +21,6 @@ namespace E4Gamma
     const std::vector<TexturedVertex>& texturedVerts)
   {
     m_renderContext = renderContext;
-    
 
     m_geometryVerts = geometryVerts;
     m_triangles = triangles;
